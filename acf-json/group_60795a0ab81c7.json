@@ -1,0 +1,141 @@
+{
+    "key": "group_60795a0ab81c7",
+    "title": "Bloc : Texte Forme",
+    "fields": [
+        {
+            "key": "field_60795a18fcf18",
+            "label": "Texte",
+            "name": "acf_text",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_60795a2afcf19",
+            "label": "Forme",
+            "name": "acf_shape",
+            "type": "image",
+            "instructions": "De préférence un fichier SVG",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_60795a4cfcf1a",
+            "label": "Lien",
+            "name": "acf_link",
+            "type": "link",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
+            "key": "field_60795a6afcf1b",
+            "label": "Hauteur de la forme",
+            "name": "acf_shape_height",
+            "type": "group",
+            "instructions": "La hauteur de la forme en pourcentage de la taille de l'écran (vh)",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_60795a9efcf1c",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 40,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "vh",
+                    "min": 0,
+                    "max": "",
+                    "step": 1
+                },
+                {
+                    "key": "field_60795ac0fcf1d",
+                    "label": "Desktop",
+                    "name": "desktop",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 70,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "vh",
+                    "min": 0,
+                    "max": "",
+                    "step": 1
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/texte-forme-bloc"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1618566005
+}

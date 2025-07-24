@@ -1,0 +1,95 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+<div class="container posts_list">
+    <div class="row reverse-xs">
+
+        <div class="daudin_sidebar {{ set_flexgrid(12,3) }}">
+            {% include 'parts/sidebar.twig' %}
+        </div>
+
+		{% if is_search %}
+		<div class="{{ set_flexgrid(12,9) }} nopadding result_list">
+			<h1 class="blog__title">{{title}}</h1>
+
+			<div class="posts_list_items">
+
+				{% if terms_result_search %}
+					<h2 class="posts_list_title">{{ fields_trads.acf_trad_search_terms_title }}</h2>
+					<ul class="list_product_cat woocommerce_list subcategories">
+					{% for term in terms_result_search %}
+						<li>
+							<a href="{{ term.permalink }}" class="archive-link">
+								<span class="title">
+									<h2 style="background-color: {{ term.acf_product_cat_color }}">{{ term.name }}</h2>
+									{% if term.description %}
+										<span class="description" style="background-color: {{ term.acf_product_cat_color }}">{{ clean_cut(term.description|striptags, 100) }}</span>
+									{% endif %}
+								</span>
+								<span class="thumbnail" style="background-image: url('{{ term.thumbnail_url }}');"></span>
+							</a>
+						</li>
+					{% endfor %}
+					</ul>
+				{% endif %}
+
+				{% if posts %}
+
+					{% set first = posts|first %}
+					{% set current_post_type = first.post_type %}
+					{% set current_post_type_object = fn('get_post_type_object', current_post_type) %}
+
+					<h2 class="posts_list_title">{{ current_post_type_object.label }}</h2>
+
+					<ul class="list_{{ current_post_type }} {% if current_post_type == 'product' %}woocommerce_list{% endif %}">
+						{% for post in posts %}
+
+							{% if post.post_type != current_post_type %}
+								</ul>
+
+								{% set current_post_type = post.post_type %}
+								{% set current_post_type_object = fn('get_post_type_object', current_post_type) %}
+								<h2 class="posts_list_title">{{ current_post_type_object.label }}</h2>
+
+								<ul class="list_{{ current_post_type }} {% if current_post_type == 'product' %}woocommerce_list{% endif %}">
+							{% endif %}
+
+							{% if post.post_type == 'product' %}
+								{% set product = fn('get_object_vars', post) %}
+								{% set product = product|merge({'product_name': post.post_title}) %}
+								{% set product = product|merge({'thumbnail': fn('get_the_post_thumbnail_url', post.id, 'full') }) %}
+								{% set product = product|merge({'permalink': fn('get_permalink', post.id) }) %}
+								{% set product_title =  fn('get_field', 'acf_product_title', post.id) %}
+								{% include 'woo/teaser.twig' %}
+							{% else %}
+								{% include 'parts/teaser.twig' %}
+							{% endif %}
+						{% endfor %}
+					</ul>
+				{% endif %}
+
+				{# cas spécifique si pas de résultats #}
+				{% if not terms_result_search and not posts %}
+					{{ fields_trads.acf_trad_no_results }}
+				{% endif %}
+			</div>
+
+		</div>
+		{% else %}
+		<div class="{{ set_flexgrid(12,9) }} nopadding">
+			<div class="posts_list_items">
+				<ul>
+				{% for post in posts %}
+					<li>{% include 'parts/teaser.twig' %}</li>
+				{% endfor %}
+				</ul>
+			</div>
+
+			{% include 'parts/navigation.twig' %}
+		</div>
+		{% endif %}
+	</div>
+</div>
+
+{% endblock %}

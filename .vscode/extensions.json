@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "mblode.twig-language-2",
+    "whatwedo.twig",
+    "bradlc.vscode-tailwindcss",
+    "esbenp.prettier-vscode"
+  ]
+} 

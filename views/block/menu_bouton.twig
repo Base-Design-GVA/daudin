@@ -1,0 +1,13 @@
+  {#
+/**
+ * Block Name: Example block
+ *
+ * This is the template that displays the example block.
+ */
+#}
+
+<div id="menu-bouton-{{ block.id }}" class="bloc-menu-bouton">
+  {{ load_nav_menu(fields.acf_menu.slug, "button") }}
+</div>
+
+

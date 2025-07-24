@@ -1,0 +1,21 @@
+{
+  "files.associations": {
+    "*.twig": "twig",
+    "*.html.twig": "twig"
+  },
+  "emmet.includeLanguages": {
+    "twig": "html"
+  },
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/vendor": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/vendor": true
+  },
+  "twig-language.autoComplete": true,
+  "twig-language.highlight": true,
+  "twig-language.format": true,
+  "twig-language.lint": true
+} 

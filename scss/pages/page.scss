@@ -1,0 +1,88 @@
+.page_content {
+    min-height: 100vh;
+    position: relative;
+    margin: auto;
+    padding-top: 13rem;
+    clip-path: inset(0 0 var(--clip-path-value) 0);
+
+    @include desktop {
+        padding-top: 17rem;
+        margin-top: 6rem;
+    }
+
+    > *:not(.container):not(.full-width-mobile) {
+        padding: 0 2.4rem;
+
+        @include desktop {
+            padding: 0 0;
+        }
+    }
+
+
+    .page-title {
+        font-weight: 900;
+        width: max-content;
+        margin: 0 0 4rem 0;
+        position: relative;
+        font-size: 2rem;
+        line-height: 2.7rem;
+        display: none;
+
+        @include not-mobile {
+            font-size: 2.8rem;
+            line-height: 3.7rem;
+        }
+
+        @include desktop {
+            margin: 0 auto 15.6rem auto;            
+        }
+    }
+
+    @include desktop {
+        .page-title::after {
+            content: '';
+            position: absolute;
+            background: url("/wp-content/themes/daudin/img/SVG/pastille orange.svg") center center no-repeat;
+            -webkit-background-size: contain;
+            background-size: contain;
+            width: 2.4rem;
+            height: 2.4rem;
+            top: 1rem;
+            left: -3rem;
+        }
+    }
+
+    &.title-centered {
+        .page-title {
+            display: block;
+        }
+    }
+
+
+}
+
+.main_content {
+    position: relative;
+    --clip-path-value: 0;
+
+
+    & .bg_transition {
+        position: fixed;
+        height: 100%;
+        width: 0;
+        background-color: transparent;
+        top: 0;
+        z-index: 150;
+        //transition: width ease-out 300ms;
+    }
+
+    //&.left-page .bg_transition, &.lieu-vie .bg_transition {
+    //  left: 0;
+    //  width: 4rem;
+    //}
+    //
+    //&.right-page .bg_transition, &.pat-immo .bg_transition{
+    //  right: 0;
+    //  width: 4rem;
+    //}
+}

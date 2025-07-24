@@ -1,0 +1,34 @@
+<section class="footer-page" id="footer-contact">
+  <div class="container">
+    <{{ fields_footer.acf_page_footer.title.balise }}
+    class="h5_style">{{ fields_footer.acf_page_footer.title.text }}</{{ fields_footer.acf_page_footer.title.balise }}>
+  <div class="bottom">
+    <div class="left">{{ get_gravity_form( fields_footer.acf_page_footer.id_form) }}</div>
+    <div class="right">
+      {{ fields_footer.acf_page_footer.informations }}
+
+      {% if fields_footer.acf_page_footer.formregie.lien_du_pdf and fields_footer.acf_page_footer.formregie.title  %}
+        <a href="{{ fields_footer.acf_page_footer.formregie.lien_du_pdf }}" target="_blank" class="form-btn">{{ fields_footer.acf_page_footer.formregie.title }}</a>
+      {% endif %}
+      {% if fields_footer.acf_page_footer.formlogements.lien_du_pdf and fields_footer.acf_page_footer.formlogements.title  %}
+        <a href="{{ fields_footer.acf_page_footer.formlogements.lien_du_pdf }}" target="_blank" class="form-btn">{{ fields_footer.acf_page_footer.formlogements.title }}</a>
+      {% endif %}
+       {% if fields_footer.acf_page_footer.formlocauxcommerciaux.lien_du_pdf and fields_footer.acf_page_footer.formlocauxcommerciaux.title  %}
+        <a href="{{ fields_footer.acf_page_footer.formlocauxcommerciaux.lien_du_pdf }}" target="_blank" class="form-btn">{{ fields_footer.acf_page_footer.formlocauxcommerciaux.title }}</a>
+      {% endif %}
+
+    </div>
+  </div>
+  </div>
+
+  <div class="logos-container ">
+    {% if fields_footer.acf_page_footer.logos %}
+      {% for logo in  fields_footer.acf_page_footer.logos %}
+        <a href="{{ logo.lien['url'] }}" target="{{ logo.lien['target'] }}" class="logo">
+          {{ build_acf_image(logo.image) }}
+        </a>
+      {% endfor %}
+    {% endif %}
+  </div>
+
+</section>

@@ -1,0 +1,18 @@
+{
+  "scripts": {
+    "dev": "gulp watch"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.14",
+    "gulp": "^4.0.1",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "node-sass": "^4.14.1"
+  },
+  "dependencies": {
+    "wp-timber-cli": "^0.4.1"
+  }
+}

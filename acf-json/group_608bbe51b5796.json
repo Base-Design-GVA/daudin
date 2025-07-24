@@ -1,0 +1,936 @@
+{
+    "key": "group_608bbe51b5796",
+    "title": "Options : Annonces",
+    "fields": [
+        {
+            "key": "field_608c0e4363420",
+            "label": "Général",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_608bbe59da6b1",
+            "label": "Unité de prix",
+            "name": "acf_unit",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "CHF",
+            "placeholder": "CHF",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_608bbe7cda6b2",
+            "label": "Texte Location",
+            "name": "acf_texte_location",
+            "type": "text",
+            "instructions": "Affiché après le prix",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "\/mois",
+            "placeholder": "\/ mois",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_608bbf72da6b3",
+            "label": "Couleur mise en avant",
+            "name": "acf_accent_color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#FD6F00"
+        },
+        {
+            "key": "field_608bc17cda6b8",
+            "label": "Clé API google maps",
+            "name": "acf_api_key",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_608bcec3bc75f",
+            "label": "Unité de surface",
+            "name": "acf_surface_unit",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "\/m2",
+            "placeholder": "\/m2",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_61729d727d2c3",
+            "label": "suffix",
+            "name": "acf_suffix",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "\/",
+            "placeholder": "\/",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_617292eda5484",
+            "label": "Unité d'année",
+            "name": "acf_year_label",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "an",
+            "placeholder": "an",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_60990e084c2cf",
+            "label": "Style de carte",
+            "name": "acf_map_style",
+            "type": "text",
+            "instructions": "Copier-coller ici l'entièreté du code snazzymap ici (tout ce qu'il y a dans \"JAVASCRIPT STYLE ARRAY:\")",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "[     {         \"featureType\": \"all\",         \"elementType\": \"all\",         \"stylers\": [             {                 \"visibility\": \"on\"             }         ]     },     {         \"featureType\": \"all\",         \"elementType\": \"labels\",         \"stylers\": [             {                 \"visibility\": \"off\"             },             {                 \"saturation\": \"-100\"             }         ]     },     {         \"featureType\": \"all\",         \"elementType\": \"labels.text.fill\",         \"stylers\": [             {                 \"saturation\": 36             },             {                 \"color\": \"#000000\"             },             {                 \"lightness\": 40             },             {                 \"visibility\": \"off\"             }         ]     },     {         \"featureType\": \"all\",         \"elementType\": \"labels.text.stroke\",         \"stylers\": [             {                 \"visibility\": \"off\"             },             {                 \"color\": \"#000000\"             },             {                 \"lightness\": 16             }         ]     },     {         \"featureType\": \"all\",         \"elementType\": \"labels.icon\",         \"stylers\": [             {                 \"visibility\": \"off\"             }         ]     },     {         \"featureType\": \"administrative\",         \"elementType\": \"geometry.fill\",         \"stylers\": [             {                 \"color\": \"#000000\"             },             {                 \"lightness\": 20             }         ]     },     {         \"featureType\": \"administrative\",         \"elementType\": \"geometry.stroke\",         \"stylers\": [             {                 \"color\": \"#000000\"             },             {                 \"lightness\": 17             },             {                 \"weight\": 1.2             }         ]     },     {         \"featureType\": \"landscape\",         \"elementType\": \"geometry\",         \"stylers\": [             {                 \"color\": \"#000000\"             },             {                 \"lightness\": 20             }         ]     },     {         \"featureType\": \"landscape\",         \"elementType\": \"geometry.fill\",         \"stylers\": [             {                 \"color\": \"#4d6059\"             }         ]     },     {         \"featureType\": \"landscape\",         \"elementType\": \"geometry.stroke\",         \"stylers\": [             {                 \"color\": \"#4d6059\"             }         ]     },     {         \"featureType\": \"landscape.natural\",         \"elementType\": \"geometry.fill\",         \"stylers\": [             {                 \"color\": \"#4d6059\"             }         ]     },     {         \"featureType\": \"poi\",         \"elementType\": \"geometry\",         \"stylers\": [             {                 \"lightness\": 21             }         ]     },     {         \"featureType\": \"poi\",         \"elementType\": \"geometry.fill\",         \"stylers\": [             {                 \"color\": \"#4d6059\"             }         ]     },     {         \"featureType\": \"poi\",         \"elementType\": \"geometry.stroke\",         \"stylers\": [             {                 \"color\": \"#4d6059\"             }         ]     },     {         \"featureType\": \"road\",         \"elementType\": \"geometry\",         \"stylers\": [             {                 \"visibility\": \"on\"             },             {                 \"color\": \"#7f8d89\"             }         ]     },     {         \"featureType\": \"road\",         \"elementType\": \"geometry.fill\",         \"stylers\": [             {                 \"color\": \"#7f8d89\"             }         ]     },     {         \"featureType\": \"road.highway\",         \"elementType\": \"geometry.fill\",         \"stylers\": [             {                 \"color\": \"#7f8d89\"             },             {                 \"lightness\": 17             }         ]     },     {         \"featureType\": \"road.highway\",         \"elementType\": \"geometry.stroke\",         \"stylers\": [             {                 \"color\": \"#7f8d89\"             },             {                 \"lightness\": 29             },             {                 \"weight\": 0.2             }         ]     },     {         \"featureType\": \"road.arterial\",         \"elementType\": \"geometry\",         \"stylers\": [             {                 \"color\": \"#000000\"             },             {                 \"lightness\": 18             }         ]     },     {         \"featureType\": \"road.arterial\",         \"elementType\": \"geometry.fill\",         \"stylers\": [             {                 \"color\": \"#7f8d89\"             }         ]     },     {         \"featureType\": \"road.arterial\",         \"elementType\": \"geometry.stroke\",         \"stylers\": [             {                 \"color\": \"#7f8d89\"             }         ]     },     {         \"featureType\": \"road.local\",         \"elementType\": \"geometry\",         \"stylers\": [             {                 \"color\": \"#000000\"             },             {                 \"lightness\": 16             }         ]     },     {         \"featureType\": \"road.local\",         \"elementType\": \"geometry.fill\",         \"stylers\": [             {                 \"color\": \"#7f8d89\"             }         ]     },     {         \"featureType\": \"road.local\",         \"elementType\": \"geometry.stroke\",         \"stylers\": [             {                 \"color\": \"#7f8d89\"             }         ]     },     {         \"featureType\": \"transit\",         \"elementType\": \"geometry\",         \"stylers\": [             {                 \"color\": \"#000000\"             },             {                 \"lightness\": 19             }         ]     },     {         \"featureType\": \"water\",         \"elementType\": \"all\",         \"stylers\": [             {                 \"color\": \"#2b3638\"             },             {                 \"visibility\": \"on\"             }         ]     },     {         \"featureType\": \"water\",         \"elementType\": \"geometry\",         \"stylers\": [             {                 \"color\": \"#2b3638\"             },             {                 \"lightness\": 17             }         ]     },     {         \"featureType\": \"water\",         \"elementType\": \"geometry.fill\",         \"stylers\": [             {                 \"color\": \"#24282b\"             }         ]     },     {         \"featureType\": \"water\",         \"elementType\": \"geometry.stroke\",         \"stylers\": [             {                 \"color\": \"#24282b\"             }         ]     },     {         \"featureType\": \"water\",         \"elementType\": \"labels\",         \"stylers\": [             {                 \"visibility\": \"off\"             }         ]     },     {         \"featureType\": \"water\",         \"elementType\": \"labels.text\",         \"stylers\": [             {                 \"visibility\": \"off\"             }         ]     },     {         \"featureType\": \"water\",         \"elementType\": \"labels.text.fill\",         \"stylers\": [             {                 \"visibility\": \"off\"             }         ]     },     {         \"featureType\": \"water\",         \"elementType\": \"labels.text.stroke\",         \"stylers\": [             {                 \"visibility\": \"off\"             }         ]     },     {         \"featureType\": \"water\",         \"elementType\": \"labels.icon\",         \"stylers\": [             {                 \"visibility\": \"off\"             }         ]     } ]",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_608bcf5148bd1",
+            "label": "Correspondance numéro d'étage",
+            "name": "acf_correspondance_etage",
+            "type": "repeater",
+            "instructions": "Correspondance numéro d'étage - intitulé (ex : 0 = Rez de chaussée). Si aucune correspondance n'est indiquée, le numéro apparaîtra tel quel (ex : -1)",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_608bcf8348bd3",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "Ajouter une correspondance",
+            "sub_fields": [
+                {
+                    "key": "field_608bcf7348bd2",
+                    "label": "Numéro",
+                    "name": "numero",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "min": "",
+                    "max": "",
+                    "step": ""
+                },
+                {
+                    "key": "field_608bcf8348bd3",
+                    "label": "Intitulé",
+                    "name": "intitule",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
+        },
+        {
+            "key": "field_608c0e5363421",
+            "label": "Titres \/ intitulés",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_608bc0e7da6b4",
+            "label": "Intitulé bouton plan",
+            "name": "acf_label_plan_button",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Plan pdf",
+            "placeholder": "plan pdf",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_60dc4c874aae8",
+            "label": "Intitulé fiche d'inscription",
+            "name": "acf_label_fiche_inscription",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Fiche d'inscription",
+            "placeholder": "Fiche d'inscription",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_616e851a5961d",
+            "label": "Intitulé demande d'informations",
+            "name": "acf_label_demande_informations",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Demande d'informations",
+            "placeholder": "Demande d'informations",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_60dc9a1f265c1",
+            "label": "Intitulé imprimer",
+            "name": "acf_label_imprimer",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Imprimer",
+            "placeholder": "Imprimer",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_608bc10dda6b5",
+            "label": "Titre avantage du bien",
+            "name": "titre_avantage_du_bien",
+            "type": "group",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_608bc121da6b6",
+                    "label": "balise",
+                    "name": "balise",
+                    "type": "select",
+                    "instructions": "Cela ne changera pas son apparence, seulement sa sémantique",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "h1": "h1",
+                        "h2": "h2",
+                        "h3": "h3",
+                        "h4": "h4",
+                        "h5": "h5",
+                        "h6": "h6",
+                        "p": "p"
+                    },
+                    "default_value": "h3",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "return_format": "value",
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_608bc156da6b7",
+                    "label": "titre",
+                    "name": "text",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Avantages du bien",
+                    "placeholder": "Avantages du bien",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
+        },
+        {
+            "key": "field_608bc19ada6b9",
+            "label": "Intitulé lien retour",
+            "name": "acf_back_label",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Retour",
+            "placeholder": "Retour",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_608bca3e0dd1b",
+            "label": "Intitulés champs",
+            "name": "acf_intitules",
+            "type": "group",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_60d1ea7f61e5f",
+                    "label": "Référence",
+                    "name": "reference",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Référence",
+                    "placeholder": "Référence",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_608bca610dd1c",
+                    "label": "Adresse",
+                    "name": "adresse",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Adresse",
+                    "placeholder": "Adresse",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_608bca770dd1d",
+                    "label": "Pièces",
+                    "name": "pieces",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Pièces",
+                    "placeholder": "Pièces",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_608bca810dd1e",
+                    "label": "Surface",
+                    "name": "surface",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Surface",
+                    "placeholder": "Surface",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_608bca8e0dd1f",
+                    "label": "Etage",
+                    "name": "etage",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Etage",
+                    "placeholder": "Etage",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_608bca9b0dd20",
+                    "label": "Surface terrain",
+                    "name": "surface_terrain",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Surface terrain",
+                    "placeholder": "Surface terrain",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_60d1ea6061e5e",
+                    "label": "Charges",
+                    "name": "charges",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Charges",
+                    "placeholder": "Charges",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_608bcaa90dd21",
+                    "label": "Disponibilité",
+                    "name": "disponibilite",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Disponibilité",
+                    "placeholder": "Disponibilité",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_608bcabd0dd22",
+                    "label": "Votre contact",
+                    "name": "votre_contact",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Votre contact",
+                    "placeholder": "Votre contact",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
+        },
+        {
+            "key": "field_608c0ddd42f7c",
+            "label": "Titre contact bas de page",
+            "name": "acf_down_contact_title",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Votre contact pour ce projet",
+            "placeholder": "Votre contact pour ce projet",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_608c0e0342f7d",
+            "label": "Titre lien quartier bas de page",
+            "name": "acf_down_quartier_title",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Votre nouveau quartier",
+            "placeholder": "Votre nouveau quartier",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_608c11eb76890",
+            "label": "Label bouton lien page votre quartier",
+            "name": "acf_label_quartier_button",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Plus",
+            "placeholder": "Plus",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_60dc4ab4bbbc5",
+            "label": "Fiche d'inscription",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_60dc4abfbbbc6",
+            "label": "Bien \"Exploitations agricoles\"",
+            "name": "acf_fiche_inscrip_agri",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ".pdf"
+        },
+        {
+            "key": "field_60dc4aeebbbc7",
+            "label": "Bien \"Appartements\"",
+            "name": "acf_fiche_inscrip_appt",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ".pdf"
+        },
+        {
+            "key": "field_60dc4b04bbbc8",
+            "label": "Bien \"Jardins\"",
+            "name": "acf_fiche_inscrip_garden",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ".pdf"
+        },
+        {
+            "key": "field_60dc4b0ebbbc9",
+            "label": "Bien \"Gastronomie\"",
+            "name": "acf_fiche_inscrip_gastro",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ".pdf"
+        },
+        {
+            "key": "field_60dc4b1bbbbca",
+            "label": "Bien \"Villas \/ Maisons\"",
+            "name": "acf_fiche_inscrip_house",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_60dc4b26bbbcb",
+            "label": "Bien \"Locaux commerciaux\"",
+            "name": "acf_fiche_inscrip_indus",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ".pdf"
+        },
+        {
+            "key": "field_60dc4b35bbbcc",
+            "label": "Bien \"Parkings\"",
+            "name": "acf_fiche_inscrip_park",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ".pdf"
+        },
+        {
+            "key": "field_60dc4b43bbbcd",
+            "label": "Bien \"Terrains\"",
+            "name": "acf_fiche_inscrip_prop",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ".pdf"
+        },
+        {
+            "key": "field_60dc4b4dbbbce",
+            "label": "Bien \"Autres\"",
+            "name": "acf_fiche_inscrip_secondary",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ".pdf"
+        },
+        {
+            "key": "field_60dc9f31c180d",
+            "label": "Générateur de PDF",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_60dc9f42c180e",
+            "label": "Logo Daudin du PDF",
+            "name": "acf_pdf_logo",
+            "type": "image",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_60dc9f66c180f",
+            "label": "Message d'erreur",
+            "name": "acf_pdf_error_message",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_60dca9a9691db",
+            "label": "Footer du PDF",
+            "name": "acf_pdf_footer",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Daudin & Cie SA",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-annonces"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1680002014
+}

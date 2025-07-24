@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+    <meta charset="{{ site.charset }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="preload" href="/wp-content/themes/daudin/fonts/forno/Forno-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/wp-content/themes/daudin/fonts/forno/Forno-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/wp-content/themes/daudin/fonts/forno/Forno-Medium.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/wp-content/themes/daudin/fonts/teodor/Teodor-Light.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/wp-content/themes/daudin/fonts/forno/Forno-Bold.eot" as="font" type="font" crossorigin>
+    <link rel="preload" href="/wp-content/themes/daudin/fonts/forno/Forno-Regular.eot" as="font" type="font" crossorigin>
+    <link rel="preload" href="/wp-content/themes/daudin/fonts/forno/Forno-Medium.eot" as="font" type="font" crossorigin>
+    <link rel="preload" href="/wp-content/themes/daudin/fonts/teodor/Teodor-Light.eot" as="font" type="font" crossorigin>
+    <link rel="preload" href="/wp-content/themes/daudin/fonts/forno/Forno-Bold.ttf" as="font" type="font" crossorigin>
+    <link rel="preload" href="/wp-content/themes/daudin/fonts/forno/Forno-Regular.ttf" as="font" type="font" crossorigin>
+    <link rel="preload" href="/wp-content/themes/daudin/fonts/forno/Forno-Medium.ttf" as="font" type="font" crossorigin>
+    <link rel="preload" href="/wp-content/themes/daudin/fonts/teodor/Teodor-Light.ttf" as="font" type="font" crossorigin>
+
+    {{ wp_head }}
+</head>
+
+
+{% set classPageContenu = '' %}
+{% if page.meta('acf_is_content_page') or post.meta('acf_is_content_page') %}
+    {% set classPageContenu = "is-content-page" %}
+{% endif %}
+
+<body class="{{ body_class }} {{ classPageContenu }}" data-barba="wrapper">
+
+{{ wp_body_open }}
+
+{# Header du theme #}
+{% include "views/parts/header.twig" %}
+
+{% set custom_namespace = '' %}
+{% if page.meta('acf_namespace') != null %}
+    {% set custom_namespace = page.meta('acf_namespace') %}
+{% elseif post.meta('acf_namespace') != null %}
+    {% set custom_namespace = post.meta('acf_namespace') %}
+{% endif %}
+
+{# Menu Principal #}
+{% include "views/parts/menu.twig" %}
+
+<div class="container_fluid main main_content"
+     data-barba="container"
+     data-barba-namespace="{{ custom_namespace }}"
+     data-is-page-contenu="{{ page.meta("acf_is_content_page") }}"
+     data-position-daudin="{{ page.meta("acf_daudin_position") ? page.meta("acf_daudin_position") : post.meta("acf_daudin_position") }}"
+>
+
+    {% block content %}
+    {% endblock %}
+    <div class="bg_transition"></div>
+    {# Indicateur de progression ici pour qu'il soit rechargé à chaque page (transitions) #}
+    {% include "views/parts/progression-indicator.twig" %}
+</div>
+
+
+{# Footer du theme #}
+{% include "views/parts/footer.twig" %}
+
+{# Curseur modifié #}
+<div class="custom_cursor" data-normal-color="{{ fields_header.acf_cursor_color }}"
+     data-clic-color="{{ fields_header.acf_click_cursor_color }}">
+    <style>
+        .custom_cursor {
+            background-color: {{ fields_header.acf_cursor_color }};
+            opacity: {{ fields_header.acf_cursor_opacity }};
+        }
+    </style>
+</div>
+
+{{ wp_footer }}
+
+
+</body>
+</html>

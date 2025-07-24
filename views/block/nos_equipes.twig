@@ -1,0 +1,47 @@
+{#
+/**
+ * Block Name: Example block
+ *
+ * This is the template that displays the example block.
+ */
+#}
+
+{% if is_preview %}
+{% endif %}
+
+
+<div id="nos-equipes-{{ block.id }}" class="bloc-nos-equipes mode-{{ fields.acf_bloc_mode  }}">
+  <div class="description">
+    <p>{{ fields.acf_introduction_text }}</p>
+  </div>
+  <div class="wrapper-members">
+    {% if fields.acf_membres_repeteur %}
+    {% for members in fields.acf_membres_repeteur %}
+    <div class="member" >
+      <div class="visible-part">
+        {% if fields.acf_bloc_mode == "ca" %}
+        <div class="left {% if members.photo['url'] %}has_photo{% endif %}">
+            <div class="photo" style="background-image: url({{ members.photo['url'] }});"></div>
+        </div>
+        {% endif %}
+        <div class="right">
+          <{{ members.prenom_nom.balise }} class="h4_style">{{ members.prenom_nom.text }}</{{ members.prenom_nom.balise }}>
+        <{{ members.title.balise }}>{{ members.title.text }}</{{ members.title.balise }}>
+    </div>
+  </div>
+  {% if fields.acf_bloc_mode == "ca" %}
+    <div class="hidden-part">
+      <div class="content">
+        {{ members.description }}
+      </div>
+    </div>
+  {% endif %}
+</div>
+  {% endfor %}
+  {% endif %}
+</div>
+
+
+</div>
+
+

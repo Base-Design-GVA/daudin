@@ -1,0 +1,14 @@
+<li>
+    <a href="{{ product.permalink }}" class="product-link">
+        {% if product_title.titre_1 %}
+            <h2>
+                {{ product_title.titre_1 }}
+                {% if product_title.exposant %}<sup>{{ product_title.exposant }}</sup>{% endif %}
+                {% if product_title.titre_2 %}<br />{{ product_title.titre_2 }}{% endif %}
+            </h2>
+        {% else %}
+            <h2>{{ product.product_name }}</h2>
+        {% endif %}
+        <span class="thumbnail" style="background-image: url('{{ product.thumbnail }}');"></span>
+    </a>
+</li>

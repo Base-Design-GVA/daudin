@@ -1,0 +1,123 @@
+.bloc-nos-equipes {
+    .description {
+        margin-bottom: 4rem;
+
+        @include not-mobile {
+            margin-bottom: 7rem;
+            width: 50%;
+        }
+    }
+
+    &.mode-equipe {
+        .member::after {
+            display: none;
+        }
+    }
+
+    .wrapper-members {
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: flex-start;
+
+
+        @include tablet {
+            grid-template-columns: repeat(2, 50%);
+            grid-gap: 3rem;
+        }
+
+        @include desktop {
+            grid-template-columns: repeat(3, 30%);
+            grid-gap: 3rem;
+        }
+
+        .member {
+            border-bottom: 0.01rem solid $color_light_grey_2;
+            position: relative;
+            padding-bottom: 2.3rem;
+
+            @include mobile {
+                margin-top: 2rem;
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                background-image: url("/wp-content/themes/daudin/img/SVG/ouvrir.svg");
+                width: 2.6rem;
+                background-repeat: no-repeat;
+                background-size: contain;
+                height: 1.5rem;
+                margin: 0 0rem 2.5rem 0;
+                transition: transform ease-in-out 200ms;
+            }
+
+            &.open::after {
+                transform: rotate(180deg);
+            }
+
+            .visible-part {
+                display: flex;
+
+
+                @include not-mobile {
+                    flex-direction: column;
+                }
+            }
+
+            .left {
+                
+                .photo {
+                    // background-color: $color_light_grey;
+                    width: 100%;
+                    clip-path: circle(50% at center center);
+                    background-position: center center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+
+                }
+                &.has_photo {
+
+                    width: 20%;
+                    margin-right: 2rem;
+                    @include not-mobile {
+                        margin-right: 0;
+                        width: 100%;
+                    }
+
+                    .photo {
+                        padding-top: 100%;
+                    }
+                }
+            }
+
+            .right {
+
+                @include not-mobile {
+
+                    margin-top: 4.7rem;
+                }
+
+                > p {
+                    margin-top: 1.4rem;
+                    padding-right: 4rem;
+                    font-weight: 500;
+                }
+
+            }
+
+            .content {
+                font-size: 1.4rem;
+                font-weight: 500;
+            }
+
+            .hidden-part {
+                display: none;
+                margin-top: 2.2rem;
+            }
+
+
+        }
+    }
+}

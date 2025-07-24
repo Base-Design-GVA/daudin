@@ -1,0 +1,35 @@
+  {#
+/**
+ * Block Name: Example block
+ *
+ * This is the template that displays the example block.
+ */
+#}
+
+{% if is_preview %}
+{% endif %}
+
+<div id="texte-forme-{{ block.id }}" class="bloc-texte-forme full-width-mobile">
+  <div class="wrapper-texte-forme aos-item" data-aos="bg-slide-right" data-aos-duration="500" data-aos-delay="200">
+    <p class="">{{ fields.acf_text }}</p>
+    <a href="{{ fields.acf_link.url }}" class="button">{{ fields.acf_link.title }}</a>
+  </div>
+
+  <style>
+    #texte-forme-{{ block.id }} .wrapper-texte-forme {
+      height: {{ fields.acf_shape_height.mobile }}vh;
+    }
+
+    #texte-forme-{{ block.id }} .wrapper-texte-forme::before {
+      background-image: url({{ fields.acf_shape }});
+    }
+
+    @media (min-width: 512px) {
+      #texte-forme-{{ block.id }} .wrapper-texte-forme {
+        height: {{ fields.acf_shape_height.desktop }}vh;
+      }
+    }
+  </style>
+</div>
+
+

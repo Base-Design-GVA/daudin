@@ -1,0 +1,26 @@
+.transition-width {
+  transition: width ease-in-out 700ms;
+}
+
+html.is-animating .transition-width {
+  width: 100%;
+  z-index: 5;
+}
+
+.transition-fade {
+  transition: opacity ease-in-out 100ms;
+  opacity: 1;
+}
+
+html.is-animating .transition-fade {
+  opacity: 0;
+}
+
+.is-rendering .transition-height {
+  transition: clip-path ease-in-out 1000ms;
+  clip-path: inset(0);
+}
+
+html.is-animating .transition-height {
+  clip-path: inset(0 0 100% 0);
+}

@@ -1,0 +1,194 @@
+.bloc-faq-services {
+    margin-bottom: 5rem;
+
+    @include not-mobile  {
+        margin-bottom: 10rem;
+    }
+
+    // Styles généraux
+
+    .bloc-description {
+        margin-bottom: 4.4rem;
+
+
+        @include not-mobile {
+            margin-bottom: 6.4rem;
+            max-width: 50%;
+        }
+    }
+
+
+    .element {
+
+        .visible-part, .hidden-part {
+            padding: 1.6rem 0rem 2.6rem 0rem;
+
+            @include not-mobile {
+                padding: 3rem 0rem 3.8rem 0rem;
+            }
+        }
+
+
+        .visible-part {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color ease-out 300ms;
+
+
+            button:hover {
+                color: $color_white !important;
+            }
+
+            .left {
+                h5 {
+                    font-weight: 300;
+                    font-size: 2.5rem;
+                    line-height: 2.8rem;
+                    /* or 112% */
+                    letter-spacing: 0.375px;
+
+                    @include not-mobile {
+                        font-size: 4rem;
+                        line-height: 5.2rem;
+                        letter-spacing: 0.6px;
+                    }
+                }
+
+                width: 90%;
+            }
+
+
+        }
+
+        .hidden-part {
+            display: none;
+
+        }
+
+
+    }
+
+    //styles spécifiques FAQ
+
+    &.mode-faq {
+        .element {
+            border-bottom: solid 0.08rem;
+
+            .visible-part, .hidden-part {
+                padding: 1.6rem 1rem 2.6rem 1rem;
+
+                @include not-mobile {
+                    padding: 3rem 2.5rem 3.8rem 2.5rem;
+                }
+            }
+
+
+            .visible-part {
+
+                &:hover {
+
+                    background-color: $color_light_grey_3;
+                    color: $color_black;
+
+                    button {
+                        border-color: $color_black;
+
+                        &::before, &::after {
+                            background-color: $color_black;
+                        }
+                    }
+                }
+
+
+                .button-faq {
+                    width: 3rem;
+                    height: 3rem;
+                    display: block;
+                    position: relative;
+                    margin-left: 2rem;
+
+                    &::before, &::after {
+                        content: "";
+                        height: 1px;
+                        width: 1.6rem;
+                        //background-color: $color_black;
+                        position: absolute;
+                        left: 25%;
+                        top: 50%;
+                        transition: transform ease-out 600ms;
+
+                        @include not-mobile {
+                            width: 2.5rem;
+                        }
+                    }
+
+                    &::after {
+                        transform: rotate(90deg);
+
+                    }
+
+                    @include not-mobile {
+                        width: 5rem;
+                        height: 5rem;
+                    }
+                }
+            }
+
+            &.element-open {
+
+                .right {
+                    .button-faq {
+                        &::before, &::after {
+                            transform: rotate(#{360 * 2}deg);
+                        }
+
+                    }
+                }
+
+            }
+        }
+
+
+    }
+
+    //styles mode nos services
+    &.mode-service {
+        .visible-part {
+            align-items: flex-start;
+
+            &:hover button {
+                background-color: $color_orange;
+                color: $color_black;
+                border-color: $color_black;
+            }
+
+            .left {
+                width: 60%;
+
+                .introduction-text {
+                    margin-top: 2rem;
+
+                    @include not-mobile {
+                        margin-top: 5rem;
+                    }
+                }
+            }
+
+            .button-service {
+                font-size: 1.2rem;
+
+                @include not-mobile {
+                    letter-spacing: 0.472222px;
+                    font-size: 1.7rem;
+                    line-height: 2.4rem;
+                }
+
+            }
+        }
+
+    }
+
+
+}

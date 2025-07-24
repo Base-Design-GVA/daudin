@@ -1,0 +1,18 @@
+<article class="teaser" id="tuto_{{ post.ID }}">
+	<a href="{{post.link}}">
+		<div class="teaser__content">
+			<div class="teaser__title">
+				<h2>{{post.title}}</h2>
+			</div>
+			<div class="teaser__date__readmore">
+				<p class="date">
+				{% if post.post_type != 'page' %}
+					{{ fields_trads.acf_trad_from_date }}{{post.date}}
+				{% else %}&nbsp;{% endif %}
+				</p>
+				<p class="readmore">{{ fields_trads.acf_trad_tutos_read_more }}<i class="icon-right-open"></i></p>
+			</div>
+		</div>
+		<div class="teaser__thumbnail" style="background-image: url('{{post.thumbnail.src('thumbnail')}}')"></div>
+	</a>
+</article>

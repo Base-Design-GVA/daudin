@@ -1,0 +1,231 @@
+header {
+    --padding-x : 1rem;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 200;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: calc(5 * var(--vh));
+    padding: 0 var(--padding-x);
+    background-color: $color_white;
+
+    @include desktop {
+        --padding-x: 5.8rem;
+        background-color: transparent;
+    }
+
+    #daudin-title {
+        transition: fill ease-in 200ms;
+
+        @include not-desktop {
+            fill:$color_black !important;
+        }
+
+    }
+
+
+    .hdr-logo-link {
+        padding: 2.5rem 0;
+        text-align: center;
+        display: block;
+        font-family: $text-font;
+        z-index: 200;
+        margin: 0;
+        transition: color ease 100ms;
+        pointer-events: none;
+
+        width: 100%;
+
+        >div {
+            height: 3.3rem;
+            position: relative;
+
+            @include desktop {
+                height: 6rem;
+            }
+        }
+
+
+        svg {
+            transform: translate3d( var(--position-title, 0), 0, 0);
+            top: 0;
+            position: absolute;
+            height: 100%;
+            left: 0;
+        }
+
+        .right-clip {
+            display: none;
+        }
+
+        @include desktop {
+            padding: 13rem 0 3.3rem 0;
+        }
+
+        @include not-desktop {
+            padding-left: 0 !important;
+        }
+    }
+
+
+    nav {
+        justify-content: space-between;
+        display: flex;
+
+        @include desktop {
+            margin-top: 3.1rem;
+        }
+    }
+
+    nav a {
+        display: none;
+        max-width: calc( 20rem - var(--padding-x) ) !important;
+        position: relative;
+        font-weight: 500;
+        font-size: 2.8rem;
+        line-height: 3.7rem;
+        z-index: 200;
+        transition: color ease-in-out 200ms, font-size ease-in-out 200ms, line-height ease-in-out 200ms;
+        letter-spacing: 0rem;
+
+        @include desktop {
+            display: block;
+        }
+
+        &:hover {
+            text-decoration: none;
+        }
+
+    }
+
+    nav a:hover::after, nav a.active::after, nav a.active-domain::after {
+        content: '';
+        width: 2.4rem;
+        height: 2.4rem;
+        position: absolute;
+        top: 1rem;
+        background: url("/wp-content/themes/daudin/img/SVG/pastille orange.svg") center center no-repeat;
+    }
+
+
+    nav a:first-of-type::after {
+        right: -3.4rem;
+
+    }
+
+    nav a:last-of-type::after {
+        left: -3.4rem;
+    }
+
+    a {
+        pointer-events: auto;
+    }
+
+    nav a:last-of-type {
+        text-align: right;
+        max-width: 23rem;
+    }
+
+}
+
+body.page-template-template-louer header nav #link-patrimoine-immobilier,
+body.single-rdr_annnonce header nav #link-patrimoine-immobilier {
+    color: $color_light_grey;
+}
+
+body.home header {
+
+    nav a {
+        max-width: 21rem !important;
+    }
+
+    nav a:first-of-type {
+        color: $color_black;
+    }
+
+    nav a:last-of-type {
+        color: $color_white;
+    }
+}
+
+@include desktop {
+    body.home:not(.menu-open) header .hdr-logo-link {
+        #daudin-title {
+            fill:#1a1919;
+        }
+
+        .right-clip {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+            display: block;
+            height: 100%;
+            clip-path: inset(0 0 0 50%);
+        }
+    }
+}
+
+body:not(.is-content-page) nav a.inactive {
+    color: $color_black;
+}
+
+body:not(.home) {
+    .hdr-logo-link {
+        > div {
+
+            @include not-mobile {
+                height: 4rem;
+            }
+
+        }
+    }
+
+}
+
+body.home:not(.menu-open) header nav a {
+    font-size: 3.2rem;
+    line-height: 4rem;
+
+    @include large {
+        font-size: 4.2rem;
+        line-height: 5rem;
+    }
+
+    &:nth-child(1) {
+        max-width: 21rem !important;
+
+    }
+
+    &:nth-child(2) {
+        max-width: 35rem !important;
+    }
+}
+
+
+body.menu-open {
+    @include desktop {
+        header nav .hide-not-page-contenu {
+            display: block;
+        }
+    }
+
+    header nav a:first-of-type {
+        color: $color_black;
+    }
+
+  #daudin-title {
+      fill:$color_black;
+  }
+
+    header nav a:last-of-type {
+        color: $color_white;
+    }
+}
+
+

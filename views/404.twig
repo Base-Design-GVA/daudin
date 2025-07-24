@@ -1,0 +1,13 @@
+{% extends "base.twig" %}
+
+{% block content %}
+  <div id="notfound">
+    <div class="notfound">
+      <div class="notfound-404">
+        <h1>{{ __('Oops!', 'daudin_theme') }}</h1>
+        <h2>{{ __('404 - La page est introuvable', 'daudin_theme') }}</h2>
+      </div>
+      <a href="{{ site.url }}">{{ __('Retourner à l\'accueil', 'daudin_theme') }}</a>
+    </div>
+  </div>
+{% endblock %}

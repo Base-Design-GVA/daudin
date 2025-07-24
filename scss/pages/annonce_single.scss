@@ -1,0 +1,396 @@
+.annonce_single {
+    padding-top: 16rem !important;
+    padding-bottom: 6vh !important;
+    padding-left: 3rem;
+    padding-right: 3rem;
+
+    .back-button {
+        display: none;
+    }
+
+
+    @include desktop {
+        $padding-x: 25rem;
+        $margin-header: 6.6rem;
+        padding-top: 13rem !important;
+        padding-left: $padding-x;
+        padding-right: $padding-x;
+
+        .bien_header {
+            padding-left: #{$padding-x - $margin-header};
+            margin: 0 -#{$padding-x - $margin-header};
+            padding-bottom: 6rem;
+            position: relative;
+            top: 1rem;
+        }
+
+        .back-button {
+            display: flex;
+            position: absolute;
+            bottom: 6.35rem;
+            left: 18.4rem;
+            align-items: center;
+
+            > p {
+                margin-left: 2rem;
+            }
+        }
+
+        @include large {
+            $padding-x: 34.4rem;
+            padding-left: $padding-x;
+            padding-right: $padding-x;
+
+            .bien_header {
+                padding-left: #{$padding-x - $margin-header + 1rem};
+                margin: 0 -#{$padding-x - $margin-header};
+                padding-bottom: 8rem;
+            }
+
+            .back-button {
+                bottom: 8.35rem;
+                left: 27.7rem;
+            }
+        }
+
+    }
+
+
+    .swiper-container {
+        height: 50vw;
+
+        @include not-mobile {
+            height: 80rem;
+        }
+
+
+        .swiper-slide {
+
+            -webkit-background-size: contain;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center center;
+            //height:auto;
+            //clip-path: inset();
+        }
+
+        //coucouccnd
+        //test
+
+        .swiper-pagination-bullets {
+            bottom: 6rem;
+            display: flex;
+            justify-content: space-around;
+            padding: 0 2rem;
+
+            @include not-mobile {
+                padding: 0 30%;
+            }
+        }
+
+        .swiper-pagination-bullet {
+            background-color: $color_orange;
+            opacity: 0.6;
+            width: 0.9rem;
+            height: 0.9rem;
+
+            @include not-mobile {
+                width: 1.3rem;
+                height: 1.3rem;
+            }
+
+            &.swiper-pagination-bullet-active {
+                opacity: 1;
+            }
+        }
+
+
+    }
+
+    main {
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+
+
+        @include not-mobile {
+            margin-top: 5rem;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+        }
+
+        @include desktop {
+            margin-top: 11rem;
+        }
+
+        aside {
+            font-weight: 500;
+            font-size: 1.4rem;
+
+
+            ul {
+                line-height: 3rem;
+                padding: 0;
+                margin: 2rem 0 0 0;
+                list-style: none;
+
+                @include not-mobile {
+                    margin-top: 0;
+                }
+
+                li > em {
+                    font-style: normal;
+                    color: $color_orange;
+                }
+            }
+
+            .contact {
+                margin-top: 1rem;
+                margin-bottom: 3rem;
+
+                @include not-mobile {
+                    margin-top: 3rem;
+                }
+
+                address {
+                    line-height: 2.2rem;
+                    margin-top: 0;
+                    font-style: normal;
+                    display: flex;
+                    flex-direction: column;
+
+                }
+            }
+
+            a.button {
+                font-size: 1.7rem;
+                display: inline-flex;
+                margin-bottom: 2rem;
+            }
+
+
+        }
+
+        article {
+            max-width: 95rem;
+
+
+            @include not-mobile {
+                margin-left: 6rem;
+            }
+
+            ul {
+                padding-left: 2rem;
+            }
+
+            .avantage-bien {
+                margin-top: 2rem;
+
+                @include desktop {
+                    margin-top: 6rem;
+                }
+
+                p {
+                    margin-top: 1rem;
+                    @include desktop {
+                        margin-top: 3rem;
+                    }
+
+                }
+            }
+        }
+    }
+
+    #map {
+        margin-top: 2rem;
+        height: 50rem;
+
+        @include not-mobile {
+            margin-top: 16rem;
+            height: 80rem;
+        }
+    }
+
+    .header-annonce {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+
+        @include not-mobile {
+
+            justify-content: space-between;
+            flex-direction: row;
+        }
+
+        @include desktop {
+            margin-top: 5rem;
+        }
+
+        .titre-annonce {
+            max-width: 72rem;
+        }
+
+        @include not-mobile {
+            .left {
+                max-width: calc(100% - 24rem);
+            }
+        }
+
+
+        .right {
+            max-width: 22rem;
+
+			@include not-mobile {
+                text-align: right;
+                padding-top: 1rem;
+            }
+            .principal{
+                font-size: 2rem;
+            }
+            .secondary{
+                font-size: 1.5rem;
+            }
+            > p:last-child {
+
+
+                @include not-mobile {
+                    text-align: right;
+                    margin-top: 1rem;
+                }
+            }
+        }
+    }
+
+    .footer-annonce {
+        margin-top: 2rem;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+
+        @include not-mobile {
+            margin-top: 18rem;
+            flex-direction: row;
+        }
+
+        > div {
+            display: flex;
+            flex-direction: column;
+
+            @include not-mobile {
+
+                align-items: center;
+            }
+
+            h3 {
+                font-size: 2.2rem;
+                line-height: 2.9rem;
+                font-weight: 500;
+            }
+
+            .bloc-footer-annonce {
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+                padding-bottom: 1rem;
+                display: flex;
+                flex-direction: row;
+                border-bottom: 0.1rem solid $color_light_grey_2;
+
+
+                @include not-mobile {
+                    border: none;
+                    margin-top: 3.8rem;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 38.9rem;
+                }
+
+                .left {
+                    width: 20%;
+
+                    @include not-mobile {
+                        width: 100%;
+                        margin-bottom: 7.7rem;
+                    }
+
+
+                    .photo {
+                        width: 100%;
+                        padding-top: 100%;
+                        background-size: cover;
+                        background-position: center center;
+                        background-repeat: no-repeat;
+                        clip-path: circle(50% at center center);
+                    }
+                }
+
+                .right {
+                    margin-left: 1rem;
+
+                    @include not-mobile {
+                        text-align: center;
+                        margin-left: 0;
+                    }
+
+                }
+
+                &.member {
+
+                    .right {
+                        @include not-mobile {
+                            border-bottom: 0.1rem solid $color_light_grey_2;
+                        }
+
+
+                        p:first-of-type {
+                            margin-bottom: 1rem;
+
+                            @include not-mobile {
+                                margin-bottom: 2rem;
+                            }
+                        }
+
+                        p:last-of-type {
+                            padding-bottom: 1rem;
+
+                            @include not-mobile {
+                                padding-bottom: 2rem;
+                            }
+                        }
+                    }
+
+                }
+
+                &.page-zoom {
+
+                    .right {
+
+                        p.h4_style {
+                            padding-bottom: 1rem;
+                            margin-bottom: 1rem;
+
+
+                            @include not-mobile {
+                                border-bottom: 0.1rem solid $color_light_grey_2;
+                                padding-bottom: 2rem;
+                                margin-bottom: 2rem;
+                            }
+                        }
+
+                        a {
+                            display: block;
+                            width: max-content;
+
+
+                            @include not-mobile {
+                                margin: 0 auto;
+                            }
+                        }
+                    }
+
+
+                }
+            }
+        }
+    }
+
+}

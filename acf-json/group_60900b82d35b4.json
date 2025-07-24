@@ -1,0 +1,41 @@
+{
+    "key": "group_60900b82d35b4",
+    "title": "Bloc : Menu Boutons",
+    "fields": [
+        {
+            "key": "field_60900b8a86fe3",
+            "label": "Menu à afficher",
+            "name": "acf_menu",
+            "type": "nav_menu",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "save_format": "object",
+            "container": "div",
+            "allow_null": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/menu-bouton-bloc"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1620053058
+}

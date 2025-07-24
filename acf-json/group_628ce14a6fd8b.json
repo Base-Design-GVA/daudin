@@ -1,0 +1,55 @@
+{
+    "key": "group_628ce14a6fd8b",
+    "title": "News",
+    "fields": [
+        {
+            "key": "field_628ce15b28fed",
+            "label": "Couleur",
+            "name": "couleur",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "#fff": "Blanc",
+                "#0385fc": "Bleu",
+                "#ff6f00": "Orange",
+                "#009245": "Vert",
+                "#b90046": "Bordeau",
+                "#ffa9e7": "Rose",
+                "#fff587": "Yellow",
+                "#a49c97": "Gris"
+            },
+            "default_value": "#a49c97",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1653405590
+}

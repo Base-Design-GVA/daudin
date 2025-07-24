@@ -1,0 +1,32 @@
+{#
+/**
+ * Block Name: Deux colonnes
+ *
+ * This is the template that displays the example block.
+ */
+#}
+
+{% if is_preview %}
+{% endif %}
+
+<div id="two-columns-{{ block.id }}" class="bloc-2-colonnes">
+    <div class="columns">
+        {% if fields.acf_position_image == "g" %}
+            <div class="image"> {{ build_acf_image(fields.acf_image) }}</div>
+        {% endif %}
+        <div class="texte">
+            {{ fields.acf_texte }}
+        </div>
+        {% if fields.acf_position_image == "d" %}
+            <div class="image">
+                {{ build_acf_image(fields.acf_image) }}
+            </div>
+        {% endif %}
+    </div>
+
+    <style>
+        {##two-columns-{{ block.id }} .image {#}
+        {#  background-image: url({{ fields.acf_image.url }});#}
+        {#}#}
+    </style>
+</div>

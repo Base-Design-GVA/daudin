@@ -1,0 +1,14 @@
+{% if page.meta("acf_is_progression_indicator") %}
+  <div class="progression-indicator">
+    {{ get_html_section_progression(page.post_content) }}
+
+    <style>
+      .progression-indicator > div > a {
+        color:{{ page.meta("acf_desactivate_color") }}
+      }
+      .progression-indicator > div::before {
+        background-color: {{ page.meta("acf_progression_indicator_color") }};
+      }
+    </style>
+  </div>
+{% endif %}

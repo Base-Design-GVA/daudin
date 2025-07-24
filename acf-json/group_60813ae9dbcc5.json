@@ -1,0 +1,141 @@
+{
+    "key": "group_60813ae9dbcc5",
+    "title": "Bloc : Zoom Sur",
+    "fields": [
+        {
+            "key": "field_60814bd996dc9",
+            "label": "Balises de titre",
+            "name": "acf_page_title_balise",
+            "type": "select",
+            "instructions": "Balise utilisée pour les titres des pages",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "h1": "h1",
+                "h2": "h2",
+                "h3": "h3",
+                "h4": "h4",
+                "h5": "h5",
+                "h6": "h6",
+                "p": "p"
+            },
+            "default_value": "h5",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_60af9906e3c5b",
+            "label": "Nombre de colonnes",
+            "name": "acf_column_number",
+            "type": "select",
+            "instructions": "Choisissez le nombre de colonne d'affichage, sachant que si il n'y a qu'un élément sur une ligne il sera forcément centré",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "2": "2",
+                "3": "3"
+            },
+            "default_value": 3,
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_60813af7b3cdf",
+            "label": "Pages",
+            "name": "acf_pages",
+            "type": "repeater",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_60813b3db3ce0",
+            "min": 1,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Ajouter une page",
+            "sub_fields": [
+                {
+                    "key": "field_60813b3db3ce0",
+                    "label": "Page",
+                    "name": "page",
+                    "type": "post_object",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "page"
+                    ],
+                    "taxonomy": "",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "return_format": "id",
+                    "ui": 1
+                },
+                {
+                    "key": "field_60813b6bb3ce1",
+                    "label": "Libellé du lien",
+                    "name": "link_label",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Plus",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/zoom-sur-bloc"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1622121011
+}

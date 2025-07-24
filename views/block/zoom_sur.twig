@@ -1,0 +1,28 @@
+{#
+/**
+ * Block Name: Zoom Sur
+ * This is the template that displays the example block.
+ */
+#}
+
+{% if is_preview %}
+{% endif %}
+
+
+<div id="zoom-sur-{{ block.id }}" class="bloc-zoom-sur">
+  {% if fields.acf_pages %}
+
+    <div class="wrapper-zooms has-{{ fields.acf_column_number }}-column">
+      {% for page_zoom in fields.acf_pages %}
+        <div class="page-zoom">
+          {% set post_page = Post(page_zoom.page)  %}
+          <div style="background-image: url({{ post_page.thumbnail().src}})" class="thumbnail"></div>
+          <{{ fields.acf_page_title_balise }} class="h4_style title">{{ post_page.name() }}</{{ fields.acf_page_title_balise}}>
+      <a href="{{ post_page.link() }}" class="button">{{ page_zoom.link_label }}</a>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>
+
+

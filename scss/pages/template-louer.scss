@@ -1,0 +1,599 @@
+.annonce_list {
+    padding: 11rem 3rem 0 3rem;
+    margin: auto;
+
+    h1 {
+        margin-top: 2rem;
+
+        @include desktop {
+            margin-top: 5rem;
+
+        }
+    }
+
+    @include desktop {
+        padding: 7rem 0 0 0;
+    }
+
+    .filters {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        flex-wrap: wrap;
+        margin-bottom: 3rem;
+
+        @include not-mobile {
+            flex-direction: row;
+            margin-bottom: 6rem;
+            justify-content: space-between;
+        }
+
+        @include large {
+            padding-right: 34rem;
+        }
+
+        .width-placeholder {
+            margin-right: 1.7rem;
+            position: relative;
+            flex: 1;
+        }
+
+        .filter-container {
+            position: relative;
+            background: $color_white;
+            border: 0.1rem solid $color_black;
+            box-sizing: border-box;
+            border-radius: 2.4rem;
+            max-width: 39rem;
+            margin-top: 1rem;
+            width: max-content;
+
+            @include not-mobile {
+                margin-top: 2rem;
+                width: 100%;
+            }
+
+            button {
+                border: 0;
+                transition: color ease-out 200ms;
+                padding: 0.7rem 2.3rem;
+                width: 100%;
+
+                @include not-mobile {
+                    font-size: 1.2rem; 
+                    line-height: 1.9rem;
+                }
+
+                @include large {
+                    font-size: 1.7rem; 
+                    line-height: 2.3rem;
+                }
+
+            }
+
+            [class*=hidden-part] {
+                display: none;
+                margin: 0 1.8rem 3.3rem 1.8rem;
+            }
+
+            .radios {
+                display: flex;
+                flex-direction: column;
+
+                input[type="radio"] {
+                    display: none;
+                }
+
+                .input-group {
+                    position: relative;
+                    padding-left: 2.34rem;
+                    font-weight: 500;
+                    font-size: 1.4rem;
+                    line-height: 3.8rem;
+                }
+
+                label {
+                    cursor: pointer;
+                    padding: 1rem 0;
+                }
+
+                label::before,
+                label::after {
+                    display: block;
+                    position: absolute;
+                    box-sizing: border-box;
+                    top: 1.2rem;
+                    left: 0;
+                    content: '';
+                    width: 1.4rem;
+                    height: 1.4rem;
+                    border-radius: 1.4rem;
+                }
+
+                label::before {
+                    border: 0.1rem solid $color_black;
+                    background-color: $color_white;
+                }
+
+                label::after {
+                    transform: scale(0);
+                    background-color: $color_orange;
+                    transition: transform 100ms ease-out;
+                }
+
+                label:hover::after {
+                    transform: scale(1);
+                    opacity: 0.4;
+                }
+
+                input[type=radio]:checked + label::after {
+                    transform: scale(1);
+                    opacity: 1;
+                }
+            }
+
+
+            &.open {
+
+                z-index: 999;
+
+                @include not-mobile {
+                    position: absolute;
+                    z-index: 50;
+                    min-width: 20rem;
+                }
+
+                button {
+                    background-color: transparent;
+                    color: $color_light_grey;
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                }
+
+
+                button::after {
+                    content: "";
+                    width: 2rem;
+                    height: 2rem;
+                    display: block;
+                    background-image: url("/wp-content/themes/daudin/img/SVG/next.svg");
+                    background-size: contain;
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                }
+            }
+        }
+
+        fieldset {
+            padding: 0;
+        }
+        
+
+        .slider_range {
+
+            &.ui-widget.ui-widget-content {
+
+                border: none;
+                height: 3px; 
+                position: relative;
+                margin: 1rem 1.5rem 1rem 0;
+
+            }
+            
+            .ui-slider-range {
+                background-color: #FD6F00;
+                height: 0.3rem;
+                position: absolute;
+                margin-left: 0.7rem;
+                top: 0.25rem;
+            }
+
+            .ui-slider-handle {
+
+                color: #454545;
+                z-index: 99999999;
+                display: flex;
+                top: -0.8rem;
+                cursor: pointer;
+                margin: 0;
+                border: 0;
+                outline: 0;
+                cursor: pointer;
+                pointer-events: all;
+                z-index: 100;
+                background: none;
+                width: 2.5rem;
+                height: 2.5rem;
+                align-items: center;
+                margin-left: -0.5rem;
+                position: absolute;
+
+                &::before {
+                    content: "";
+                    display: block;
+                    height: 15px;
+                    width: 15px;
+                    border-radius: 50%;
+                    background-color: #FD6F00;
+                    margin-left: 0.5rem;
+                }
+
+            }
+
+        }
+
+
+        /* Reset style for input range */
+
+        .price-field input[type=range] {
+            width: 100%;
+            height: 2px;
+            border: 0;
+            outline: 0;
+            box-sizing: border-box;
+            border-radius: 5px;
+            pointer-events: none;
+            -webkit-appearance: none;
+        }
+
+        .price-field input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+        }
+
+        .price-field input[type=range]:active,
+        .price-field input[type=range]:focus {
+            outline: 0;
+        }
+
+        .price-field input[type=range]::-ms-track {
+            width: 188px;
+            height: 2px;
+            border: 0;
+            outline: 0;
+            box-sizing: border-box;
+            border-radius: 5px;
+            pointer-events: none;
+            background: transparent;
+            border-color: transparent;
+            color: transparent;
+            border-radius: 5px;
+        }
+
+        /* Style toddler input range */
+
+        .price-field input[type=range]::-webkit-slider-thumb {
+            /* WebKit/Blink */
+            position: relative;
+            -webkit-appearance: none;
+            margin: 0;
+            border: 0;
+            outline: 0;
+            border-radius: 50%;
+            height: 10px;
+            width: 10px;
+            margin-top: -4px;
+            background-color: $color_orange;
+            cursor: pointer;
+            pointer-events: all;
+            z-index: 100;
+        }
+
+        .price-field input[type=range]::-moz-range-thumb {
+            /* Firefox */
+            position: relative;
+            appearance: none;
+            margin: 0;
+            border: 0;
+            outline: 0;
+            border-radius: 50%;
+            height: 10px;
+            width: 10px;
+            margin-top: -5px;
+            background-color: $color_orange;
+            cursor: pointer;
+            pointer-events: all;
+            z-index: 100;
+        }
+
+        .price-field input[type=range]::-ms-thumb {
+            /* IE */
+            position: relative;
+            appearance: none;
+            margin: 0;
+            border: 0;
+            outline: 0;
+            border-radius: 50%;
+            height: 10px;
+            width: 10px;
+            margin-top: -5px;
+            background-color: $color_orange;
+            cursor: pointer;
+            pointer-events: all;
+            z-index: 100;
+        }
+
+
+        /* Style track input range */
+
+        .price-field input[type=range]::-webkit-slider-runnable-track {
+            /* WebKit/Blink */
+            width: 100%;
+            height: 1px;
+            cursor: pointer;
+            background: $color_black;
+            border-radius: 5px;
+        }
+
+        .price-field input[type=range]::-moz-range-track {
+            /* Firefox */
+            width: 100%;
+            height: 1px;
+            cursor: pointer;
+            background: $color_black;
+            border-radius: 5px;
+        }
+
+        .price-field input[type=range]::-ms-track {
+            /* IE */
+            width: 100%;
+            height: 1px;
+            cursor: pointer;
+            background: $color_black;
+            border-radius: 5px;
+        }
+
+        .middle-range {
+            width: 100%;
+            height: 3px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .middle-range::before {
+            background-color: $color_orange;
+            width: 100%;
+            height: 100%;
+            content: "";
+            display: block;
+        }
+
+        /* Style for input value block */
+
+        .price-wrap {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            font-size: 1.4rem;
+            line-height: 2rem;
+            font-weight: 500;
+        }
+
+        .price-wrap-1,
+        .price-wrap-2 {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+
+            > input {
+                border: none;
+                width: 8rem;
+                
+                @include desktop {
+                    width: 10rem;
+                }
+
+                &:focus, &:focus-visible {
+                    outline: none;
+                }
+            }
+        }
+
+        .price-title {
+            margin-right: 5px;
+        }
+
+        .price-wrap_line {
+            margin: 0 10px;
+        }
+
+        .price-wrap #one,
+        .price-wrap #two {
+            width: 30px;
+            text-align: right;
+            margin: 0;
+            padding: 0;
+            margin-right: 2px;
+            background: 0;
+            border: 0;
+            outline: 0;
+        }
+
+        .price-wrap label {
+            text-align: right;
+        }
+
+        /* Style for active state input */
+
+        .price-field input[type=range]:hover::-webkit-slider-thumb {
+            transform: scale(1.5);
+        }
+
+        .price-field input[type=range]:active::-webkit-slider-thumb {
+            box-shadow: 0 0 0 0.5px #fff;
+            transition-duration: 0.3s;
+        }
+    }
+
+    .wrapper-annonces {
+        display: grid;
+        grid-gap: 6rem;
+        grid-template-columns: 1fr;
+
+        @include large {
+            padding-right: 34rem;
+        }
+
+
+        .annonce {
+            display: flex;
+            min-height: 16rem;
+            @include not-mobile {
+                min-height: 27.1rem;
+            }
+            @include mobile {
+                flex-direction: column;
+            }
+
+            &.hide-from-search {
+                display: none;
+            }
+
+            .left {
+                flex-basis: 50%;
+                flex-shrink: 1;
+                height: 23vw;
+
+                @include mobile {
+                    position: relative;
+                    padding-top: 60%;
+                    flex-basis: auto;
+                    height: 0;
+                }
+
+                @include not-mobile {
+                    flex-basis: 39.1rem;
+                    height: 27rem;
+                }
+
+                .photo {
+                    width: 100%;
+                    height: 100%;
+                    -webkit-background-size: cover;
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    border-radius: 0.8rem;
+
+                    @include mobile {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                    }
+                }
+            }
+
+            .right {
+                flex-basis: 50%;
+                margin-left: 1.5rem;
+
+                @include mobile {
+                    margin-top: 1.5rem;
+		            margin-left: 0;
+                }
+				.principal{
+                    font-size: 2rem;
+                }
+
+                .secondary{
+                    font-size: 1.5rem;
+                }
+
+                @include not-mobile {
+                    margin-left: 3rem;
+                    flex-basis: 19rem;
+                    flex-grow: 1;
+                }
+
+                .title-annonce {
+                    font-size: 1.8rem;
+                    line-height: 2.8rem;
+                    margin-bottom: 2rem;
+
+                    @include not-mobile {
+                        margin-bottom: 5.4rem;
+                        font-size: 2.2rem;
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+// @media only screen and (max-width: 767px){
+// 	// .annonce_list .wrapper-annonces .annonce {
+// 	// 	flex-direction: column;
+// 	// }
+	
+// 	// .annonce_list .wrapper-annonces .annonce .right {
+// 	// 	margin-top: 1.5rem;
+// 	// 	margin-left: 0;
+// 	// }
+	
+// 	// .annonce_list .wrapper-annonces .annonce .left {
+// 	// 	position: relative;
+// 	// 	padding-top: 60%;
+// 	// 	flex-basis: auto;
+// 	// 	height: 0;
+// 	// }
+	
+// 	// .annonce_list .wrapper-annonces .annonce .left .photo {
+// 	// 	position: absolute;
+// 	// 	top: 0;
+// 	// 	left: 0;
+// 	// }
+// }
+
+.bien_header {
+
+    padding-bottom: 4rem;
+
+    @include desktop {
+        padding-left: 23rem;
+        padding-bottom: 7rem;
+        position: absolute;
+        top: 13.5rem;
+        padding-right: 0 !important;
+    }
+
+    ul {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        
+        @include desktop {
+            justify-content: flex-end;
+        }
+
+        li {
+            margin-right: 1rem;
+
+            @include not-mobile {
+                margin-right: 1.7rem;
+            }
+        }
+    }
+
+    &.mode-location {
+        ul {
+            li:nth-child(2) a {
+                background-color: $color_black;
+                color: $color_white;
+            }
+        }
+    }
+
+
+    &.mode-vente {
+        ul {
+            li:nth-child(1) a {
+                background-color: $color_black;
+                color: $color_white;
+            }
+        }
+    }
+
+}

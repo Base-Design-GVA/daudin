@@ -1,0 +1,63 @@
+{#
+/**
+ * Block Name: Example block
+ *
+ * This is the template that displays the example block.
+ */
+#}
+
+{% if is_preview %}
+{% endif %}
+
+<div id="superposition-{{ block.id }}" class="superposition-bloc full-width-mobile ">
+    <div class="image aos-item" data-aos="shape-slide-in"
+         data-aos-mirror="true"
+         data-aos-anchor-placement="top-center"></div>
+
+    <style>
+        #superposition-{{ block.id }} .image {
+            background-image: url({{ fields.acf_image }});
+            height: {{ fields.acf_height.mobile.image / 10 }}vw;
+        }
+
+        #superposition-{{ block.id }} .image::before {
+            background-image: url({{ fields.acf_shape.sizes.fullwidth}});
+            height: {{ fields.acf_height.mobile.shape }}%;
+            top: {{ fields.acf_end_position.mobile.y }}%;
+            left: {{ fields.acf_end_position.mobile.x }}%;
+            --transition-duration: {{ fields.acf_animation_duration }}ms;
+        }
+
+        #superposition-{{ block.id }} [data-aos=shape-slide-in]::before {
+            transform: {{ fields.acf_animation_direction }};
+        }
+
+        #superposition-{{ block.id }} [data-aos=shape-slide-in].aos-animate::before {
+            transform: translate(0);
+        }
+
+        @media (min-width: 768px) {
+            #superposition-{{ block.id }} .image {
+                height: {{ fields.acf_height.desktop.image / 14 }}vw;
+            }
+
+            #superposition-{{ block.id }} .image::before {
+                height: {{ fields.acf_height.desktop.shape }}%;
+                top: {{ fields.acf_end_position.desktop.y }}%;
+                left: {{ fields.acf_end_position.desktop.x }}%;
+            }
+        }
+        @media (min-width: 1280px) {
+            #superposition-{{ block.id }} .image {
+                height: {{ fields.acf_height.desktop.image / 20 }}rem;
+            }
+        }
+        @media (min-width: 1760px) {
+            #superposition-{{ block.id }} .image {
+                height: {{ fields.acf_height.desktop.image / 10 }}rem;
+            }
+        }
+    </style>
+</div>
+
+

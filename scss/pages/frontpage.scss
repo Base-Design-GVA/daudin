@@ -1,0 +1,173 @@
+
+.home-content {
+    width: 100%;
+    min-height: calc(87 * var(--vh));
+    color: $color_white;
+    left: 0;
+    top: 10vh;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+
+    @include desktop {
+        display: block;
+        min-height: 100vh;
+        top: 0;
+    }
+
+    > a {
+        position: relative;
+        flex: 1;
+        width: 100%;
+        height: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include desktop {
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            top: 0;
+
+            &:last-of-type {
+                right: 0;
+            }
+        }
+    }
+
+    .left-part, .right-part {
+        height: 100%;
+        width: 100%;
+        padding-top: 0;
+
+        > p {
+            display: none;
+        }
+
+        @include desktop {
+            display: block;
+            padding-top: 38rem;
+            background-repeat: no-repeat;
+            > p {
+                display: block;
+            }
+        }
+
+
+    }
+
+    .page_liee {
+        font-weight: 900;
+        font-size: 24px;
+        line-height: 30px;
+        text-align: center;
+        width: 100%;
+        display: block;
+        letter-spacing: 0.666667px;
+        color: #FFFFFF;
+        text-shadow: 0px 2px 14px rgba(0, 0, 0, 0.691893);
+
+        @include desktop {
+            display: none;
+        }
+    }
+
+    .left-part {
+
+
+        @include desktop {
+            padding-left: 5.8rem;
+            padding-right: 3rem;
+        }
+    }
+
+    .right-part {
+        text-align: right;
+
+        > p {
+            margin-left: auto;
+        }
+
+        @include desktop {
+            padding-right: 5.8rem;
+            padding-left: 3rem;
+            top: 0;
+        }
+    }
+
+    .left-part > p, .right-part > p {
+        max-width: 45rem;
+
+        @include large {
+            max-width: 55rem;
+        }
+
+    }
+
+    .left-part > *, .right-part > * {
+        position: relative;
+        z-index: 5;
+    }
+
+
+    .left-part::before, .right-part::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        @include desktop {
+            transition: clip-path ease 160ms;
+            clip-path: inset(0);
+
+        }
+    }
+
+    .left-part::before {
+        left: 0;
+    }
+
+    .right-part::before {
+        left: 0;
+    }
+
+    @include desktop {
+        .left-part:hover::before, .left-part.force-hover::before {
+            clip-path: inset(0 100% 0 0);
+        }
+
+        .right-part:hover::before, .right-part.force-hover::before {
+            clip-path: inset(0 0 0 100%);
+        }
+
+        .left-part:hover > p,
+        .right-part:hover > p,
+        .left-part.force-hover > p,
+        .right-part.force-hover > p {
+            clip-path: inset(0 0 0 0);
+        }
+
+    }
+
+
+    .left-part {
+        left: 0;
+    }
+
+    .right-part {
+        right: 0;
+    }
+
+    .left-part > p, .right-part > p {
+        clip-path: inset(0 0 100% 0);
+        transition: clip-path ease-out 200ms;
+
+
+    }
+
+}

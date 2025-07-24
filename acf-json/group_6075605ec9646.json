@@ -1,0 +1,250 @@
+{
+    "key": "group_6075605ec9646",
+    "title": "Configuration : Page",
+    "fields": [
+        {
+            "key": "field_6099316cbdc4e",
+            "label": "Position Daudin",
+            "name": "acf_daudin_position",
+            "type": "select",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "gauche": "gauche",
+                "centre": "centre",
+                "droite": "droite"
+            },
+            "default_value": "centre",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_6075607bb0dbd",
+            "label": "Namespace",
+            "name": "acf_namespace",
+            "type": "text",
+            "instructions": "Permet de définir un namespace (utilisé pour les transitions entre pages",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_607584a64fa31",
+            "label": "Couleur de fond",
+            "name": "acf_page_bg_color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#FFFFFF"
+        },
+        {
+            "key": "field_607585024fa32",
+            "label": "Couleur du texte",
+            "name": "acf_page_text_color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#000000"
+        },
+        {
+            "key": "field_60900688cd56a",
+            "label": "Afficher titre page centré",
+            "name": "acf_is_title_centered",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_607585824fa34",
+            "label": "Page de contenu",
+            "name": "acf_is_content_page",
+            "type": "true_false",
+            "instructions": "Est-ce une page de contenu (type votre lieu de vie) ? (impactera le type de header)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_607585194fa33",
+            "label": "Indicateur de progression",
+            "name": "acf_is_progression_indicator",
+            "type": "true_false",
+            "instructions": "Doit-il y avoir un indicateur de progression ?",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_607985cb69dc5",
+            "label": "Couleur de l'indicateur de progression",
+            "name": "acf_progression_indicator_color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_607585194fa33",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": ""
+        },
+        {
+            "key": "field_60799bcf33bad",
+            "label": "Couleur titre désactivés indicateur de progression",
+            "name": "acf_desactivate_color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_607585194fa33",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#B7B7B7"
+        },
+        {
+            "key": "field_609e3eacf2e3f",
+            "label": "Couleur titre inactif",
+            "name": "acf_couleur_titre_inactif",
+            "type": "color_picker",
+            "instructions": "Couleur du titre ne correspondant pas à la page active dans le header (pour les pages de contenu)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#CDCDCD"
+        },
+        {
+            "key": "field_60a3d2a839b05",
+            "label": "Quartier correspondant",
+            "name": "acf_quartier_correspondant",
+            "type": "text",
+            "instructions": "Pour afficher cette page dans les annonces (encart \"Votre quartier\") entrez le nom du quartier correspondant. Laisser vide dans tous les autres cas.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Meyrieux",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ],
+        [
+            {
+                "param": "page_template",
+                "operator": "!=",
+                "value": "template-home.php"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1653468984
+}

@@ -1,0 +1,226 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+    <section class="annonce_list mode-{{ page.acf_block_mode }} part-of-lieu-vie ">
+        <div class="bien_header container">
+            {{ load_nav_menu(fields_footer.acf_fixed_footer.left_menu.slug, "button") }}
+        </div>
+        <h1 class="container">{{ annonces | length }} {{ page.acf_black_counter_label }} <span
+                class="colored-label">{{ page.acf_colored_counter_label }}</span></h1>
+        <div class="filters container">
+            <div class="width-placeholder">
+                <div class="type_de_bien filter-container">
+                    <button type="button" class="button-tdb">
+                        <label for="type_bien_radio">{{ page.meta("acf_filter_type_de_biens") }}</label>
+                    </button>
+                    <div class="hidden-part-tdb">
+                        <div class="radios">
+                            <div class="input-group">
+                                <input type="radio" id="type-all"
+                                       name="type_bien_radio" data-filter="" value="" checked>
+                                <label for="type-all">{{ page.meta("acf_libelle_filtre_tout") }}</label>
+                            </div>
+                            {% for valeur, type_bien in filters.types_biens %}
+                                <div class="input-group">
+                                    <input type="radio" id="type-{{ loop.index }}"
+                                           name="type_bien_radio" data-filter=".type-{{ valeur }}" value="{{ valeur }}">
+                                    <label
+                                        for="type-{{ loop.index }}">{{ type_bien }}</label>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <input type="hidden" name="filter_type" id="filter_type" readonly value="">
+                    </div>
+                </div>
+            </div>
+            <div class="width-placeholder">
+                <div class="quartier filter-container">
+                    <button class="button-q" type="button">
+                        <label for="quartier_radio">{{ page.meta("acf_filter_quartier") }}</label>
+                    </button>
+                    <div class="hidden-part-q">
+                        <div class="radios">
+                            <div class="input-group">
+                                <input type="radio" id="quartier-all"
+                                       name="quartier_radio" data-filter="" value="" checked>
+                                <label for="quartier-all">{{ page.meta("acf_libelle_filtre_tout") }}</label>
+                            </div>
+                            {% for quartier in filters.quartiers %}
+                                <div class="input-group">
+                                    <input type="radio" id="quartier-{{ loop.index }}"
+                                           name="quartier_radio" data-filter=".quartier-{{ quartier }}" value="{{ quartier }}">
+                                    <label
+                                        for="quartier-{{ loop.index }}">{{ quartier | default(page.meta("acf_libelle_non_renseigne")) }}</label>
+                                </div>
+
+                            {% endfor %}
+                        </div>
+                        <input type="hidden" name="filter_quartier" id="filter_quartier" readonly value="">
+                    </div>
+
+                </div>
+            </div>
+            <div class="width-placeholder">
+                <fieldset class="filter-price filter-container">
+                    <button class="button-p" type="button">
+                        <span class="price-title">{{ page.meta("acf_filter_prix") }}</span>
+                    </button>
+                    <div class="hidden-part-p">
+                        <div class="price-wrap">
+                            <div class="price-wrap-1">
+                                <span id="min-prix-value">{{ filters.prix.min|round(0, 'floor')|number_format(0, ",", "'") }}</span>&nbsp;
+                                <label for="min-prix-value"> {{ page.meta('acf_price').unit }}</label>
+                            </div>
+                            <div class="price-wrap_line">{{ page.meta("acf_texte_nb_piece") }}</div>
+                            <div class="price-wrap-2">
+                                <span id="max-prix-value" data-value="">{{ filters.prix.max|round(0, 'ceil')|number_format(0, ",", "'") }}</span>&nbsp;
+                                <label for="max-prix-value"> {{ page.meta('acf_price').unit }}</label>
+                            </div>
+                        </div>
+                        <div class="range-fields">
+                            <div id="filter_prix" data-min="{{ filters.prix.min|round(0, 'floor') }}" data-max="{{ filters.prix.max|round(0, 'ceil') }}" data-currentmin="{{ filters.prix.min|round(0, 'floor') }}" data-currentmax="{{ filters.prix.max|round(0, 'ceil') }}" class="slider_range slider_range_price">
+                                <div id="handle_min_prix" class="ui-slider-handle ui-corner-all ui-state-default"></div>
+                                <div id="handle_max_prix" class="ui-slider-handle ui-corner-all ui-state-default"></div>
+                            </div>
+                            <input type="hidden" name="filter_prix_min" id="filter_prix_min" class="slide_amount_min" readonly value="{{ filters.prix.min|round(0, 'floor') }}">
+                            <input type="hidden" name="filter_prix_max" id="filter_prix_max" class="slide_amount_max" readonly value="{{ filters.prix.max|round(0, 'ceil') }}">
+                        </div>
+
+                    </div>
+
+                </fieldset>
+            </div>
+            <div class="width-placeholder">
+
+                <fieldset class="filter-price filter-container">
+                    <button class="button-s" type="button"><span
+                            class="price-title">{{ page.meta("acf_filter_surface") }}</span>
+                    </button>
+                    <div class="hidden-part-s">
+                        <div class="price-wrap">
+                            <div class="price-wrap-1">
+                                <span id="min-surface-value">{{ filters.surface.min|round(0, 'floor') }}</span>&nbsp;
+                                <label for="min-surface-value">{{ page.meta('acf_unite_de_surface') }}</label>
+                            </div>
+                            <div class="price-wrap_line">{{ page.meta("acf_texte_nb_piece") }}</div>
+                            <div class="price-wrap-2">
+                                <span id="max-surface-value">{{ filters.surface.max|round(0, 'ceil') }}</span>&nbsp;
+                                <label for="max-surface-value">{{ page.meta('acf_unite_de_surface') }}</label>
+                            </div>
+                        </div>
+                        <div class="range-fields">
+                            <div id="filter_surface" data-min="{{ filters.surface.min|round(0, 'floor') }}" data-max="{{ filters.surface.max|round(0, 'ceil') }}" data-currentmin="{{ filters.surface.min|round(0, 'floor') }}" data-currentmax="{{ filters.surface.max|round(0, 'ceil') }}" class="slider_range slider_range_surface">
+                                <div id="handle_min_surface" class="ui-slider-handle ui-corner-all ui-state-default"></div>
+                                <div id="handle_max_surface" class="ui-slider-handle ui-corner-all ui-state-default"></div>
+                            </div>
+                            <input type="hidden" name="filter_surface_min" id="filter_surface_min" class="slide_amount_min" readonly value="{{ filters.surface.min|round(0, 'floor') }}">
+                            <input type="hidden" name="filter_surface_max" id="filter_surface_max" class="slide_amount_max" readonly value="{{ filters.surface.max|round(0, 'ceil') }}">
+                        </div>
+
+                    </div>
+
+                </fieldset>
+            </div>
+
+            <div class="width-placeholder">
+                <fieldset class="filter-price filter-container">
+                    <button class="button-nb" type="button">
+                        <span class="price-title">{{ page.meta("acf_filter_nombre_piece") }}</span>
+                    </button>
+                    <div class="hidden-part-nb">
+                        <div class="price-wrap">
+                            <div class="price-wrap-1">
+                                <span id="min-nb-piece-value">{{ filters.nbr_piece.min }}</span>
+                            </div>
+                            <div class="price-wrap_line">{{ page.meta("acf_texte_nb_piece") }}</div>
+                            <div class="price-wrap-2">
+                                <span id="max-nb-piece-value">{{ filters.nbr_piece.max }}</span>
+                            </div>
+                        </div>
+                        <div class="range-fields">
+                            <div id="filter_nb_pieces" data-min="{{ filters.nbr_piece.min }}" data-max="{{ filters.nbr_piece.max }}" data-currentmin="{{ filters.nbr_piece.min }}" data-currentmax="{{ filters.nbr_piece.max }}" class="slider_range slider_range_nb_pieces">
+                                <div id="handle_min_nb_pieces" class="ui-slider-handle ui-corner-all ui-state-default"></div>
+                                <div id="handle_max_nb_pieces" class="ui-slider-handle ui-corner-all ui-state-default"></div>
+                            </div>
+                            <input type="hidden" name="filter_nb_pieces_min" id="filter_nb_pieces_min" class="slide_amount_min" readonly value="{{ filters.nbr_piece.min }}">
+                            <input type="hidden" name="filter_nb_pieces_max" id="filter_nb_pieces_max" class="slide_amount_max" readonly value="{{ filters.nbr_piece.max }}">
+                        </div>
+
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div class="wrapper-annonces container">
+            {% for annonce in annonces %}
+            <a href="{{ annonce.link() }}"
+               class="annonce type-{{ annonce.meta('acf_annonce_famille_de_bien') }} quartier-{{ annonce.meta('acf_annonce_quartier') }}"
+               data-type="{{ annonce.meta('acf_annonce_famille_de_bien') }}"
+               data-quartier="{{ annonce.meta('acf_annonce_quartier') }}"
+               data-prix="{{ (annonce.acf_annonce_prix|replace({',': ''})|replace({' ': ''})|number_format(0, '.', '') - annonce.acf_annonce_charges|replace({',': ''})|replace({' ': ''})|number_format(0, '.', '')) }}"
+               data-surface="{{ annonce.meta('acf_annonce_surface') }}"
+               data-nb-piece="{{ annonce.meta('acf_annonce_nb_pieces') }}"
+            >
+                <div class="left">
+                    <div class="photo"
+                         style="background-image: url({{ get_array_photos_annonce_from_string(annonce.meta('acf_annonce_illustrations'), "daudin_500_")[0] }})"></div>
+                </div>
+                <div class="right">
+                    <{{ page.acf_annonce_title_balise }}
+                    class="title-annonce">{{ annonce.title() }}</{{ page.acf_annonce_title_balise }}>
+                <p>
+                    {{ annonce.acf_annonce_ville }}<br>
+                    {{ annonce.acf_annonce_adresse }}
+                    
+                </p>
+				{% if annonce.acf_annonce_famille_de_bien == "indus" %}
+				    {% if annonce.acf_annonce_prix_an %}
+                        <p class="principal"> {{ page.meta('acf_price').unit }}  {{annonce.acf_annonce_prix_an}} {{ page.meta('acf_price_an').unit }} {{ page.meta('acf_price_an').after_text }}</p>
+                    {% endif %}
+                {% endif %}
+                {% if annonce.acf_annonce_prix %}
+                    <p class="secondary"> 
+                    {{ page.meta('acf_price').unit }} 
+{{ (annonce.acf_annonce_prix|replace({',': ''})|replace({' ': ''})|number_format(0, '.', '') - annonce.acf_annonce_charges|replace({',': ''})|replace({' ': ''})|number_format(0, '.', ''))|number_format(0, '.', '\'') }}                    {{ page.meta('acf_price').after_text }}</p>
+                {% else %}
+                    <p>{{ fields_annonce.acf_undefined_price_label }}</p>
+                {% endif %}
+
+        </div>
+        </a>
+        {% endfor %}
+        </div>
+
+
+    </section>
+
+    {% include "footer-page.twig" %}
+
+    <style>
+        body, .main_content, header a.hdr-logo-link::before {
+            background-color: {{ page.meta("acf_page_bg_color") }};
+            color: {{ page.meta("acf_page_text_color") }};
+        }
+
+        header a.hdr-logo-link span.hdr-logo, header nav a, header nav a:visited, .progression-indicator p {
+            color: {{ page.meta("acf_page_text_color") }};
+        }
+
+        button, .button {
+            border-color: {{ page.meta("acf_page_text_color") }};
+        }
+
+        .left-page .bg_transition {
+            background-color: {{ fields_header.acf_conf_header_principal_content.left_part.bg_color_page_lie }};
+        }
+
+        .right-page .bg_transition {
+            background-color: {{ fields_header.acf_conf_header_principal_content.right_part.bg_color_page_lie }};
+        }
+
+        .annonce_list .colored-label {
+            color: {{ page.af_title_color }};
+        }
+
+    </style>
+{% endblock %}

@@ -1,0 +1,45 @@
+{#
+/**
+ * Block Name: Example block
+ *
+ * This is the template that displays the example block.
+ */
+#}
+
+{% if is_preview %}
+{% endif %}
+
+<div id="brochures-{{ block.id }}" class="bloc-brochures">
+
+  <div class="brochures-container">
+    {% for brochure in fields.acf_repeteur_brochures %}
+    <div class="brochure" id="brochure-{{ loop.index }}">
+      <{{ brochure.title.balise }} class="h1_style">{{ brochure.title.text }}</{{ brochure.title.balise }}>
+    <p>{{ brochure.content }}</p>
+    {% if brochure.brochure_mode == "file" %}
+    <a href="{{ brochure.file }}" download
+    {% else %}
+    <a href="{{ brochure.link }}"
+      {% endif %}
+       class="button">{{ brochure.button_label }}</a>
+  </div>
+  {% endfor %}
+
+  <ul class="brochures-naviguation">
+    {% for brochure in fields.acf_repeteur_brochures %}
+      <li class="brochure-link"><a href="#brochure-{{ loop.index }}" title="{{ brochure.title.text }}">{{ brochure.title.text }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+
+
+<style>
+  {% for brochure in fields.acf_repeteur_brochures %}
+  #brochure-{{ loop.index }}:not(:first-child) {
+    background-color: {{ brochure.hide_color }};
+    color: {{ brochure.hide_color }};
+  }
+
+  {% endfor %}
+</style>
+</div>

@@ -1,0 +1,31 @@
+.superposition-bloc {
+    width: 100%;
+    margin: 0 0 3rem 0;
+
+    @include desktop {
+        margin-bottom: 10rem;
+    }
+
+    .image {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        transition: none;
+
+        &::before {
+            transition-property: transform;
+            transition-timing-function: ease-out;
+            transition-duration: var(--transition-duration);
+            position: absolute;
+            content: "";
+            width: 100%;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center center;
+        }
+    }
+
+}

@@ -1,0 +1,167 @@
+@font-face {
+  font-family: 'Forno';
+  src: url('../fonts/forno/Forno-Bold.eot');
+  src: url('../fonts/forno/Forno-Bold.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/forno/Forno-Bold.woff2') format('woff2'),
+  url('../fonts/forno/Forno-Bold.woff') format('woff'),
+  url('../fonts/forno/Forno-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Forno';
+  src: url('../fonts/forno/Forno-ExtraLight.eot');
+  src: url('../fonts/forno/Forno-ExtraLight.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/forno/Forno-ExtraLight.woff2') format('woff2'),
+  url('../fonts/forno/Forno-ExtraLight.woff') format('woff'),
+  url('../fonts/forno/Forno-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Forno';
+  src: url('../fonts/forno/Forno-ExtraLightSlanted.eot');
+  src: url('../fonts/forno/Forno-ExtraLightSlanted.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/forno/Forno-ExtraLightSlanted.woff2') format('woff2'),
+  url('../fonts/forno/Forno-ExtraLightSlanted.woff') format('woff'),
+  url('../fonts/forno/Forno-ExtraLightSlanted.ttf') format('truetype');
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Forno';
+  src: url('../fonts/forno/Forno-BoldSlanted.eot');
+  src: url('../fonts/forno/Forno-BoldSlanted.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/forno/Forno-BoldSlanted.woff2') format('woff2'),
+  url('../fonts/forno/Forno-BoldSlanted.woff') format('woff'),
+  url('../fonts/forno/Forno-BoldSlanted.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Forno';
+  src: url('../fonts/forno/Forno-Light.eot');
+  src: url('../fonts/forno/Forno-Light.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/forno/Forno-Light.woff2') format('woff2'),
+  url('../fonts/forno/Forno-Light.woff') format('woff'),
+  url('../fonts/forno/Forno-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Forno';
+  src: url('../fonts/forno/Forno-LightSlanted.eot');
+  src: url('../fonts/forno/Forno-LightSlanted.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/forno/Forno-LightSlanted.woff2') format('woff2'),
+  url('../fonts/forno/Forno-LightSlanted.woff') format('woff'),
+  url('../fonts/forno/Forno-LightSlanted.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Forno';
+  src: url('../fonts/forno/Forno-MediumSlanted.eot');
+  src: url('../fonts/forno/Forno-MediumSlanted.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/forno/Forno-MediumSlanted.woff2') format('woff2'),
+  url('../fonts/forno/Forno-MediumSlanted.woff') format('woff'),
+  url('../fonts/forno/Forno-MediumSlanted.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Forno';
+  src: url('../fonts/forno/Forno-Medium.eot');
+  src: url('../fonts/forno/Forno-Medium.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/forno/Forno-Medium.woff2') format('woff2'),
+  url('../fonts/forno/Forno-Medium.woff') format('woff'),
+  url('../fonts/forno/Forno-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Forno';
+  src: url('../fonts/forno/Forno-Slanted.eot');
+  src: url('../fonts/forno/Forno-Slanted.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/forno/Forno-Slanted.woff2') format('woff2'),
+  url('../fonts/forno/Forno-Slanted.woff') format('woff'),
+  url('../fonts/forno/Forno-Slanted.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Forno';
+  src: url('../fonts/forno/Forno-Regular.eot');
+  src: url('../fonts/forno/Forno-Regular.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/forno/Forno-Regular.woff2') format('woff2'),
+  url('../fonts/forno/Forno-Regular.woff') format('woff'),
+  url('../fonts/forno/Forno-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Forno';
+  src: url('../fonts/forno/Forno-Thin.eot');
+  src: url('../fonts/forno/Forno-Thin.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/forno/Forno-Thin.woff2') format('woff2'),
+  url('../fonts/forno/Forno-Thin.woff') format('woff'),
+  url('../fonts/forno/Forno-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Forno';
+  src: url('../fonts/forno/Forno-ThinSlanted.eot');
+  src: url('../fonts/forno/Forno-ThinSlanted.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/forno/Forno-ThinSlanted.woff2') format('woff2'),
+  url('../fonts/forno/Forno-ThinSlanted.woff') format('woff'),
+  url('../fonts/forno/Forno-ThinSlanted.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Teodor';
+  src: url('../fonts/teodor/Teodor-Light.eot');
+  src: url('../fonts/teodor/Teodor-Light.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/teodor/Teodor-Light.woff2') format('woff2'),
+  url('../fonts/teodor/Teodor-Light.woff') format('woff'),
+  url('../fonts/teodor/Teodor-Light.ttf') format('truetype');
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Teodor';
+  src: url('../fonts/teodor/Teodor-LightItalic.eot');
+  src: url('../fonts/teodor/Teodor-LightItalic.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/teodor/Teodor-LightItalic.woff2') format('woff2'),
+  url('../fonts/teodor/Teodor-LightItalic.woff') format('woff'),
+  url('../fonts/teodor/Teodor-LightItalic.ttf') format('truetype');
+  font-style: italic;
+  font-display: swap;
+  font-weight: 300;
+}

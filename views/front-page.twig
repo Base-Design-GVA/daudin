@@ -1,0 +1,45 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+    <div class="content-wrapper home-content">
+        {% set left_part = post.meta("acf_left_part") %}
+        <a href="{{ left_part.page_liee.url }}" id="link-left-part">
+            <div id="left-part" class="left-part">
+                <h2 class="page_liee">{{ left_part.page_liee.title }}</h2>
+                <p>{{ left_part.content }}</p>
+
+            </div>
+        </a>
+
+        {% set right_part = post.meta("acf_right_part") %}
+        <a href="{{ right_part.page_liee.url }}" id="link-right-part">
+            <div id="right-part" class="right-part " >
+
+                <h2 class="page_liee">{{ right_part.page_liee.title }}</h2>
+                <p>{{ right_part.content }}</p>
+            </div>
+        </a>
+    </div><!-- /content-wrapper -->
+
+    <style>
+        #left-part {
+            background-color: {{ left_part.bg_color }};
+            color: {{ left_part.text_color }};
+        }
+
+        #left-part::before {
+            background-image: url({{ left_part.bg_image }});
+        }
+
+        #right-part {
+            background-color: {{ right_part.bg_color }};
+            color: {{ right_part . text_color }};
+        }
+
+        #right-part::before {
+            background-image: url({{ right_part.bg_image }})
+        }
+    </style>
+
+{% endblock %}

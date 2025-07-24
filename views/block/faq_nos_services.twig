@@ -1,0 +1,59 @@
+{#
+/**
+ * Block Name: Example block
+ *
+ * This is the template that displays the example block.
+ */
+#}
+
+{% if is_preview %}
+{% endif %}
+
+
+<div id="faq-services-{{ block.id }}" class="bloc-faq-services mode-{{ fields.acf_block_mode }}">
+  {% if fields.acf_block_description %}
+    <p class="bloc-description">
+      {{ fields.acf_block_description }}
+    </p>
+  {% endif %}
+
+  <div class="wrapper-fields">
+    {% for element in fields.acf_block_fields %}
+      <div class="element">
+        <div class="visible-part">
+          <div class="left">
+            <{{ element.big_text.balise }}>{{ element.big_text.text }}</{{ element.big_text.balise }}>
+            {% if element.introduction_text %}
+              <p class="introduction-text">{{ element.introduction_text }}</p>
+            {% endif %}
+          </div>
+          <div class="right">
+            {% if fields.acf_block_mode == "faq" %}
+              <button type="button" class="button-faq"></button>
+            {% else %}
+              <button type="button" class="button-service">{{ fields.acf_button_label }}</button>
+            {% endif %}
+          </div>
+        </div>
+        <div class="hidden-part">
+          <div class="content">
+            {{ element.content }}
+          </div>
+
+        </div>
+      </div>
+
+    {% endfor %}
+  </div>
+
+{#  <style>#}
+{#    #faq-services-{{ block.id }} {#}
+
+{#    }#}
+
+{#    @media (min-width: 512px) {#}
+{#    }#}
+{#  </style>#}
+</div>
+
+

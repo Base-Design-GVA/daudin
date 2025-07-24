@@ -1,0 +1,220 @@
+{% extends "base.twig" %}
+
+
+
+
+{% block content %}
+  <div class="annonce_single part-of-lieu-vie">
+      <div class="bien_header mode-{{ post.meta("acf_annonce_type_deal") }}">
+      {{ load_nav_menu(fields_footer.acf_fixed_footer.left_menu.slug, "button") }}
+      <a class="back-button" href="javascript:history.back()">
+        {{ build_theme_image("/wp-content/themes/daudin/img/SVG/arrow.svg") }}
+        <p>{{ fields_annonce.acf_back_label }}</p>
+      </a>
+    </div>
+
+    <div class="swiper-container slider-illustration">
+      <div class="swiper-wrapper">
+        {% set illustrations = get_array_photos_annonce_from_string(post.meta("acf_annonce_illustrations"), "daudin_1200_") %}
+        {% for photo in illustrations %}
+          {# <img class="swiper-slide" src="{{ photo }}" alt=""> #}
+          <div class="swiper-slide" style="background-image: url('{{ photo }}')"></div>
+        {% endfor %}
+      </div>
+
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <div class="header-annonce">
+      <div class="left">
+        <h2 class="h4_style titre-annonce"> {{ post.title() }}</h2>
+      </div>
+      <div class="right">
+        {% if post.meta("acf_annonce_prix") %}
+        	{% if post.meta("acf_annonce_famille_de_bien")  == "indus" %}
+        	  {% if post.meta("acf_annonce_prix_an") %}
+              <p class="principal"> {{ fields_annonce.acf_unit }}&nbsp;{{post.meta("acf_annonce_prix_an")}}  {{ fields_annonce.acf_suffix }} {{fields_annonce.acf_surface_unit}} {{ fields_annonce.acf_suffix }} {{ fields_annonce.acf_year_label}}</p>
+              {% endif %}
+            {% endif %}
+            <p class="secondary"> 
+              {{ fields_annonce.acf_unit }}&nbsp;
+              {{ (post.meta("acf_annonce_prix")|replace({',': ''})|replace({' ': ''})|number_format(0, '.', '') - post.meta("acf_annonce_charges")|replace({',': ''})|replace({' ': ''})|number_format(0, '.', ''))|number_format(0, '.', '\'') }}
+			
+            {% if post.meta("acf_annonce_type_deal")  == "location" %}
+            {{ fields_annonce.acf_texte_location }}
+            {% endif %}
+            </p>
+        {% else %}
+            <p>{{ fields_annonce.acf_undefined_price_label }}</p>
+        {% endif %}
+      </div>
+    </div>
+
+    <main>
+
+
+    <article class="description-annonce">
+      <p>{{ post.meta("acf_annonce_description") }}</p>
+      {% if post.meta('acf_avantage_du_bien') %}
+      <div class="avantage-bien">
+       <{{ fields_annonce.titre_avantage_du_bien.balise }} class="h4_style">
+           {{ fields_annonce.titre_avantage_du_bien.text }}
+        </{{ fields_annonce.titre_avantage_du_bien.balise }}>
+        <p>{{ post.meta('acf_avantage_du_bien') }}</p>
+      </div>
+
+      {% endif %}
+    </article>
+
+    <aside>
+      <ul>
+        {% if post.meta("acf_annonce_adresse") %}
+          <li>{{ fields_annonce.acf_intitules.adresse }} : <em>{{ post.meta("acf_annonce_adresse") }}</em></li>
+        {% endif %}
+        {% if (post.meta("acf_annonce_nb_pieces")) %}
+          <li>{{ fields_annonce.acf_intitules.pieces }} : <em>{{ post.meta("acf_annonce_nb_pieces") }}</em></li>
+        {% endif %}
+        {% if  post.meta("acf_annonce_surface") %}
+          <li>{{ fields_annonce.acf_intitules.surface }} : <em>{{ post.meta("acf_annonce_surface") }}{{ fields_annonce.acf_surface_unit }}</em></li>
+        {% endif %}
+
+        {% if post.meta("acf_annonce_etage") != null %}
+          <li>{{ fields_annonce.acf_intitules.etage }} : <em>{{ get_etage_correspondance(post.meta("acf_annonce_etage")) }}</em></li>
+        {% endif %}
+        {% if (post.meta("acf_annonce_surface_propriete")) %}
+          <li>{{ fields_annonce.acf_intitules.surface_terrain }} : <em>{{ post.meta("acf_annonce_surface_propriete") }} {{ fields_annonce.acf_surface_unit }}</em> </li>
+        {% endif %}
+        {% if (post.meta("acf_annonce_charges")) %}
+          <li>{{ fields_annonce.acf_intitules.charges }} : <em>{{ fields_annonce.acf_unit }}&nbsp;{{ post.meta("acf_annonce_charges") }}&nbsp;{{ fields_annonce.acf_texte_location }}</em></li>
+        {% endif %}
+        {% if (post.meta("acf_annonce_date_disponibilite")) %}
+          <li>{{ fields_annonce.acf_intitules.disponibilite }} : <em>{{ post.meta("acf_annonce_date_disponibilite") }}</em></li>
+        {% endif %}
+        {% if (post.meta("acf_annonce_reference")) %}
+          <li>{{ fields_annonce.acf_intitules.reference }} : <em>{{ post.meta("acf_annonce_reference") }}</em></li>
+        {% endif %}
+      </ul>
+
+      <div class="contact">
+      {% if (post.meta("acf_annonce_photo_agent")) %}
+          <div class="photo-agent-container" style="  display: flex; margin-top: 1rem; align-items: center;">
+          <div class="photo" style="background-image: url({{ post.meta("acf_annonce_photo_agent")}}); background-size: cover ;width:80%; max-width:130px; height: auto; aspect-ratio: 1; border-radius: 100%; margin-bottom: 1rem"></div>
+          </div>
+
+        {% endif %}
+        <p>{{ fields_annonce.acf_intitules.votre_contact }}</p>
+        <address>
+          <p>{{ post.meta("acf_annonce_nom_agent") }}</p>
+          <a href="tel:{{ post.meta("acf_annonce_tel_agent") }}">{{ post.meta("acf_annonce_tel_agent") }}</a>
+          <a href="mailto:{{ post.meta("acf_annonce_email_agent") }}">{{ post.meta("acf_annonce_email_agent") }}</a>
+        </address>
+        
+      </div>
+      
+      <a class="button" href="mailto:{{ post.meta("acf_annonce_email_agent") }}?&subject=Daudin - Ref {{post.meta("acf_annonce_reference")|replace({'&':''})}} - {{post.meta("acf_annonce_adresse")|replace({'&':''})}}">{% if fields_annonce.acf_label_demande_informations %}{{ fields_annonce.acf_label_demande_informations }}{% else %}Demande d'informations{% endif %}</a>
+
+      {% if post.meta("acf_annonce_brochure") %}
+        <a href="{{ post.meta("acf_annonce_brochure") }}" class="button"
+           target="_blank">{{ fields_annonce.acf_label_plan_button }}</a><br />
+      {% endif %}
+      
+      {% if post.meta('acf_annonce_type_deal') == "location" %}
+        {% if (post.meta('acf_annonce_lien_inscription')) %}
+          <a href="{{ post.meta("acf_annonce_lien_inscription") }}" class="button" target="_blank">Inscription en ligne</a><br />
+        {% endif %}
+        {#
+        {% if post.meta('acf_annonce_famille_de_bien') == "agri" %}
+          {% if fields_annonce.acf_fiche_inscrip_agri and fields_annonce.acf_fiche_inscrip_agri.url %}
+            <a href="{{ fields_annonce.acf_fiche_inscrip_agri.url }}" class="button" target="_blank">{% if fields_annonce.acf_label_fiche_inscription %}{{ fields_annonce.acf_label_fiche_inscription }}{% else %}Fiche d'inscription{% endif %}</a><br />
+          {% endif %}
+      
+        {% elseif post.meta('acf_annonce_famille_de_bien') == "appt" %}
+          {% if fields_annonce.acf_fiche_inscrip_appt and fields_annonce.acf_fiche_inscrip_appt.url %}
+            <a href="{{ fields_annonce.acf_fiche_inscrip_appt.url }}" class="button" target="_blank">{% if fields_annonce.acf_label_fiche_inscription %}{{ fields_annonce.acf_label_fiche_inscription }}{% else %}Fiche d'inscription{% endif %}</a><br />
+          {% endif %}
+
+        {% elseif post.meta('acf_annonce_famille_de_bien') == "garden" %}
+          {% if fields_annonce.acf_fiche_inscrip_agri and fields_annonce.acf_fiche_inscrip_agri.url %}
+            <a href="{{ fields_annonce.acf_fiche_inscrip_agri.url }}" class="button" target="_blank">{% if fields_annonce.acf_label_fiche_inscription %}{{ fields_annonce.acf_label_fiche_inscription }}{% else %}Fiche d'inscription{% endif %}</a><br />
+          {% endif %}
+      
+        {% elseif post.meta('acf_annonce_famille_de_bien') == "gastro" %}
+          {% if fields_annonce.acf_fiche_inscrip_gastro and fields_annonce.acf_fiche_inscrip_gastro.url %}
+            <a href="{{ fields_annonce.acf_fiche_inscrip_gastro.url }}" class="button" target="_blank">{% if fields_annonce.acf_label_fiche_inscription %}{{ fields_annonce.acf_label_fiche_inscription }}{% else %}Fiche d'inscription{% endif %}</a><br />
+          {% endif %}
+      
+        {% elseif post.meta('acf_annonce_famille_de_bien') == "house" %}
+          {% if fields_annonce.acf_fiche_inscrip_house and fields_annonce.acf_fiche_inscrip_house.url %}
+          <a href="{{ fields_annonce.acf_fiche_inscrip_house.url }}" class="button" target="_blank">{% if fields_annonce.acf_label_fiche_inscription %}{{ fields_annonce.acf_fiche_inscrip_house }}{% else %}Fiche d'inscription{% endif %}</a><br />
+        {% endif %}
+      
+        {% elseif post.meta('acf_annonce_famille_de_bien') == "indus" %}
+          {% if fields_annonce.acf_fiche_inscrip_indus and fields_annonce.acf_fiche_inscrip_indus.url %}
+            <a href="{{ fields_annonce.acf_fiche_inscrip_indus.url }}" class="button" target="_blank">{% if fields_annonce.acf_label_fiche_inscription %}{{ fields_annonce.acf_label_fiche_inscription }}{% else %}Fiche d'inscription{% endif %}</a><br />
+          {% endif %}
+      
+        {% elseif post.meta('acf_annonce_famille_de_bien') == "park" %}
+          {% if fields_annonce.acf_fiche_inscrip_park and fields_annonce.acf_fiche_inscrip_park.url %}
+            <a href="{{ fields_annonce.acf_fiche_inscrip_park.url }}" class="button" target="_blank">{% if fields_annonce.acf_label_fiche_inscription %}{{ fields_annonce.acf_label_fiche_inscription }}{% else %}Fiche d'inscription{% endif %}</a><br />
+          {% endif %}
+      
+        {% elseif post.meta('acf_annonce_famille_de_bien') == "prop" %}
+          {% if fields_annonce.acf_fiche_inscrip_prop and fields_annonce.acf_fiche_inscrip_prop.url %}
+            <a href="{{ fields_annonce.acf_fiche_inscrip_prop.url }}" class="button" target="_blank">{% if fields_annonce.acf_label_fiche_inscription %}{{ fields_annonce.acf_label_fiche_inscription }}{% else %}Fiche d'inscription{% endif %}</a><br />
+          {% endif %}
+
+        {% elseif post.meta('acf_annonce_famille_de_bien') == "secondary" %}
+          {% if fields_annonce.acf_fiche_inscrip_secondary and fields_annonce.acf_fiche_inscrip_secondary.url %}
+            <a href="{{ fields_annonce.acf_fiche_inscrip_secondary.url }}" class="button" target="_blank">{% if fields_annonce.acf_label_fiche_inscription %}{{ fields_annonce.acf_label_fiche_inscription }}{% else %}Fiche d'inscription{% endif %}</a><br />
+          {% endif %}
+        
+        {% endif %}
+        #}
+      {% endif %}
+      <a href="/wp-pdf/?id={{ post.id }}" class="button" target="_blank">{{ fields_annonce.acf_label_imprimer }}</a><br />
+    </aside>
+    </main>
+
+    {% set addresse = post.meta("acf_annonce_adresse") ~ " "~ post.meta("acf_annonce_code_postal") ~ " " ~ post.meta("acf_annonce_ville") %}
+    <div id="map"
+    style = "background-image: url('https://maps.googleapis.com/maps/api/staticmap?center={{ addresse }}&zoom=15&size=500x500&key={{ fields_annonce.acf_api_key }}');"
+    data-title="{{ post.title() }}"
+    data-address = "{{ addresse }} "
+    data-map-style='{{ fields_annonce.acf_map_style }}'></div>
+
+    <article class="footer-annonce">
+    {% if contact %}
+      <div class="contact">
+        <h3>{{ fields_annonce.acf_down_contact_title }}</h3>
+        <div class="member bloc-footer-annonce">
+            <div class="left">
+              <div class="photo" style="background-image: url({{ contact.meta("acf_photo").url }});"></div>
+            </div>
+            <div class="right">
+              <p class="h4_style">{{ contact.title() }}</p>
+              <p>{{ contact.meta("acf_titre") }}</p>
+            </div>
+        </div>
+      </div>
+      {% endif %}
+
+      {% if quartier %}
+      <div class="zoom-sur">
+        <h3>{{ fields_annonce.acf_down_quartier_title }}</h3>
+        <div class="page-zoom bloc-footer-annonce">
+          <div class="left">
+             <div style="background-image: url({{ quartier.thumbnail().src }})" class="photo"></div>
+          </div>
+            <div class="right">
+              <p class="h4_style title">{{ quartier.name() }}</p>
+              <a href="{{ quartier.link() }}" class="button">{{ fields_annonce.acf_label_quartier_button }}</a>
+            </div>
+        </div>
+      </div>
+      {% endif %}
+    </article>
+  </div>
+
+  {# {% include "footer-page.twig" %} #}
+{% endblock %}

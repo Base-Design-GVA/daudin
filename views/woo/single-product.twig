@@ -1,0 +1,121 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+{% include 'parts/breadcrumb.twig' %}
+
+<div class="container">
+    <div class="row woocommerce_single_row">
+
+        <div class="woocommerce_product_galery {{ set_flexgrid(12,7) }}">
+            {% if product._product_image_gallery %}
+                {% set gallery = product._product_image_gallery|split(',') %}
+                <div class="illustration">{{ build_acf_image(gallery.0) }}</div>
+                {% if gallery|length > 1 %}
+                    <ul class="gallery product_slider">
+                    {% for image in gallery %}
+                        <li data-image-url="{{ build_acf_image(image, 'full', '', '', '', true) }}">{{ build_acf_image(image, 'custom', '', '96') }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endif %}
+        </div>
+
+        <div class="woocommerce_product_data {{ set_flexgrid(12,5) }}">
+            {% if product.acf_product_title_titre_1 %}
+                <h1>
+                    {{ product.acf_product_title_titre_1 }}
+                    {% if product.acf_product_title_exposant %}<sup>{{ product.acf_product_title_exposant }}</sup>{% endif %}
+                    {% if product.acf_product_title_titre_2 %}<br />{{ product.acf_product_title_titre_2 }}{% endif %}
+                </h1>
+            {% else %}
+                <h1>{{ product.post_title }}</h1>
+            {% endif %}
+
+            <h2 class="product_ancestor">{{ acf_product_ancestor }}</h2>
+            {% if product.acf_product_certifications_logos_0_image %}
+            <ul class="logos">
+                {% for item in product.meta('acf_product_certifications_logos') %}
+                    {% if item.image %}
+                    <li>
+                        {% if item.lien and item.lien.url %}
+                        <a href="{{ item.lien.url }}" target="{{ item.lien.target }}">{{ build_acf_image(item.image) }}</a>
+                        {% else %}
+                            {{ build_acf_image(item.image) }}
+                        {% endif %}                     
+                    </li>
+                    {% endif %}                     
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+            {% if product.acf_product_contraintes_0_type %}
+            <ul class="contraintes">
+                {% for item in product.meta('acf_product_contraintes') %}
+                <li>
+                    <h3>{{ item.type }}</h3>
+                    <div>{{ item.valeurs }}</div>
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+            {% if product.acf_product_description %}
+            <div class="description">
+                {{ product.acf_product_description }}
+            </div>
+            {% endif %}
+
+            {# fiches techniques et options : liens téléchargements #}
+            {% if product.acf_product_fiches_techniques_0_fiche or product.acf_product_options_0_option %}
+            <div class="downloads">
+                {% if product.acf_product_fiches_techniques_0_fiche %}
+                <ul class="techniques">
+                    {% for item in product.meta('acf_product_fiches_techniques') %}
+                        {% if item.fiche and item.fiche.url %}
+                        <li><a href="{{ item.fiche.url }}" target="_blank">{{ fields_trads.acf_trad_fiche_technique }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>  
+                {% endif %} 
+                {% if product.acf_product_options_0_option %}
+                <ul class="options">
+                    {% for item in product.meta('acf_product_options') %}
+                        {% if item.option and item.option.url %}
+                        <li><a href="{{ item.option.url }}" target="_blank">{{ fields_trads.acf_trad_options }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>  
+                {% endif %} 
+            </div>
+            {% endif %}
+
+        </div>
+
+    </div>
+
+    <div class="row woocommerce_single_row">
+        <div class="woocommerce_product_desc_left woocommerce_product_desc {{ set_flexgrid(12,7) }}">
+            {{ product.acf_product_desc_gauche }}
+        </div>
+        <div class="woocommerce_product_desc_right woocommerce_product_desc {{ set_flexgrid(12,5) }}">
+            {{ product.acf_product_desc_droite }}
+        </div>
+    </div>
+</div>
+
+{% if acf_product_cat_color %}
+<style type="text/css">
+    .woocommerce_single_row h2,
+    .woocommerce_single_row h3,
+    .woocommerce_single_row h4,
+    .woocommerce_single_row h5,
+    .woocommerce_single_row h6 {
+        color: {{ acf_product_cat_color }};
+    }
+    .slick-prev:hover i,
+    .slick-next:hover i { color: {{ acf_product_cat_color }} }
+</style>
+{% endif %}
+
+{% endblock  %}

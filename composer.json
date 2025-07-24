@@ -1,0 +1,22 @@
+{
+    "name": "daudin/daudin-base-theme-oop",
+    "description": "Base Theme",
+    "type": "theme",
+    "authors": [
+        {
+            "name": "Base Design",
+            "email": "geneva@basedesign.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "timber/timber": "^1.5",
+      "ext-dom": "*",
+        "twig/twig": "3.8.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true
+        }
+    }
+}

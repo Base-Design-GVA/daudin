@@ -1,0 +1,13 @@
+.wp-block-group {
+  border:black solid 1px;
+  padding: 1rem;
+}
+.wp-block-group::before {
+  content:"Section (si elle doit être intégrée à l'indicateur de progression : ajouter la classe 'section-progression' et préciser le titre dans l'ancre, les tirets seront remplacés par des espaces)";
+  font-style: italic;
+}
+
+.wp-block-columns {
+  box-shadow: #666666 6px 6px 10px ;
+}
+

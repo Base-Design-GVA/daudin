@@ -1,0 +1,17 @@
+.bloc-menu-bouton {
+  ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 5rem;
+    font-size: 1.7rem;
+    line-height: 2.3rem;
+    text-align: center;
+
+    a {
+      padding: 0.7rem 2.3rem;
+      margin-right: 2rem;
+    }
+  }
+}

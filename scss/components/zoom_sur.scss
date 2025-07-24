@@ -1,0 +1,71 @@
+.bloc-zoom-sur {
+
+    .wrapper-zooms {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 4rem;
+        margin-bottom: 6rem;
+        row-gap: 2rem;
+
+        @include not-mobile {
+            margin-top: 4rem;
+            margin-bottom: 20rem;
+            row-gap: 6rem;
+        }
+
+        @include not-mobile {
+            &.has-2-column {
+                .page-zoom {
+                    margin-right: 6% !important;
+                 
+                }
+            }
+        }
+
+        .page-zoom {
+            margin-top: 2rem;
+            width: 100%;
+            @include not-mobile {
+                width: 30%;
+                margin-right: 3%;
+            }
+
+
+            @include not-mobile {
+                margin-top: 0;
+            }
+        }
+
+        .title {
+            text-align: center;
+            margin-top: 2rem;
+
+            @include not-mobile {
+                margin-top: 4.6rem;
+            }
+        }
+
+        .thumbnail {
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            width: 100%;
+            padding-top: 100%;
+            clip-path: circle(50% at 50% 50%);
+            background-color: $color_light_grey;
+        }
+
+        a {
+
+            margin: 1rem auto 0 auto;
+            text-align: center;
+            display: block;
+            width: fit-content;
+
+            @include not-mobile {
+                margin-top: 2.7rem;
+            }
+        }
+    }
+}

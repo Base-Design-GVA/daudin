@@ -1,0 +1,166 @@
+.footer-page {
+    min-height: 100vh;
+    padding-bottom: 2vh;
+    background-color: $color_light_grey;
+    padding-top: 10vh;
+    color: $color_black;
+    margin-top: 2rem;
+    position: sticky;
+    z-index: 250;
+
+    @include desktop {
+        margin-top: 13rem;
+    }
+
+    .bottom {
+
+        @include not-mobile {
+            display: flex;
+            margin-top: 6rem;
+        }
+
+        @include desktop {
+            margin-top: 12.8rem;
+        }
+
+        .left {
+            flex-grow: 1;
+
+            input:not([type=submit]) {
+                width: 100% !important;
+            }
+        }
+
+        .right {
+            margin-top: 4rem;
+
+            @include not-mobile {
+                margin-top: 0;
+                width: 31%;
+                margin-left: 10rem;
+            }
+
+            p {
+                margin-bottom: 2rem;
+            }
+
+            .form-btn {
+                border-radius: 2.45rem;
+                border: 0.13rem solid $color_black;
+                padding: 1rem 2rem;
+                display: block;
+                background-color: transparent;
+                color: $color_black !important;
+                border-color: $color_black !important;
+                transition: background-color ease 200ms;
+                width: fit-content;
+                margin-bottom: 1rem;
+
+                &:hover {
+                    background-color: $color_orange;
+                    text-decoration: none;
+                    transition: background-color ease 200ms;
+                }
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+
+            }
+
+
+
+            @include desktop {
+                margin-left: 17rem;
+            }
+        }
+    }
+
+    .logos-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 18rem);
+        grid-gap: 3.8rem;
+        margin: 2vh 3.5rem 2vh 3.5rem;
+        margin: 2vh 3.5rem 2vh 3.5rem;
+        justify-content: center;
+
+        @include not-mobile {
+            grid-gap: 8rem;
+            justify-content: center;
+
+
+            @include desktop {
+                margin: 18.8rem 6.5rem 7.8rem 6.5rem
+            }
+
+
+            .logo {
+                img {
+                    width: 100%;
+                    height: auto;
+                    margin: auto;
+                    display: block;
+                }
+            }
+        }
+    }
+
+
+    .gfield {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        .ginput_container {
+            margin: 0;
+            padding: 0;
+        }
+
+        label {
+            text-indent: -9999px;
+            width: 0;
+            height: 0;
+            position: absolute;
+        }
+
+        input {
+            border: none;
+            border-bottom: 0.1rem solid $color_black;
+            padding: 1.4rem 0;
+            line-height: 2.9rem;
+            margin: 0 0 1.4rem 0;
+            background-color: transparent;
+            font-weight: 500;
+
+            &::placeholder {
+                color: $color_black;
+                opacity: 1;
+                font-weight: 500;
+            }
+
+            &:focus, :focus-visible {
+                border-bottom: 0.3rem solid $color_black;
+                outline: none;
+            }
+
+        }
+    }
+
+    .gform_button {
+        margin-top: 3rem !important;
+        border-radius: 2.45rem;
+        display: block;
+        background-color: transparent;
+        color: $color_black !important;
+        border-color: $color_black !important;
+
+        input {
+            display: block;
+            max-width: min-content;
+        }
+    }
+
+    .gform_confirmation_message {
+        margin: 2rem 1rem;
+    }
+}

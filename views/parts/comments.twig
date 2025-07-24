@@ -1,0 +1,12 @@
+<div class="comments">
+  
+  <ul class="comments__list"></ul>
+    {% for comment in post.comments %}
+    <li class="comment-{{comment.ID}} comment-order-{{loop.index}}">
+      <p>{{comment.author.name}} :</p>
+      <p>{{comment.content}}</p>
+    </li>
+    {% endfor %}
+  </ul>
+
+</div>

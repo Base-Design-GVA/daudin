@@ -1,0 +1,41 @@
+.progression-indicator {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 100;
+
+    @include desktop {
+        display: flex;
+    }
+
+    > div {
+        flex: 1;
+        padding-top: 1.7rem;
+        position: relative;
+
+        &.active {
+            a {
+                color: inherit;
+            }
+        }
+
+        > a {
+            transition: color ease-out 400ms;
+            font-weight: 500;
+            font-size: 1.4rem;
+            line-height: 3rem;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 0.9rem;
+            width: var(--progression-value);
+        }
+    }
+}

@@ -1,0 +1,22 @@
+  {#
+/**
+ * Block Name: Example block
+ *
+ * This is the template that displays the example block.
+ */
+#}
+
+{% if is_preview %}
+  Je suis seulement dans l'éditeur
+{% endif %}
+
+<div id="example-{{ block.id }}" class="wrapper">
+  <h1>{{ fields.titre }}</h1>
+  {{ post.author }}
+</div>
+
+{% set custom_css = custom_css ~ ' .' ~ block.id ~ ' { color: ' ~ fields.text_color  ~ '; }}'  ~ "\r\n" %}
+{% set custom_css = custom_css ~ ' @media (max-width: 1024px) { .' ~ block.id ~ ' { color: ' ~ fields.text_color ~ '; }}'  ~ "\r\n" %}
+
+{# gestion du CSS custom #}
+{{ build_custom_css(custom_css) }} 

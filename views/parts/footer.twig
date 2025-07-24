@@ -1,0 +1,40 @@
+
+<footer class="footer">
+  <div class="footer-fixed">
+    {% include "actus.twig" %}
+    <div class="menu-burger b-container">
+      <div class="b-menu">
+        <div class="b-bun b-bun--top"></div>
+        <div class="b-bun b-bun--mid"></div>
+        <div class="b-bun b-bun--bottom"></div>
+      </div>
+        <div class="labels">
+          <span class="open">{{ fields_footer.acf_fixed_footer.label_menu }}</span>
+          <span class="close">{{ fields_footer.acf_fixed_footer.label_close }}</span>
+        </div>
+
+
+    </div>
+
+    {{ load_nav_menu(fields_footer.acf_fixed_footer.left_menu.slug, "button") }}
+
+    <div class="center_text">
+      <p>
+        <a href="/">{{ fields_footer.acf_fixed_footer.center_text }}</a>
+      </p>
+    </div>
+
+    <div class="login-wrapper">
+        <button>Login</button>
+        {{ load_nav_menu(fields_footer.acf_fixed_footer.right_menu.slug, "button") }}
+    </div>
+
+    <div class="contact_link">
+      <a href="{{ fields_footer.acf_fixed_footer.contact_link.url }}" >
+        {{ fields_footer.acf_fixed_footer.contact_link.title }}
+      </a>
+    </div>
+  </div>
+</footer> <!-- footer -->
+
+

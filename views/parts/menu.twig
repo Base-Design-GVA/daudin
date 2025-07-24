@@ -1,0 +1,23 @@
+<nav class="menu_container closed tidied" data-arrow-back='{{ build_acf_image(fields_footer.acf_conf_menu_fs.icon_back) }}'
+  data-reseaux-sociaux='{{ fields_footer.acf_conf_menu_fs.acf_reseaux_sociaux | json_encode }}'
+>
+  {{ load_nav_menu(wp.menus.main) }}
+  <style>
+    .menu_container > div  > ul > li:nth-child(1) {
+      background-color: {{ fields_footer.acf_conf_menu_fs.color_part_1 }};
+    }
+
+    .menu_container > div  > ul > li:nth-child(1) > ul.sub-menu li{
+      color:{{ fields_footer.acf_conf_menu_fs.color_txt_part_1 }};
+    }
+
+    .menu_container > div  > ul >  li:nth-child(2) {
+      background-color: {{ fields_footer.acf_conf_menu_fs.color_part_2 }};
+      color:{{ fields_footer.acf_conf_menu_fs.color_txt_part_2 }};
+    }
+    .menu_container > div  > ul > li:nth-child(3) {
+      background-color: {{ fields_footer.acf_conf_menu_fs.color_part_3 }};
+      color:{{ fields_footer.acf_conf_menu_fs.color_txt_part_3 }};
+    }
+  </style>
+</nav>

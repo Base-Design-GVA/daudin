@@ -1,0 +1,390 @@
+{
+    "key": "group_607825e294887",
+    "title": "Bloc : Superposition Image Forme",
+    "fields": [
+        {
+            "key": "field_607826660bde4",
+            "label": "Image",
+            "name": "acf_image",
+            "type": "image",
+            "instructions": "Image de fond",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_6078267c0bde5",
+            "label": "Forme",
+            "name": "acf_shape",
+            "type": "image",
+            "instructions": "Forme qui se superposera (de préférence en svg)",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_6078269e0bde6",
+            "label": "Direction d'animation",
+            "name": "acf_animation_direction",
+            "type": "select",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "translateY(-200%)": "Haut  - Bas",
+                "translateY(+200%)": "Bas - Haut",
+                "translateX(-200%)": "Gauche - Droite",
+                "translateX(+200%)": "Droite - Gauche"
+            },
+            "default_value": "top",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_607827730bde7",
+            "label": "Position d'arrivée",
+            "name": "acf_end_position",
+            "type": "group",
+            "instructions": "Position d'arrivée par rapport au coin haut gauche de l'image en pourcentage de taille de l'image",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_607827a00bde8",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "type": "group",
+                    "instructions": "En format mobile",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_607827b30bde9",
+                            "label": "X",
+                            "name": "x",
+                            "type": "number",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "%",
+                            "min": 0,
+                            "max": 100,
+                            "step": 1
+                        },
+                        {
+                            "key": "field_607828050bdea",
+                            "label": "Y",
+                            "name": "y",
+                            "type": "number",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "%",
+                            "min": 0,
+                            "max": 100,
+                            "step": 1
+                        }
+                    ]
+                },
+                {
+                    "key": "field_607828160bdeb",
+                    "label": "Desktop",
+                    "name": "desktop",
+                    "type": "group",
+                    "instructions": "En format ordinateur",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_607828160bdec",
+                            "label": "X",
+                            "name": "x",
+                            "type": "number",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "%",
+                            "min": 0,
+                            "max": 100,
+                            "step": 1
+                        },
+                        {
+                            "key": "field_607828160bded",
+                            "label": "Y",
+                            "name": "y",
+                            "type": "number",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "%",
+                            "min": 0,
+                            "max": 100,
+                            "step": 1
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_6078283d0bdee",
+            "label": "Durée de l'animation",
+            "name": "acf_animation_duration",
+            "type": "number",
+            "instructions": "A partir de 50ms. Attention à partir de 3000ms l'utilisateur risque de ne jamais voir la forme...",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 1000,
+            "placeholder": "",
+            "prepend": "",
+            "append": "ms",
+            "min": 50,
+            "max": "",
+            "step": ""
+        },
+        {
+            "key": "field_60782c5a2985a",
+            "label": "Hauteurs",
+            "name": "acf_height",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_60782cb02985b",
+                    "label": "Mobile",
+                    "name": "mobile",
+                    "type": "group",
+                    "instructions": "Hauteurs pour mobile",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_60782cc32985c",
+                            "label": "Hauteur de l'image",
+                            "name": "image",
+                            "type": "number",
+                            "instructions": "En px",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "px",
+                            "min": 0,
+                            "max": "",
+                            "step": 1
+                        },
+                        {
+                            "key": "field_60782d052985d",
+                            "label": "Hauteur de la forme",
+                            "name": "shape",
+                            "type": "number",
+                            "instructions": "En pourcentage de la taille de l'image",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "%",
+                            "min": 0,
+                            "max": 100,
+                            "step": 1
+                        }
+                    ]
+                },
+                {
+                    "key": "field_60782d2a2985e",
+                    "label": "Desktop",
+                    "name": "desktop",
+                    "type": "group",
+                    "instructions": "Hauteurs pour ordinateur",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_60782d2b2985f",
+                            "label": "Hauteur de l'image",
+                            "name": "image",
+                            "type": "number",
+                            "instructions": "En px",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "px",
+                            "min": 0,
+                            "max": "",
+                            "step": 1
+                        },
+                        {
+                            "key": "field_60782d2b29860",
+                            "label": "Hauteur de la forme",
+                            "name": "shape",
+                            "type": "number",
+                            "instructions": "En pourcentage de la taille de l'image",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "%",
+                            "min": 0,
+                            "max": 100,
+                            "step": 1
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/superposition-bloc"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1622125995
+}

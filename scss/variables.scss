@@ -1,0 +1,37 @@
+/*
+    FONTS : voir fontfaces.scss
+*/
+//
+//@font-face {
+//	font-family: "myriad-pro";
+//	  src: 	url("/wp-content/themes/daudin/fonts/myriad/MyriadPro-Regular.otf") format("truetype");
+//	font-weight:100;
+//	font-style: normal;
+//}
+//@font-face {
+//	font-family: "myriad-pro";
+//	  src: 	url("/wp-content/themes/daudin/fonts/myriad/MyriadPro-Bold.otf") format("truetype");
+//	font-weight:600;
+//	font-style: normal;
+//}
+
+$font-size : "10px";
+$title-font : "Teodor", 'Times New Roman', serif;
+$text-font : "Forno", 'Arial', sans-serif;
+
+/*
+    COLORS
+*/
+
+$color_red: #B90046;
+$color_orange: #FD6F00;
+$color_blue: #0286FC;
+$color_light_grey: #e3e3e3;
+$color_light_grey_2: #bfbfbf;
+$color_light_grey_3 : #E9E9E9;
+$color_dark_grey:#656565;
+$color_green: #019346;
+$color_pink: #F97FB5;
+
+$color_black : #000;
+$color_white : #fff;

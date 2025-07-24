@@ -1,0 +1,57 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    {% if page.meta('acf_is_title_centered') %}
+        {% set class_title_centered = "title-centered" %}
+    {% endif %}
+
+    <section class="page_content container {{ class_title_centered }}">
+        <p class="page-title"><strong>{{ page.title() }}</strong></p>
+
+        {{ page.content }}
+
+    </section>
+
+    {% include "footer-page.twig" %}
+
+    <style>
+        body, .main_content, .bg_header {
+            background-color: {{ page.meta("acf_page_bg_color") }};
+            color: {{ page.meta("acf_page_text_color") }};
+        }
+
+        header {
+            --color-inactive-link: {{ page.meta("acf_couleur_titre_inactif")}};
+        }
+
+        header nav a, header nav a:visited, .progression-indicator p {
+            color: {{ page.meta("acf_page_text_color") }};
+        }
+
+        #daudin-title {
+            fill : {{ page.meta("acf_page_text_color") }};
+        }
+
+        html body button, html body .button {
+            border-color: {{ page.meta("acf_page_text_color") }};
+            color: {{ page.meta("acf_page_text_color") }};
+        }
+
+        html body .bloc-faq-services .element {
+            border-bottom-color: {{ page.meta("acf_page_text_color") }};
+        }
+
+        html body button::before, html body button::after, html body .button::before, html body .button::after {
+            background-color: {{ page.meta("acf_page_text_color") }};
+        }
+
+        .left-page .bg_transition {
+            background-color: {{ fields_header.acf_conf_header_principal_content.left_part.bg_color_page_lie }};
+        }
+
+        .right-page .bg_transition {
+            background-color: {{ fields_header.acf_conf_header_principal_content.right_part.bg_color_page_lie }};
+        }
+    </style>
+
+{% endblock %}

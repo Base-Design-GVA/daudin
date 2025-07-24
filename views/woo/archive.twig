@@ -1,0 +1,91 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+<div class="container archive_container" data-main-color="{{ acf_product_cat_color }}">
+    <div class="row">
+        <div class="woocommerce_title {{ set_flexgrid(12) }}">
+            <h1>{{ queried_object.name }}</h1>
+            {% if queried_object.description %}
+                <div class="description">{{ queried_object.description }}</div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="woocommerce_sidebar {{ set_flexgrid(12,3) }}">
+            <p class="sidebar_title">{{ fields_trads.acf_trad_sidebar_title }}</p>
+            <span class="toggle"></span>
+            {{ products_cats }}
+        </div>
+
+        <div class="woocommerce_listing {{ set_flexgrid(12,9) }}">
+
+            {% if subcategories %}
+            <ul class="woocommerce_list subcategories">
+                {% for category in subcategories %}
+                    <li>
+                        <a href="{{ category.term_link }}" class="archive-link">
+                            <span class="title">
+                                <h2>{{ category.name }}</h2>
+                                {% if category.description %}
+                                    <span class="description">{{ clean_cut(category.description|striptags, 100) }}</span>
+                                {% endif %}
+                            </span>
+                            <span class="thumbnail" style="background-image: url('{{ category.thumbnail }}');"></span>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+            {% if products %}
+            <ul class="woocommerce_list list_product">
+                {% for product in products %}
+                    {% set product_title =  fn('get_field', 'acf_product_title', product.id) %}
+                    {% include 'woo/teaser.twig' %}
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+            {% do action('woocommerce_after_shop_loop') %}
+        </div>
+
+    </div>
+</div>
+
+{% if acf_product_cat_color %}
+<style type="text/css">
+    .woocommerce_title h1 {
+        color: {{ acf_product_cat_color }} !important;
+    }
+    .woocommerce_listing > ul li a span.title h2 {
+        background-color: {{ acf_product_cat_color }} !important;
+    }
+    .woocommerce_listing > ul li a span.title span {
+        background-color: {{ acf_product_cat_color }} !important;
+    }
+    .woocommerce_sidebar ul li.current > span > a {
+        color: {{ acf_product_cat_color }} !important
+    }
+    .woocommerce_sidebar ul li a:hover {
+        color: {{ acf_product_cat_color }} !important
+    }
+    .woocommerce_sidebar ul li ul li > span:hover > a {
+        color: {{ acf_product_cat_color }} !important
+    }
+    .woocommerce_sidebar ul li ul li.current > span > a {
+        color: {{ acf_product_cat_color }} !important
+    }
+    .woocommerce-pagination ul.page-numbers li > span.current::after {
+        background-color: {{ acf_product_cat_color }} !important;
+    }
+    .woocommerce-pagination ul.page-numbers li > a:hover::after, 
+    .woocommerce-pagination ul.page-numbers li > .current:hover::after {
+        background-color: {{ acf_product_cat_color }} !important;
+    }
+</style>
+{% endif %}
+
+{% endblock  %}
