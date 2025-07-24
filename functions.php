@@ -31,6 +31,7 @@ class DaudinTheme {
     include get_template_directory() . '/core/ajax.php';
     include get_template_directory() . '/core/plugins.php';
     include get_template_directory() . '/core/api.php';
+    include get_template_directory() . '/api/immomig-contact.php';
     include get_template_directory() . '/core/timber.php';
     include get_template_directory() . '/core/woocommerce.php';
     include get_template_directory() . '/core/gutenberg.php';
