@@ -205,8 +205,8 @@ add_action('init', function() {
 /**
  * Immomig API Configuration
  */
-define('IMMOMIG_API_KEY', 'ish7-iy3i-xeit-e1iw');
-define('IMMOMIG_SHARED_SECRET', '015aa698-1801-49a3-afa3-9c2bd18720bc');
+define('IMMOMIG_API_KEY', get_field('immomig_api_key', 'option'));
+define('IMMOMIG_SHARED_SECRET', get_field('immomig_api_secret', 'option'));
 define('IMMOMIG_BASE_URL', 'https://api2.myimmomig.com');
 
 /**
