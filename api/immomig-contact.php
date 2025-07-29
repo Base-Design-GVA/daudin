@@ -88,6 +88,7 @@ function handle_immomig_contact_submission($request) {
     $message = $request->get_param('contact_message');
     $property_id = $request->get_param('property_id');
     $property_reference = $request->get_param('property_reference');
+    $property_address = $request->get_param('property_address');
     
     error_log('Extracted parameters:');
     error_log('- Name: ' . $name);
