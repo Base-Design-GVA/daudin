@@ -71,6 +71,11 @@ class ACF {
       'menu_title'    => 'Footer',
       'parent_slug'   => 'Daudin-options',
     ));
+    acf_add_options_sub_page(array(
+      'page_title'    => 'immomig',
+      'menu_title'    => 'immomig',
+      'parent_slug'   => 'Daudin-options',
+    ));
   }
 
   public function acf_g_block() {

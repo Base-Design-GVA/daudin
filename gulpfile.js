@@ -12,7 +12,8 @@ sass.compiler = require('node-sass');
 gulp.task('browser-sync', function () {
   const files = ['./scss/*.scss', './*.php', './js/*.js'];
   browserSync.init(files, {
-    proxy: 'http://daudin-779.local:10022/'
+    proxy: 'http://localhost:8888/wp_daudin/',
+    port: 3004,
   });
   gulp.watch('./scss/**/*.scss', gulp.series(css));
   gulp.watch('./js/*.js').on('change', browserSync.reload);

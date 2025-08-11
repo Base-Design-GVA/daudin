@@ -111,8 +111,36 @@
         </address>
         
       </div>
-      
-      <a class="button" href="mailto:{{ post.meta("acf_annonce_email_agent") }}?&subject=Daudin - Ref {{post.meta("acf_annonce_reference")|replace({'&':''})}} - {{post.meta("acf_annonce_adresse")|replace({'&':''})}}">{% if fields_annonce.acf_label_demande_informations %}{{ fields_annonce.acf_label_demande_informations }}{% else %}Demande d'informations{% endif %}</a>
+
+      {% if post.meta('acf_annonce_type_deal') == "vente" %}
+        <div class="contact-form">
+          <h3>Demande d'informations</h3>
+          <form class="property-contact-form" method="post" action="{{ site.url }}/wp-json/immomig/v1/contact">
+            <input type="hidden" name="property_id" value="{{ post.id }}">
+            <input type="hidden" name="property_reference" value="{{ post.meta('acf_annonce_reference') }}">
+            
+            <div class="form-group">
+              <input type="text" id="contact-name" name="contact_name" placeholder="Nom *" required>
+            </div>
+            
+            <div class="form-group">
+              <input type="email" id="contact-email" name="contact_email" placeholder="Email *" required>
+            </div>
+            
+            <div class="form-group">
+              <input type="tel" id="contact-phone" name="contact_phone" placeholder="Téléphone *" required>
+            </div>
+            
+            <div class="form-group">
+              <textarea id="contact-message" name="contact_message" placeholder="Message" rows="4"></textarea>
+            </div>
+            
+            <button type="submit" class="button">Envoyer</button>
+          </form>
+        </div>
+      {% else %}
+        <a class="button" href="mailto:{{ post.meta("acf_annonce_email_agent") }}?&subject=Daudin - Ref {{post.meta("acf_annonce_reference")|replace({'&':''})}} - {{post.meta("acf_annonce_adresse")|replace({'&':''})}}">{% if fields_annonce.acf_label_demande_informations %}{{ fields_annonce.acf_label_demande_informations }}{% else %}Demande d'informations{% endif %}</a>
+      {% endif %}
 
       {% if post.meta("acf_annonce_brochure") %}
         <a href="{{ post.meta("acf_annonce_brochure") }}" class="button"
@@ -217,4 +245,6 @@
   </div>
 
   {# {% include "footer-page.twig" %} #}
+  
+  <script src="{{ site.url }}/wp-content/themes/daudin/js/contact-form.js"></script>
 {% endblock %}
