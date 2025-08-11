@@ -206,9 +206,27 @@ add_action('init', function() {
 /**
  * Immomig API Configuration
  */
-define('IMMOMIG_API_KEY', get_field('immomig_api_key', 'option'));
-define('IMMOMIG_SHARED_SECRET', get_field('immomig_api_secret', 'option'));
 define('IMMOMIG_BASE_URL', 'https://api2.myimmomig.com');
+
+// Initialize API configuration after ACF is ready
+function init_immomig_config() {
+    if (function_exists('get_field')) {
+        if (!defined('IMMOMIG_API_KEY')) {
+            define('IMMOMIG_API_KEY', get_field('immomig_api_key', 'option') ?: '');
+        }
+        if (!defined('IMMOMIG_SHARED_SECRET')) {
+            define('IMMOMIG_SHARED_SECRET', get_field('immomig_api_secret', 'option') ?: '');
+        }
+    } else {
+        if (!defined('IMMOMIG_API_KEY')) {
+            define('IMMOMIG_API_KEY', '');
+        }
+        if (!defined('IMMOMIG_SHARED_SECRET')) {
+            define('IMMOMIG_SHARED_SECRET', '');
+        }
+    }
+}
+add_action('acf/init', 'init_immomig_config', 20); // Run with lower priority to avoid conflicts
 
 /**
  * Get Immomig API token

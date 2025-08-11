@@ -35,9 +35,9 @@ class ACF {
 
   public function set_options_pages() {
     // Check if ACF is available before using its functions
-    if (!function_exists('acf_add_options_page')) {
-      return;
-    }
+    //if (!function_exists('acf_add_options_page')) {
+    //  return;
+    //}
     
     acf_add_options_page(array(
       'page_title'    => 'Theme Options',
