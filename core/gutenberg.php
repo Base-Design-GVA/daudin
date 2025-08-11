@@ -5,18 +5,31 @@ namespace DaudinTheme\Core;
 class GutenbergBlock {
 
 	public function execute() {
+		// Debug: Log that the class is being executed
+		error_log('GutenbergBlock: execute() method called');
 		$this->register_hooks();
 	}
 
 	protected function register_hooks() {
+		// Debug: Log that we're registering hooks
+		error_log('GutenbergBlock: Registering hooks');
 		add_action( 'acf/init', array($this, 'my_acf_init'));
+		add_action( 'init', array($this, 'my_acf_init')); // Fallback hook
+		error_log('GutenbergBlock: Hook registered for acf/init and init');
 	}
 
 	public function my_acf_init() {
 
+		// Debug: Log that the function was called
+		error_log('ACF Block Registration: my_acf_init() called');
+
 		if ( ! function_exists( 'acf_register_block' ) ) {
+			error_log('ACF Block Registration: acf_register_block function not found');
 			return;
 		}
+
+		// Debug: Log that we're registering blocks
+		error_log('ACF Block Registration: Starting to register blocks');
 
 //		// Register a new block.
 //		acf_register_block( array(
@@ -75,7 +88,7 @@ class GutenbergBlock {
     ) );
 
     acf_register_block( array(
-      'name'            => 'nos_equipes_bloc',
+      'name'            => 'nos-equipes-bloc',
       'title'           => 'Nos Equipes / CA',
       'description'     => 'Bloc de présentation des équipes / ou de conseil d\'administration selon le mode',
       'render_callback' => array($this, 'callback_nos_equipes_acf_block_render'),
@@ -84,6 +97,9 @@ class GutenbergBlock {
       'icon'            => 'admin-users',
       'keywords'        => array('equipe', 'ca'),
     ) );
+
+    // Debug: Log that nos-equipes-bloc was registered
+    error_log('ACF Block Registration: nos-equipes-bloc registered successfully');
 
     acf_register_block( array(
       'name'            => 'zoom_sur_bloc',
@@ -216,6 +232,9 @@ class GutenbergBlock {
 
 		public function callback_nos_equipes_acf_block_render( $block, $content = '', $is_preview = true ) {
 
+			// Debug: Log that the render callback was called
+			error_log('ACF Block Render: nos-equipes-bloc render callback called');
+
 			$context = \Timber\Timber::get_context();
 
 			// Store block values.
@@ -224,8 +243,16 @@ class GutenbergBlock {
 			// Store field values.
 			$context['fields'] = get_fields();
 
+			// Debug: Log the fields
+			error_log('ACF Block Render: Fields data: ' . print_r($context['fields'], true));
+
 			// Store $is_preview value.
 			$context['is_preview'] = $is_preview;
+
+			// Debug: Check if template exists
+			$template_path = get_template_directory() . '/views/block/nos_equipes.twig';
+			error_log('ACF Block Render: Template path: ' . $template_path);
+			error_log('ACF Block Render: Template exists: ' . (file_exists($template_path) ? 'YES' : 'NO'));
 
 			// Render the block.
 			\Timber\Timber::render( 'block/nos_equipes.twig', $context );
