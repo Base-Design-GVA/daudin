@@ -7,7 +7,10 @@
   &.tidied {
     transform: translateY(-200vw);
   }
-
+  @include mobile{
+    height: 100%;
+    position: relative;
+  }
   @include desktop {
     top: 0;
     transition: transform 100ms ease;
@@ -268,6 +271,106 @@
         }
       }
     }
+  }
+  .login-wrapper{
+    z-index: 100;
+    position: absolute;
+    bottom: 16vh;
+    left: 10px;
+    display: flex;
+    flex-basis: 25%;
+    align-items: center;
+    justify-content: center;
+    button {
+      color: $color_black;
+      font-size: 1.7rem;
+      line-height: 2.3rem;
+      text-align: center;
+      font-weight: 500;
+      padding: 0.2rem 1rem;
+      border: 0.13rem solid #000000;
+      border-radius: 2.45rem;
+      background-color: white;
+      transition: color ease 200ms, background-color ease 200ms;
+      letter-spacing: 0.061rem;
+      width:200px;
+      &:hover, &:focus, &:focus-visible, &.active:hover {
+          background-color: $color_orange;
+          color: $color_black !important;
+          outline: none;
+      }
+
+      &:focus + .button_container,
+      &:focus-visible + .button_container,
+      &.active:hover + .button_container {
+          opacity: 1;
+          transition: opacity ease 400ms;
+          z-index: 10;
+          display: block;
+      }
+
+      @include desktop() {
+          min-width: 15rem;
+          padding: 0.7rem 1rem;
+          font-size: 1.7rem;
+          border-width: 0.015rem;
+          display: block;
+          margin: 0 0.3rem;
+      }
+
+      @include tablet() {
+          min-width: 15rem;
+      }
+      
+
+  }
+
+  .button_container {
+      position: absolute;
+      flex-grow: 1;
+      bottom: calc(6* var(--vh));
+      background-color: $color_white;
+      padding: 1rem;
+      opacity: 0;
+      transition: opacity ease 400ms;
+      z-index: -1;
+      border-radius: 20px;
+      width:200px;
+
+      @include desktop() {
+          min-width: 20rem;
+      }
+      
+      @include tablet() {
+          min-width: 15rem;
+      }
+
+      @include mobile() {
+          display: none;
+          bottom: 30px;
+          left: 0;
+      }
+    
+
+      ul {
+          list-style: none;
+          display: flex;
+          flex-direction: column;
+          justify-content: center !important;
+          align-items: center;
+          flex-grow: 1;
+          gap: 10px;
+          li{
+            width: 100%;
+            display:flex;
+            justify-content: center;
+            a{
+              width: 100%;
+            }
+          }
+
+      }
+  }
   }
 }
 

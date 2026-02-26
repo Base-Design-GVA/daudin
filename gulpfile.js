@@ -12,7 +12,7 @@ sass.compiler = require('node-sass');
 gulp.task('browser-sync', function () {
   const files = ['./scss/*.scss', './*.php', './js/*.js'];
   browserSync.init(files, {
-    proxy: 'http://localhost:8888/wp_daudin/',
+    proxy: 'http://daudin.local/',
     port: 3004,
   });
   gulp.watch('./scss/**/*.scss', gulp.series(css));

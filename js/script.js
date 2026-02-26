@@ -1593,11 +1593,13 @@ function debounce(func, wait, immediate) {
 //make login menu appear for safari
 
 function loginMenuCheckOpen(){
-    const loginButton = document.querySelector('div.login-wrapper>button')
-    loginButton.addEventListener('click', function(){
-        setTimeout(()=>{
-        loginButton.focus()
-        },10)
+    const loginButtons = document.querySelectorAll('div.login-wrapper>button')
+    loginButtons.forEach(button => {
+        button.addEventListener('click', function(){
+            setTimeout(()=>{
+                button.focus()
+            },10)
+        })
     })
 }
 

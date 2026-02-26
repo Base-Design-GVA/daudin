@@ -13,7 +13,6 @@ $b-bun-width-half: ($b-bun-width / 2); //Half bun width used for calculation
 $b-pad-left: ($b-height / 2 - $b-bun-width-half - 2); //Horizontally centers bun in menu
 
 footer {
-
     .footer-fixed {
         position: fixed;
         bottom: 0;
@@ -21,6 +20,7 @@ footer {
         width: 100%;
         height: calc(8 * var(--vh));;
         display: flex;
+        gap: 10px;
         z-index: 300;
         background-color: $color_white;
         justify-content: space-between;
@@ -41,6 +41,9 @@ footer {
 
         @include desktop {
             flex-basis: 6%;
+        }
+        @include mobile{
+            flex-basis: initial;
         }
 
         &.open {
@@ -162,13 +165,13 @@ footer {
             align-items: center;
             height: 100%;
 
-
             a {
                 font-size: 1.7rem;
                 line-height: 2.3rem;
                 text-align: center;
                 font-weight: 500;
                 padding: 0.2rem 1rem;
+                min-width: 15rem;
 
                 @include desktop {
                     padding: 0.7rem 1rem;
@@ -180,6 +183,9 @@ footer {
 
                 @include xlarge {
                     padding: 0.7rem 2.3rem;
+                }
+                @include mobile {
+                    min-width: initial;
                 }
             }
                     }
@@ -205,6 +211,9 @@ footer {
         align-items: center;
         justify-content: center;
         position: relative;
+        @include mobile{
+            display: none;
+        }
 
         button {
             color: $color_black;
@@ -234,7 +243,7 @@ footer {
             }
 
             @include desktop() {
-                min-width: 20rem;
+                min-width: 15rem;
                 padding: 0.7rem 1rem;
                 font-size: 1.7rem;
                 border-width: 0.015rem;
@@ -268,6 +277,7 @@ footer {
             }
 
             @include mobile() {
+                display: none;
                 bottom: calc(8* var(--vh));
                 right: -2.4rem;
             }

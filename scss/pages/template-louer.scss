@@ -520,6 +520,73 @@
 
         }
     }
+    &.mode-projets-neufs {
+        .colored-label{
+            color: $color_green;
+        }
+        .wrapper-annonces{
+            .annonce{
+                .left{
+                    height: auto;
+                    position: relative;
+                    @include not-mobile{
+                        flex-basis: auto;
+                        width: 50%;
+                    }
+                    .bandeau-annonce{
+                        position: absolute;
+                        top: 2rem;
+                        left: 0;
+                        background-color: $color_green;
+                        color: $color_white;
+                        padding: 0.5rem 2rem 0.5rem 1rem;
+                        border-radius: 0 20px 20px 0px;
+                        z-index:1;
+                    }
+                    .photo{
+                        aspect-ratio: 4/3;
+                    }
+                }
+                .right{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 2rem;
+                    .title-annonce{
+                        font-size: 4rem;
+                    }
+                    .quartier-name{
+                        font-size: 3rem;
+                        img{
+                            height: 3rem;
+                            width: auto;
+                            transform: translateY(+0.3rem);
+                            display:none;
+                        }
+                    }
+                    .button{
+                        margin-top: auto;
+                        width: fit-content;
+                    }
+                    .pictos-list{
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr);
+                        gap: 0.5rem;
+                        list-style: none;
+                        li{
+                            display: flex;
+                            align-items: baseline;
+                            gap: 0.5rem;
+                            .picto-icon{
+                                width: 3rem;
+                                height: auto;
+                                transform: translateY(+0.6rem);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 // @media only screen and (max-width: 767px){
