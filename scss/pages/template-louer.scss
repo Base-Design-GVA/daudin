@@ -524,6 +524,13 @@
         .colored-label{
             color: $color_green;
         }
+        .filters.container{
+            justify-content: flex-start;
+            .width-placeholder{
+                flex:initial;
+                width: 300px;
+            }
+        }
         .wrapper-annonces{
             .annonce{
                 .left{

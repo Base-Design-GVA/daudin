@@ -9,16 +9,32 @@
         <h1 class="container">Nos <span class="colored-label">Projets Neufs</span></h1>
 
         <div class="filters container">
-            {# Hidden filter block to keep existing listing JS stable #}
-            <div class="width-placeholder" style="display: none;">
+            <div class="width-placeholder">
                 <div class="type_de_bien filter-container">
-                    <div class="radios">
-                        <div class="input-group">
-                            <input type="radio" id="type-all" name="type_bien_radio" data-filter="" value="" checked>
-                            <label for="type-all">Tous</label>
+                    <button type="button" class="button-tdb">
+                        <label for="type_bien_radio">Type de bien</label>
+                    </button>
+                    <div class="hidden-part-tdb">
+                        <div class="radios">
+                            <div class="input-group">
+                                <input type="radio" id="type-all" name="type_bien_radio" data-filter="" value="" checked>
+                                <label for="type-all">Tous</label>
+                            </div>
+                            {% for valeur, type_bien in filters.types_biens %}
+                                <div class="input-group">
+                                    <input
+                                        type="radio"
+                                        id="type-{{ loop.index }}"
+                                        name="type_bien_radio"
+                                        data-filter=".type-{{ valeur }}"
+                                        value="{{ valeur }}"
+                                    >
+                                    <label for="type-{{ loop.index }}">{{ type_bien }}</label>
+                                </div>
+                            {% endfor %}
                         </div>
+                        <input type="hidden" name="filter_type" id="filter_type" readonly value="">
                     </div>
-                    <input type="hidden" name="filter_type" id="filter_type" readonly value="">
                 </div>
             </div>
 
@@ -50,6 +66,34 @@
                     </div>
                 </div>
             </div>
+            <div class="width-placeholder">
+                <div class="etat filter-container">
+                    <button class="button-e" type="button">
+                        <label for="etat_radio">Statut</label>
+                    </button>
+                    <div class="hidden-part-e">
+                        <div class="radios">
+                            <div class="input-group">
+                                <input type="radio" id="etat-all" name="etat_radio" data-filter="" value="" checked>
+                                <label for="etat-all">Tous</label>
+                            </div>
+                            {% for valeur, etat in filters.etats %}
+                                <div class="input-group">
+                                    <input
+                                        type="radio"
+                                        id="etat-{{ loop.index }}"
+                                        name="etat_radio"
+                                        data-filter=".etat-{{ valeur }}"
+                                        value="{{ valeur }}"
+                                    >
+                                    <label for="etat-{{ loop.index }}">{{ etat }}</label>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <input type="hidden" name="filter_etat" id="filter_etat" readonly value="">
+                    </div>
+                </div>
+            </div>
 
             {# Hidden range inputs expected by the shared filtering JS #}
             <input type="hidden" id="filter_prix_min" value="0">
@@ -63,12 +107,15 @@
         <div class="wrapper-annonces container">
             {% for projet in projets %}
                 {% set quartier = projet.meta('acf_annonce_quartier') %}
+                {% set type_bien = projet.meta('acf_annonce_famille_de_bien') %}
+                {% set etat = projet.meta('acf_annonce_etat') %}
                 {% set image = projet.meta('acf_annonce_image') %}
                 {% set lien = projet.meta('acf_annonce_lien') %}
                 <article
                     class="annonce quartier-{{ quartier|default('')|replace({' ': '-'}) }}"
-                    data-type=""
+                    data-type="{{ type_bien|default('') }}"
                     data-quartier="{{ quartier|default('') }}"
+                    data-etat="{{ etat|default('') }}"
                     data-prix="0"
                     data-surface="0"
                     data-nb-piece="0"
