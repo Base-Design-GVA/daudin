@@ -111,6 +111,7 @@
                 {% set etat = projet.meta('acf_annonce_etat') %}
                 {% set image = projet.meta('acf_annonce_image') %}
                 {% set lien = projet.meta('acf_annonce_lien') %}
+                {% set date_disponibilite = projet.meta('acf_annonce_texte_disponibilite') %}
                 <article
                     class="annonce quartier-{{ quartier|default('')|replace({' ': '-'}) }}"
                     data-type="{{ type_bien|default('') }}"
@@ -128,9 +129,14 @@
                     </div>
                     <div class="right">
                         <h5 class="title-annonce">{{ projet.title() }}</h5>
-                        {% if quartier %}
-                            <p class="quartier-name"><img src="/wp-content/themes/daudin/fonts/material-icons/location_on.svg" alt="Localisation" class="picto-icon" loading="lazy">{{ quartier }}</p>
-                        {% endif %}
+                        <div class="quarter-dispo-container">
+                            {% if quartier %}
+                                <p class="quartier-name"><img src="/wp-content/themes/daudin/fonts/material-icons/location_on.svg" alt="Localisation" class="picto-icon" loading="lazy">{{ quartier }}</p>
+                            {% endif %}
+                            {% if date_disponibilite %}
+                                <p class="date-disponibilite">{{ date_disponibilite }}</p>
+                            {% endif %}
+                        </div>
 
                         {% if projet.meta('acf_annonce_description') %}
                             <p class="description-annonce">{{ projet.meta('acf_annonce_description')|nl2br }}</p>

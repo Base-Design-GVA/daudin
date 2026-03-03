@@ -42,9 +42,9 @@
         {
             "key": "field_69a00dd8d3e05",
             "label": "Date de disponibilité",
-            "name": "acf_annonce_date_disponibilite",
+            "name": "acf_annonce_texte_disponibilite",
             "aria-label": "",
-            "type": "date_picker",
+            "type": "textarea",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -53,9 +53,11 @@
                 "class": "",
                 "id": ""
             },
-            "display_format": "d\/m\/Y",
-            "return_format": "d\/m\/Y",
-            "first_day": 1
+            "default_value": "",
+            "maxlength": "",
+            "rows": "",
+            "placeholder": "",
+            "new_lines": "br"
         },
         {
             "key": "field_69a00dd8d3e34",
@@ -347,5 +349,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1772468128
+    "modified": 1772528421
 }

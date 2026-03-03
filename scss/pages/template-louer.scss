@@ -561,6 +561,11 @@
                     .title-annonce{
                         font-size: 4rem;
                     }
+                    .quarter-dispo-container{
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0.8rem;
+                    }
                     .quartier-name{
                         font-size: 3rem;
                         img{
@@ -569,6 +574,10 @@
                             transform: translateY(+0.3rem);
                             display:none;
                         }
+                    }
+                    .date-disponibilite{
+                        color:black;   
+                    
                     }
                     .button{
                         margin-top: auto;
