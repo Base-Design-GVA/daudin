@@ -252,12 +252,17 @@ function initFilters () {
     //on séléctionne toutes les annonces
     const biensElement = document.querySelectorAll('.annonce')
 
-    //on initialise les events listeners sur les 2 premiers filtres
+    //on initialise les events listeners sur les filtres radios
     const radiosTypesDeBiens = document.querySelector('.type_de_bien .radios')
     radiosTypesDeBiens.addEventListener('change', set_radio_value)
 
     const radiosQuartier = document.querySelector('.quartier .radios')
     radiosQuartier.addEventListener('change', set_radio_value)
+
+    const radiosEtat = document.querySelector('.etat .radios')
+    if (radiosEtat) {
+        radiosEtat.addEventListener('change', set_radio_value)
+    }
 
 /*
 
@@ -612,6 +617,9 @@ function set_radio_value( e ) {
     if( e.target.name == 'quartier_radio' ) {
         document.querySelectorAll('#filter_quartier')[0].setAttribute('value', e.target.value);
     }
+    if( e.target.name == 'etat_radio' ) {
+        document.querySelectorAll('#filter_etat')[0].setAttribute('value', e.target.value);
+    }
 
     filter_ads_list();
 }
@@ -625,6 +633,8 @@ function filter_ads_list() {
 
     const filter_type =  document.querySelectorAll('#filter_type')[0].getAttribute("value");
     const filter_quartier =  document.querySelectorAll('#filter_quartier')[0].getAttribute("value");
+    const filter_etat_element = document.querySelector('#filter_etat');
+    const filter_etat = filter_etat_element ? filter_etat_element.getAttribute("value") : '';
     const filter_prix_min =  parseInt(document.querySelectorAll('#filter_prix_min')[0].getAttribute("value"));
     const filter_prix_max =  parseInt(document.querySelectorAll('#filter_prix_max')[0].getAttribute("value"));
     const filter_surface_min =  parseInt(document.querySelectorAll('#filter_surface_min')[0].getAttribute("value"));
@@ -640,6 +650,7 @@ function filter_ads_list() {
         // puis on affiche ceux qui respectent les filtres
         if( ( ( bien.getAttribute('data-type') == filter_type && filter_type != '') || filter_type == '' ) &&
             ( ( bien.getAttribute('data-quartier') == filter_quartier && filter_quartier != '') || filter_quartier == '' ) &&
+            ( ( bien.getAttribute('data-etat') == filter_etat && filter_etat != '') || filter_etat == '' ) &&
             bien.getAttribute('data-prix') >= filter_prix_min && 
             bien.getAttribute('data-prix') <= filter_prix_max && 
             bien.getAttribute('data-surface') >= filter_surface_min && 
