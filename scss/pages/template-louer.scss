@@ -533,12 +533,19 @@
         }
         .wrapper-annonces{
             .annonce{
+                min-width: 0;
+                width: 100%;
+                max-width: 100%;
+                height: fit-content;
                 .left{
+                    flex-basis: auto;
                     height: auto;
                     position: relative;
-                    @include not-mobile{
-                        flex-basis: auto;
-                        width: 50%;
+                    width:50%;
+                    @include mobile{
+                        width:100%;
+                        padding-top: 0;
+                        height: auto;
                     }
                     .bandeau-annonce{
                         position: absolute;
@@ -557,15 +564,36 @@
                         }
                     }
                     .photo{
+                        width: 100%;
+                        height: auto;
                         aspect-ratio: 4/3;
+                        position: relative;
+                        @include mobile {
+                            position: relative;
+                            top: auto;
+                            left: auto;
+                            height: auto;
+                        }
                     }
                 }
                 .right{
                     display: flex;
                     flex-direction: column;
                     gap: 2rem;
+                    min-width: 0;
+                    flex-basis: auto;
+                    width: 50%;
+                    @include not-mobile {
+                        margin-left: 3rem;
+                        flex-basis: auto;
+                        flex-grow: 1;
+                    }
+                    @include mobile{
+                        width:100%;
+                    }
                     .title-annonce{
                         font-size: 4rem;
+                        line-height: 4.7rem;
                     }
                     .quarter-dispo-container{
                         display: flex;
@@ -591,13 +619,14 @@
                     }
                     .pictos-list{
                         display: grid;
-                        grid-template-columns: repeat(2, 1fr);
+                        grid-template-columns: repeat(2, minmax(0, 1fr));
                         gap: 0.5rem;
                         list-style: none;
                         li{
                             display: flex;
                             align-items: baseline;
                             gap: 0.5rem;
+                            min-width: 0;
                             .picto-icon{
                                 width: 3rem;
                                 height: auto;

@@ -46,4 +46,5 @@ const watch = function (cb) {
 };
 
 exports.css = css;
+exports.build = gulp.series(css);
 exports.watch = gulp.series(css, 'browser-sync');
