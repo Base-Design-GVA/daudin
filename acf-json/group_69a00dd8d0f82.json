@@ -139,7 +139,8 @@
                             "choices": {
                                 "surface": "Surface",
                                 "prix": "Prix",
-                                "pieces": "Pièces"
+                                "pieces": "Nombre de pièces",
+                                "lots": "Nombre de lots"
                             },
                             "default_value": false,
                             "return_format": "value",
@@ -349,5 +350,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1772528421
+    "modified": 1773321809
 }

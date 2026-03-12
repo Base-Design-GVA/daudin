@@ -148,11 +148,13 @@
                                     {% if picto.item %}
                                         {% set icon_name = '' %}
                                         {% if picto.item.picto == 'surface' %}
-                                            {% set icon_name = 'aspect_ratio' %}
+                                            {% set icon_name = 'activity_zone' %}
                                         {% elseif picto.item.picto == 'prix' %}
                                             {% set icon_name = 'sell' %}
                                         {% elseif picto.item.picto == 'pieces' %}
-                                            {% set icon_name = 'nest_multi_room' %}
+                                            {% set icon_name = 'space_dashboard' %}
+                                        {% elseif picto.item.picto == 'lots' %}
+                                            {% set icon_name = 'home' %}
                                         {% endif %}
                                         <li class="picto-item picto-{{ picto.item.picto|default('default') }}">
                                             {% if icon_name %}

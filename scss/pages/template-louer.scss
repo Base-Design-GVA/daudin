@@ -526,9 +526,11 @@
         }
         .filters.container{
             justify-content: flex-start;
+            gap: 1.5rem;
             .width-placeholder{
                 flex:initial;
-                width: 300px;
+                width: 31%;
+                margin-right: 0;
             }
         }
         .wrapper-annonces{
@@ -565,14 +567,13 @@
                     }
                     .photo{
                         width: 100%;
-                        height: auto;
-                        aspect-ratio: 4/3;
                         position: relative;
                         @include mobile {
                             position: relative;
+                            aspect-ratio: 4/3;
                             top: auto;
                             left: auto;
-                            height: auto;
+                            height: 100%;
                         }
                     }
                 }
@@ -592,16 +593,17 @@
                         width:100%;
                     }
                     .title-annonce{
-                        font-size: 4rem;
+                        //font-size: 4rem;
                         line-height: 4.7rem;
+                        margin-bottom: 0rem;
                     }
                     .quarter-dispo-container{
                         display: flex;
                         flex-direction: column;
-                        gap: 0.8rem;
+                        //gap: 0.8rem;
                     }
                     .quartier-name{
-                        font-size: 3rem;
+                        //font-size: 3rem;
                         img{
                             height: 3rem;
                             width: auto;
@@ -611,17 +613,21 @@
                     }
                     .date-disponibilite{
                         color:black;   
-                    
+                        font-size: 1.5rem;
                     }
                     .button{
                         margin-top: auto;
                         width: fit-content;
+                        font-size: 1.7rem;
                     }
                     .pictos-list{
                         display: grid;
                         grid-template-columns: repeat(2, minmax(0, 1fr));
                         gap: 0.5rem;
                         list-style: none;
+                        @include mobile{
+                            grid-template-columns: repeat(1, 1fr);
+                        }
                         li{
                             display: flex;
                             align-items: baseline;
