@@ -604,11 +604,13 @@
                     }
                     .quartier-name{
                         //font-size: 3rem;
+                        transform: translateX(-0.5rem);
                         img{
                             height: 3rem;
                             width: auto;
                             transform: translateY(+0.3rem);
-                            display:none;
+                            margin-right: 0.5rem;
+
                         }
                     }
                     .date-disponibilite{
