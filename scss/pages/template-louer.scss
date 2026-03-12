@@ -513,7 +513,7 @@
 
                     @include not-mobile {
                         margin-bottom: 5.4rem;
-                        font-size: 2.2rem;
+                        font-size: 2.8rem;
                     }
                 }
             }
@@ -617,6 +617,10 @@
                         color:black;   
                         font-size: 1.5rem;
                     }
+                    .description-annonce{
+                        font-size: 2rem;
+                        line-height: 1.9rem;
+                    }
                     .button{
                         margin-top: auto;
                         width: fit-content;
@@ -635,10 +639,11 @@
                             align-items: baseline;
                             gap: 0.5rem;
                             min-width: 0;
+                            font-size: 2rem;
                             .picto-icon{
-                                width: 3rem;
+                                width: 2.5rem;
                                 height: auto;
-                                transform: translateY(+0.6rem);
+                                transform: translateY(+0.4rem);
                             }
                         }
                     }
