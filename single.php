@@ -48,6 +48,22 @@ if (post_password_required($post->ID)) {
             }
         }
 
+    } elseif (is_singular("projet-neuf")) {
+        $listingPages = get_posts(array(
+            'post_type' => 'page',
+            'post_status' => 'publish',
+            'posts_per_page' => 1,
+            'meta_key' => '_wp_page_template',
+            'meta_value' => 'template-projets-neufs.php',
+        ));
+
+        $redirectUrl = home_url('/');
+        if (!empty($listingPages)) {
+            $redirectUrl = get_permalink($listingPages[0]->ID);
+        }
+
+        wp_safe_redirect($redirectUrl, 302);
+        exit;
     } else {
         //$template = 'single.twig';
         //$template = 'page.twig';

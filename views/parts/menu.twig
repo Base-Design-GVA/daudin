@@ -2,6 +2,10 @@
   data-reseaux-sociaux='{{ fields_footer.acf_conf_menu_fs.acf_reseaux_sociaux | json_encode }}'
 >
   {{ load_nav_menu(wp.menus.main) }}
+  <div class="login-wrapper">
+        <button>Login</button>
+        {{ load_nav_menu(fields_footer.acf_fixed_footer.right_menu.slug, "button") }}
+    </div>
   <style>
     .menu_container > div  > ul > li:nth-child(1) {
       background-color: {{ fields_footer.acf_conf_menu_fs.color_part_1 }};
