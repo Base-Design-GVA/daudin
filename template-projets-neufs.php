@@ -21,8 +21,20 @@ if (!empty($context['projets'])) {
         'etats' => array(),
         'quartiers' => array(),
     );
+    $bandeaux = array();
+    $bandeaux_couleurs = array();
 
     foreach ($context['projets'] as $projet) {
+        $bandeau_group = get_field('acf_annonce_bandeau_groupe', $projet->ID);
+        $bandeaux[$projet->ID] = '';
+        $bandeaux_couleurs[$projet->ID] = 'vert';
+        if (is_array($bandeau_group) && !empty($bandeau_group['acf_annonce_bandeau'])) {
+            $bandeaux[$projet->ID] = (string) $bandeau_group['acf_annonce_bandeau'];
+        }
+        if (is_array($bandeau_group) && !empty($bandeau_group['acf_annonce_couleur_bandeau'])) {
+            $bandeaux_couleurs[$projet->ID] = (string) $bandeau_group['acf_annonce_couleur_bandeau'];
+        }
+
         $type_bien = trim((string) $projet->meta('acf_annonce_famille_de_bien'));
         if (!empty($type_bien)) {
             $type_field = get_field_object('acf_annonce_famille_de_bien', $projet->ID);
@@ -51,6 +63,8 @@ if (!empty($context['projets'])) {
     sort($filters['quartiers']);
 
     $context['filters'] = $filters;
+    $context['bandeaux'] = $bandeaux;
+    $context['bandeaux_couleurs'] = $bandeaux_couleurs;
 }
 
 Timber::render(array('template-projets-neufs.twig'), $context);

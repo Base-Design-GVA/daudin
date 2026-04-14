@@ -176,11 +176,11 @@
             ]
         },
         {
-            "key": "field_69a0126662a9e",
-            "label": "bandeau",
-            "name": "acf_annonce_bandeau",
+            "key": "field_69de553e687ec",
+            "label": "bandeau groupe",
+            "name": "acf_annonce_bandeau_groupe",
             "aria-label": "",
-            "type": "text",
+            "type": "group",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -189,11 +189,55 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_69a0126662a9e",
+                    "label": "bandeau",
+                    "name": "acf_annonce_bandeau",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_69de550c687eb",
+                    "label": "couleur bandeau",
+                    "name": "acf_annonce_couleur_bandeau",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "vert": "vert",
+                        "bordeau": "bordeau"
+                    },
+                    "default_value": "vert",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": ""
+                }
+            ]
         },
         {
             "key": "field_69a00dd8d3df5",
@@ -350,5 +394,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1773321809
+    "modified": 1776178541
 }
