@@ -557,11 +557,16 @@
                         max-width: 80%;
                         top: 2rem;
                         left: 0;
-                        background-color: $color_green;
                         color: $color_white;
                         padding: 0.5rem 2rem 0.5rem 1rem;
                         border-radius: 0 20px 20px 0px;
                         z-index:1;
+                        &.couleur-vert{
+                            background-color: $color_green;
+                        }
+                        &.couleur-bordeau{
+                            background-color: $color-red;
+                        }
                         span{
                             display: inline;
                         }

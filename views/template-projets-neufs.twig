@@ -122,8 +122,10 @@
                     data-nb-piece="0"
                 >
                     <div class="left">
-                        {% if projet.meta('acf_annonce_bandeau') %}
-                            <div class="bandeau-annonce"><span>{{ projet.meta('acf_annonce_bandeau') }}</span></div>
+                        {% set bandeau = bandeaux[projet.id]|default('') %}
+                        {% set bandeau_couleur = bandeaux_couleurs[projet.id]|default('vert') %}
+                        {% if bandeau %}
+                            <div class="bandeau-annonce couleur-{{ bandeau_couleur }}"><span>{{ bandeau }}</span></div>
                         {% endif %}
                         <div class="photo" style="background-image: url({{ image }});"></div>
                     </div>
