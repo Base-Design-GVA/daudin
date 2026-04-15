@@ -160,6 +160,7 @@
                data-prix="{{ (annonce.acf_annonce_prix|replace({',': ''})|replace({' ': ''})|number_format(0, '.', '') - annonce.acf_annonce_charges|replace({',': ''})|replace({' ': ''})|number_format(0, '.', '')) }}"
                data-surface="{{ annonce.meta('acf_annonce_surface') }}"
                data-nb-piece="{{ annonce.meta('acf_annonce_nb_pieces') }}"
+               data-reference="{{ annonce.meta('acf_annonce_reference') }}"
             >
                 <div class="left">
                     <div class="photo"
@@ -184,6 +185,9 @@
 {{ (annonce.acf_annonce_prix|replace({',': ''})|replace({' ': ''})|number_format(0, '.', '') - annonce.acf_annonce_charges|replace({',': ''})|replace({' ': ''})|number_format(0, '.', ''))|number_format(0, '.', '\'') }}                    {{ page.meta('acf_price').after_text }}</p>
                 {% else %}
                     <p>{{ fields_annonce.acf_undefined_price_label }}</p>
+                {% endif %}
+                {% if annonce.meta('acf_annonce_reference') %}
+                    <p class="reference secondary">Ref : {{ annonce.meta('acf_annonce_reference') }}</p>
                 {% endif %}
 
         </div>
