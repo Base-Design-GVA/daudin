@@ -8,6 +8,7 @@
     data-prix="{{ data_prix|default('0') }}"
     data-surface="{{ data_surface|default('0') }}"
     data-nb-piece="{{ data_nb_piece|default('0') }}"
+    data-reference="{{ data_reference|default('') }}"
 >
     <div class="left">
         {% if bandeau %}
@@ -46,6 +47,10 @@
             <p class="secondary">{{ prix_secondaire|raw }}</p>
         {% elseif prix_fallback %}
             <p>{{ prix_fallback }}</p>
+        {% endif %}
+
+        {% if reference_text %}
+            <p class="reference secondary">{{ reference_text }}</p>
         {% endif %}
 
         {% if description_text %}

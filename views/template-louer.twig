@@ -165,6 +165,7 @@
                     data_prix: net_price,
                     data_surface: annonce.meta('acf_annonce_surface'),
                     data_nb_piece: annonce.meta('acf_annonce_nb_pieces'),
+                    data_reference: annonce.meta('acf_annonce_reference'),
                     image_url: image_url,
                     title_tag: page.acf_annonce_title_balise,
                     title: annonce.title(),
@@ -174,6 +175,7 @@
                     prix_principal: (annonce.acf_annonce_famille_de_bien == 'indus' and annonce.acf_annonce_prix_an) ? (page.meta('acf_price').unit ~ ' ' ~ annonce.acf_annonce_prix_an ~ ' ' ~ page.meta('acf_price_an').unit ~ ' ' ~ page.meta('acf_price_an').after_text) : '',
                     prix_secondaire: secondary_price,
                     prix_fallback: annonce.acf_annonce_prix ? '' : fields_annonce.acf_undefined_price_label,
+                    reference_text: annonce.meta('acf_annonce_reference') ? 'Ref : ' ~ annonce.meta('acf_annonce_reference') : '',
                     location_or_dispo: false
                 } only %}
             {% endfor %}
