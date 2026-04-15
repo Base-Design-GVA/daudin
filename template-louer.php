@@ -35,10 +35,21 @@ if (!empty($context['annonces'])) {
     $filters['prix'] = [];
     $filters['surface'] = [];
     $filters['nbr_piece'] = [];
+    $annonce_bandeaux = [];
+    $annonce_bandeaux_couleurs = [];
 
 //on regarde les différentes valeurs pour pouvoir construire les filtres
 
     foreach ($context['annonces'] as $annonce) {
+        $bandeau_group = get_field('acf_annonce_bandeau_groupe', $annonce->ID);
+        $annonce_bandeaux[$annonce->ID] = '';
+        $annonce_bandeaux_couleurs[$annonce->ID] = 'vert';
+        if (is_array($bandeau_group) && !empty($bandeau_group['acf_annonce_bandeau'])) {
+            $annonce_bandeaux[$annonce->ID] = (string) $bandeau_group['acf_annonce_bandeau'];
+        }
+        if (is_array($bandeau_group) && !empty($bandeau_group['acf_annonce_couleur_bandeau'])) {
+            $annonce_bandeaux_couleurs[$annonce->ID] = (string) $bandeau_group['acf_annonce_couleur_bandeau'];
+        }
 
         $acf_annonce_famille_de_bien = get_field_object('acf_annonce_famille_de_bien', $annonce->ID);
 
@@ -63,6 +74,8 @@ if (!empty($context['annonces'])) {
 
 //on ajoute les filtres au context
     $context['filters'] = $filters;
+    $context['annonce_bandeaux'] = $annonce_bandeaux;
+    $context['annonce_bandeaux_couleurs'] = $annonce_bandeaux_couleurs;
 }
 
 

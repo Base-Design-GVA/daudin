@@ -112,77 +112,29 @@
                 {% set image = projet.meta('acf_annonce_image') %}
                 {% set lien = projet.meta('acf_annonce_lien') %}
                 {% set date_disponibilite = projet.meta('acf_annonce_texte_disponibilite') %}
-                <article
-                    class="annonce quartier-{{ quartier|default('')|replace({' ': '-'}) }}"
-                    data-type="{{ type_bien|default('') }}"
-                    data-quartier="{{ quartier|default('') }}"
-                    data-etat="{{ etat|default('') }}"
-                    data-prix="0"
-                    data-surface="0"
-                    data-nb-piece="0"
-                >
-                    <div class="left">
-                        {% set bandeau = bandeaux[projet.id]|default('') %}
-                        {% set bandeau_couleur = bandeaux_couleurs[projet.id]|default('vert') %}
-                        {% if bandeau %}
-                            <div class="bandeau-annonce couleur-{{ bandeau_couleur }}"><span>{{ bandeau }}</span></div>
-                        {% endif %}
-                        <div class="photo" style="background-image: url({{ image }});"></div>
-                    </div>
-                    <div class="right">
-                        <h5 class="title-annonce">{{ projet.title() }}</h5>
-                        <div class="quarter-dispo-container">
-                            {% if quartier %}
-                                <p class="quartier-name"><img src="/wp-content/themes/daudin/fonts/material-icons/location_on.svg" alt="Localisation" class="picto-icon" loading="lazy">{{ quartier }}</p>
-                            {% endif %}
-                            {% if date_disponibilite %}
-                                <p class="date-disponibilite">{{ date_disponibilite }}</p>
-                            {% endif %}
-                        </div>
-
-                        {% if projet.meta('acf_annonce_description') %}
-                            <p class="description-annonce">{{ projet.meta('acf_annonce_description')|nl2br }}</p>
-                        {% endif %}
-
-                        {% if projet.meta('acf_annonces_pictos') %}
-                            <ul class="pictos-list">
-                                {% for picto in projet.meta('acf_annonces_pictos') %}
-                                    {% if picto.item %}
-                                        {% set icon_name = '' %}
-                                        {% if picto.item.picto == 'surface' %}
-                                            {% set icon_name = 'activity_zone' %}
-                                        {% elseif picto.item.picto == 'prix' %}
-                                            {% set icon_name = 'sell' %}
-                                        {% elseif picto.item.picto == 'pieces' %}
-                                            {% set icon_name = 'space_dashboard' %}
-                                        {% elseif picto.item.picto == 'lots' %}
-                                            {% set icon_name = 'home' %}
-                                        {% endif %}
-                                        <li class="picto-item picto-{{ picto.item.picto|default('default') }}">
-                                            {% if icon_name %}
-                                                <img
-                                                    src="/wp-content/themes/daudin/fonts/material-icons/{{ icon_name }}.svg"
-                                                    alt="{{ picto.item.picto }}"
-                                                    class="picto-icon"
-                                                    loading="lazy"
-                                                >
-                                            {% endif %}
-                                            {% if picto.item.texte %}
-                                                <span class="picto-text">{{ picto.item.texte }}</span>
-                                            {% endif %}
-                                        </li>
-                                    {% endif %}
-                                {% endfor %}
-                            </ul>
-                        {% endif %}
-
-                        {% if lien.url %}
-                            <a href="{{ lien.url }}" class="button" target="_blank" rel="noopener">
-                                {{ lien.label|default('En savoir plus') }}
-                            </a>
-                        {% endif %}
-                    </div>
-                </article>
+                {% include "parts/annonce-card.twig" with {
+                    type_class: 'type-' ~ type_bien|default(''),
+                    quartier_class: 'quartier-' ~ quartier|default('')|replace({' ': '-'}),
+                    etat_class: 'etat-' ~ etat|default(''),
+                    data_type: type_bien|default(''),
+                    data_quartier: quartier|default(''),
+                    data_etat: etat|default(''),
+                    data_prix: 0,
+                    data_surface: 0,
+                    data_nb_piece: 0,
+                    image_url: image,
+                    title: projet.title(),
+                    bandeau: annonce_bandeaux[projet.id]|default(''),
+                    bandeau_couleur: annonce_bandeaux_couleurs[projet.id]|default('vert'),
+                    quartier: quartier,
+                    disponibilite_text: date_disponibilite,
+                    location_or_dispo: true,
+                    show_location_icon: true,
+                    description_text: projet.meta('acf_annonce_description'),
+                    pictos: projet.meta('acf_annonces_pictos'),
+                    cta_url: lien.url|default(''),
+                    cta_label: lien.label|default('En savoir plus')
+                } only %}
             {% endfor %}
         </div>
     </section>

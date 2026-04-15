@@ -153,42 +153,30 @@
         </div>
         <div class="wrapper-annonces container">
             {% for annonce in annonces %}
-            <a href="{{ annonce.link() }}"
-               class="annonce type-{{ annonce.meta('acf_annonce_famille_de_bien') }} quartier-{{ annonce.meta('acf_annonce_quartier') }}"
-               data-type="{{ annonce.meta('acf_annonce_famille_de_bien') }}"
-               data-quartier="{{ annonce.meta('acf_annonce_quartier') }}"
-               data-prix="{{ (annonce.acf_annonce_prix|replace({',': ''})|replace({' ': ''})|number_format(0, '.', '') - annonce.acf_annonce_charges|replace({',': ''})|replace({' ': ''})|number_format(0, '.', '')) }}"
-               data-surface="{{ annonce.meta('acf_annonce_surface') }}"
-               data-nb-piece="{{ annonce.meta('acf_annonce_nb_pieces') }}"
-            >
-                <div class="left">
-                    <div class="photo"
-                         style="background-image: url({{ get_array_photos_annonce_from_string(annonce.meta('acf_annonce_illustrations'), "daudin_500_")[0] }})"></div>
-                </div>
-                <div class="right">
-                    <{{ page.acf_annonce_title_balise }}
-                    class="title-annonce">{{ annonce.title() }}</{{ page.acf_annonce_title_balise }}>
-                <p>
-                    {{ annonce.acf_annonce_ville }}<br>
-                    {{ annonce.acf_annonce_adresse }}
-                    
-                </p>
-				{% if annonce.acf_annonce_famille_de_bien == "indus" %}
-				    {% if annonce.acf_annonce_prix_an %}
-                        <p class="principal"> {{ page.meta('acf_price').unit }}  {{annonce.acf_annonce_prix_an}} {{ page.meta('acf_price_an').unit }} {{ page.meta('acf_price_an').after_text }}</p>
-                    {% endif %}
-                {% endif %}
-                {% if annonce.acf_annonce_prix %}
-                    <p class="secondary"> 
-                    {{ page.meta('acf_price').unit }} 
-{{ (annonce.acf_annonce_prix|replace({',': ''})|replace({' ': ''})|number_format(0, '.', '') - annonce.acf_annonce_charges|replace({',': ''})|replace({' ': ''})|number_format(0, '.', ''))|number_format(0, '.', '\'') }}                    {{ page.meta('acf_price').after_text }}</p>
-                {% else %}
-                    <p>{{ fields_annonce.acf_undefined_price_label }}</p>
-                {% endif %}
-
-        </div>
-        </a>
-        {% endfor %}
+                {% set net_price = (annonce.acf_annonce_prix|replace({',': ''})|replace({' ': ''})|number_format(0, '.', '') - annonce.acf_annonce_charges|replace({',': ''})|replace({' ': ''})|number_format(0, '.', '')) %}
+                {% set image_url = get_array_photos_annonce_from_string(annonce.meta('acf_annonce_illustrations'), "daudin_500_")[0] %}
+                {% set secondary_price = annonce.acf_annonce_prix ? page.meta('acf_price').unit ~ ' ' ~ (net_price|number_format(0, '.', '\'')) ~ ' ' ~ page.meta('acf_price').after_text : '' %}
+                {% include "parts/annonce-card.twig" with {
+                    card_href: annonce.link(),
+                    type_class: 'type-' ~ annonce.meta('acf_annonce_famille_de_bien'),
+                    quartier_class: 'quartier-' ~ annonce.meta('acf_annonce_quartier'),
+                    data_type: annonce.meta('acf_annonce_famille_de_bien'),
+                    data_quartier: annonce.meta('acf_annonce_quartier'),
+                    data_prix: net_price,
+                    data_surface: annonce.meta('acf_annonce_surface'),
+                    data_nb_piece: annonce.meta('acf_annonce_nb_pieces'),
+                    image_url: image_url,
+                    title_tag: page.acf_annonce_title_balise,
+                    title: annonce.title(),
+                    bandeau: annonce_bandeaux[annonce.id]|default(''),
+                    bandeau_couleur: annonce_bandeaux_couleurs[annonce.id]|default('vert'),
+                    address_html: annonce.acf_annonce_ville ~ '<br>' ~ annonce.acf_annonce_adresse,
+                    prix_principal: (annonce.acf_annonce_famille_de_bien == 'indus' and annonce.acf_annonce_prix_an) ? (page.meta('acf_price').unit ~ ' ' ~ annonce.acf_annonce_prix_an ~ ' ' ~ page.meta('acf_price_an').unit ~ ' ' ~ page.meta('acf_price_an').after_text) : '',
+                    prix_secondaire: secondary_price,
+                    prix_fallback: annonce.acf_annonce_prix ? '' : fields_annonce.acf_undefined_price_label,
+                    location_or_dispo: false
+                } only %}
+            {% endfor %}
         </div>
 
 
