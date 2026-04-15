@@ -164,6 +164,7 @@ footer {
             justify-content: space-around;
             align-items: center;
             height: 100%;
+            z-index: 100;
 
             a {
                 font-size: 1.7rem;
@@ -215,6 +216,12 @@ footer {
             display: none;
         }
 
+        &:focus-within .button_container {
+            opacity: 1;
+            transition: opacity ease 400ms;
+            z-index: 10;
+        }
+
         button {
             color: $color_black;
             font-size: 1.7rem;
@@ -234,8 +241,6 @@ footer {
                 outline: none;
             }
 
-            &:focus + .button_container,
-            &:focus-visible + .button_container,
             &.active:hover + .button_container {
                 opacity: 1;
                 transition: opacity ease 400ms;

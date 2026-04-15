@@ -1,7 +1,6 @@
 .annonce_list {
-    padding: 11rem 3rem 0 3rem;
+    padding: 11rem 3rem 11rem 3rem;
     margin: auto;
-
     h1 {
         margin-top: 2rem;
 
@@ -425,7 +424,9 @@
             transition-duration: 0.3s;
         }
     }
-
+    .wrapper-annonces, .container{
+        max-width: 2200px;
+    }
     .wrapper-annonces {
         display: grid;
         grid-gap: 6rem;
@@ -454,6 +455,7 @@
                 flex-basis: 50%;
                 flex-shrink: 1;
                 height: 23vw;
+                position: relative;
 
                 @include mobile {
                     position: relative;
@@ -480,6 +482,28 @@
                         position: absolute;
                         top: 0;
                         left: 0;
+                    }
+                }
+
+                .bandeau-annonce{
+                    position: absolute;
+                    display: inline-block;
+                    width: fit-content;
+                    max-width: 80%;
+                    top: 2rem;
+                    left: 0;
+                    color: $color_white;
+                    padding: 0.5rem 2rem 0.5rem 1rem;
+                    border-radius: 0 20px 20px 0px;
+                    z-index:1;
+                    &.couleur-vert{
+                        background-color: $color_green;
+                    }
+                    &.couleur-bordeau{
+                        background-color: $color-red;
+                    }
+                    span{
+                        display: inline;
                     }
                 }
             }
@@ -513,7 +537,7 @@
 
                     @include not-mobile {
                         margin-bottom: 5.4rem;
-                        font-size: 2.2rem;
+                        font-size: 2.8rem;
                     }
                 }
             }
@@ -526,82 +550,107 @@
         }
         .filters.container{
             justify-content: flex-start;
+            gap: 1.5rem;
             .width-placeholder{
                 flex:initial;
-                width: 300px;
+                width: 31%;
+                margin-right: 0;
             }
         }
         .wrapper-annonces{
             .annonce{
+                min-width: 0;
+                width: 100%;
+                max-width: 100%;
+                height: fit-content;
                 .left{
+                    flex-basis: auto;
                     height: auto;
-                    position: relative;
-                    @include not-mobile{
-                        flex-basis: auto;
-                        width: 50%;
-                    }
-                    .bandeau-annonce{
-                        position: absolute;
-                        display: inline-block;
-                        width: fit-content;
-                        max-width: 80%;
-                        top: 2rem;
-                        left: 0;
-                        background-color: $color_green;
-                        color: $color_white;
-                        padding: 0.5rem 2rem 0.5rem 1rem;
-                        border-radius: 0 20px 20px 0px;
-                        z-index:1;
-                        span{
-                            display: inline;
-                        }
+                    width:50%;
+                    @include mobile{
+                        width:100%;
+                        padding-top: 0;
+                        height: auto;
                     }
                     .photo{
-                        aspect-ratio: 4/3;
+                        width: 100%;
+                        position: relative;
+                        @include mobile {
+                            position: relative;
+                            aspect-ratio: 4/3;
+                            top: auto;
+                            left: auto;
+                            height: 100%;
+                        }
                     }
                 }
                 .right{
                     display: flex;
                     flex-direction: column;
                     gap: 2rem;
+                    min-width: 0;
+                    flex-basis: auto;
+                    width: 50%;
+                    @include not-mobile {
+                        margin-left: 3rem;
+                        flex-basis: auto;
+                        flex-grow: 1;
+                    }
+                    @include mobile{
+                        width:100%;
+                    }
                     .title-annonce{
-                        font-size: 4rem;
+                        //font-size: 4rem;
+                        line-height: 4.7rem;
+                        margin-bottom: 0rem;
                     }
                     .quarter-dispo-container{
                         display: flex;
                         flex-direction: column;
-                        gap: 0.8rem;
+                        //gap: 0.8rem;
                     }
                     .quartier-name{
-                        font-size: 3rem;
+                        //font-size: 3rem;
+                        transform: translateX(-0.5rem);
                         img{
-                            height: 3rem;
+                            height: 2.5rem;
                             width: auto;
                             transform: translateY(+0.3rem);
-                            display:none;
+                            margin-right: 0.2rem;
+
                         }
                     }
                     .date-disponibilite{
                         color:black;   
-                    
+                        font-size: 1.5rem;
+                    }
+                    .description-annonce{
+                        font-size: 1.5rem;
+                        line-height: 1.7rem;
                     }
                     .button{
                         margin-top: auto;
                         width: fit-content;
+                        font-size: 1.7rem;
                     }
                     .pictos-list{
                         display: grid;
-                        grid-template-columns: repeat(2, 1fr);
+                        grid-template-columns: repeat(2, minmax(0, 1fr));
                         gap: 0.5rem;
                         list-style: none;
+                        @include mobile{
+                            grid-template-columns: repeat(1, 1fr);
+                        }
                         li{
                             display: flex;
                             align-items: baseline;
                             gap: 0.5rem;
+                            min-width: 0;
+                            font-size: 1.5rem;
                             .picto-icon{
-                                width: 3rem;
+                                width: 2rem;
                                 height: auto;
-                                transform: translateY(+0.6rem);
+                                transform: translateY(+0.4rem);
                             }
                         }
                     }

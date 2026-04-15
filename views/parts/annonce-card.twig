@@ -1,0 +1,93 @@
+{% set wrapper_tag = card_href ? 'a' : 'article' %}
+<{{ wrapper_tag }}
+    {% if card_href %}href="{{ card_href }}"{% endif %}
+    class="annonce {{ type_class|default('') }} {{ quartier_class|default('') }} {{ etat_class|default('') }}"
+    data-type="{{ data_type|default('') }}"
+    data-quartier="{{ data_quartier|default('') }}"
+    data-etat="{{ data_etat|default('') }}"
+    data-prix="{{ data_prix|default('0') }}"
+    data-surface="{{ data_surface|default('0') }}"
+    data-nb-piece="{{ data_nb_piece|default('0') }}"
+>
+    <div class="left">
+        {% if bandeau %}
+            <div class="bandeau-annonce couleur-{{ bandeau_couleur|default('vert') }}"><span>{{ bandeau }}</span></div>
+        {% endif %}
+        <div class="photo" style="background-image: url({{ image_url }});"></div>
+    </div>
+    <div class="right">
+        <{{ title_tag|default('h5') }} class="title-annonce">{{ title }}</{{ title_tag|default('h5') }}>
+
+        {% if location_or_dispo %}
+            <div class="quarter-dispo-container">
+                {% if quartier %}
+                    <p class="quartier-name">
+                        {% if show_location_icon %}
+                            <img src="/wp-content/themes/daudin/fonts/material-icons/location_on.svg" alt="Localisation" class="picto-icon" loading="lazy">
+                        {% endif %}
+                        {{ quartier }}
+                    </p>
+                {% endif %}
+                {% if disponibilite_text %}
+                    <p class="date-disponibilite">{{ disponibilite_text }}</p>
+                {% endif %}
+            </div>
+        {% endif %}
+
+        {% if address_html %}
+            <p>{{ address_html|raw }}</p>
+        {% endif %}
+
+        {% if prix_principal %}
+            <p class="principal">{{ prix_principal|raw }}</p>
+        {% endif %}
+
+        {% if prix_secondaire %}
+            <p class="secondary">{{ prix_secondaire|raw }}</p>
+        {% elseif prix_fallback %}
+            <p>{{ prix_fallback }}</p>
+        {% endif %}
+
+        {% if description_text %}
+            <p class="description-annonce">{{ description_text|nl2br }}</p>
+        {% endif %}
+
+        {% if pictos %}
+            <ul class="pictos-list">
+                {% for picto in pictos %}
+                    {% if picto.item %}
+                        {% set icon_name = '' %}
+                        {% if picto.item.picto == 'surface' %}
+                            {% set icon_name = 'activity_zone' %}
+                        {% elseif picto.item.picto == 'prix' %}
+                            {% set icon_name = 'sell' %}
+                        {% elseif picto.item.picto == 'pieces' %}
+                            {% set icon_name = 'space_dashboard' %}
+                        {% elseif picto.item.picto == 'lots' %}
+                            {% set icon_name = 'home' %}
+                        {% endif %}
+                        <li class="picto-item picto-{{ picto.item.picto|default('default') }}">
+                            {% if icon_name %}
+                                <img
+                                    src="/wp-content/themes/daudin/fonts/material-icons/{{ icon_name }}.svg"
+                                    alt="{{ picto.item.picto }}"
+                                    class="picto-icon"
+                                    loading="lazy"
+                                >
+                            {% endif %}
+                            {% if picto.item.texte %}
+                                <span class="picto-text">{{ picto.item.texte }}</span>
+                            {% endif %}
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        {% if cta_url %}
+            <a href="{{ cta_url }}" class="button" target="_blank" rel="noopener">
+                {{ cta_label|default('En savoir plus') }}
+            </a>
+        {% endif %}
+    </div>
+</{{ wrapper_tag }}>

@@ -971,6 +971,9 @@ html {
         font-size: 1.7rem;
         line-height: 2.3rem;
         display: inline-block;
+        @include mobile{
+            font-size: 1.3rem;
+        }
         @include tablet {
             min-width: 15rem;
         }
