@@ -874,9 +874,14 @@ function initMenu () {
             return
         }
 
-        const header = document.querySelector('header')
-        const parentElement = e.target.offsetParent
-        if (parentElement.className.includes('menu-item') && !parentElement.className.includes('open-mobile')) {
+        const parentElement = e.currentTarget.closest('.menu-item')
+        if (!parentElement) return
+
+        const hasSubmenu = parentElement.classList.contains('menu-item-has-children') || !!parentElement.querySelector(':scope > .sub-menu')
+
+        // On mobile, only first tap on parent items should open submenu.
+        // Leaf links (including login submenu links) must navigate immediately.
+        if (hasSubmenu && !parentElement.classList.contains('open-mobile')) {
             e.preventDefault()
             parentElement.classList.add('open-mobile')
             toggleBackArrow()
@@ -944,6 +949,17 @@ function initMenu () {
         //enlève la flèche de retour si elle est la
         const svgElement = { target: document.querySelector('.icon-arrow-back') }
         if (svgElement.target) removeSvg(svgElement)
+
+        // ferme le panneau login mobile explicitement
+        menu.querySelectorAll('.login-wrapper.is-open').forEach((wrapper) => {
+            wrapper.classList.remove('is-open')
+            const container = wrapper.querySelector('.button_container')
+            if (container) {
+                container.style.display = ''
+                container.style.opacity = ''
+                container.style.zIndex = ''
+            }
+        })
 
         //ferme les sous menus
         const menuItem = document.querySelectorAll('.menu-item')
@@ -1417,6 +1433,48 @@ function initPageTransition () {
         ],
     })
 
+    loginMenuCheckOpen()
+
+}
+
+//make login menu appear for safari/mobile
+function loginMenuCheckOpen(){
+    const loginWrappers = document.querySelectorAll('.menu_container .login-wrapper')
+
+    loginWrappers.forEach(wrapper => {
+        const button = wrapper.querySelector('button')
+        const container = wrapper.querySelector('.button_container')
+        if (!button || !container) return
+
+        function setOpen (isOpen) {
+            wrapper.classList.toggle('is-open', isOpen)
+            button.setAttribute('aria-expanded', isOpen ? 'true' : 'false')
+            container.style.display = isOpen ? 'block' : ''
+            container.style.opacity = isOpen ? '1' : ''
+            container.style.zIndex = isOpen ? '10' : ''
+        }
+
+        button.addEventListener('click', function (e) {
+            e.preventDefault()
+            e.stopPropagation()
+            const willOpen = !wrapper.classList.contains('is-open')
+            setOpen(willOpen)
+
+            if (willOpen) {
+                setTimeout(() => {
+                    button.focus()
+                }, 10)
+            }
+        })
+
+        container.addEventListener('click', function (e) {
+            e.stopPropagation()
+        })
+
+        document.addEventListener('click', function (e) {
+            if (!wrapper.contains(e.target)) setOpen(false)
+        })
+    })
 }
 
 
