@@ -1062,3 +1062,10 @@ html {
 #tarteaucitronRoot * { cursor: pointer !important }
 #tarteaucitronAlertSmall{display:none !important}
 #tarteaucitronAlertIcon{display:none !important}
+
+.mobile-only{
+    @media screen and (min-width: 768px) {
+        display: none !important;
+        
+    }
+}

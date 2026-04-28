@@ -2,7 +2,7 @@
   data-reseaux-sociaux='{{ fields_footer.acf_conf_menu_fs.acf_reseaux_sociaux | json_encode }}'
 >
   {{ load_nav_menu(wp.menus.main) }}
-  <div class="login-wrapper">
+  <div class="login-wrapper mobile-only">
         <button>Login</button>
         {{ load_nav_menu(fields_footer.acf_fixed_footer.right_menu.slug, "button") }}
     </div>
