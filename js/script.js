@@ -230,6 +230,16 @@ function initMapAnnonce () {
                     map,
                     title: mapContainer.dataset.title,
                 })
+                new google.maps.Circle({
+                    center: position,
+                    map,
+                    radius: 1000,
+                    fillColor: '#000000',
+                    fillOpacity: 0.1,
+                    strokeColor: '#000000',
+                    strokeOpacity: 0.1,
+                    strokeWeight: 1,
+                })
 
             })
     }
@@ -1153,6 +1163,11 @@ window.addEventListener('resize', placeTitle)
 function swat_reload_gravity_forms() {
     
     // Version Gravity Form : reload du form en ajax
+    // Requires `gform` (Gravity Forms hooks) — enqueued site-wide for Barba navigations.
+    if (typeof gform === 'undefined') {
+        return;
+    }
+
     jQuery(".gform_wrapper").each( function(index) {
         var form_id = jQuery(this).find("input[name='gform_submit']").attr("value");
         var parent = jQuery(this).parent();
@@ -1165,6 +1180,9 @@ function swat_reload_gravity_forms() {
         }
         }).done(function (response) {
             parent.html(response)
+            if (form_id) {
+                jQuery(document).trigger('gform_post_render', [form_id, 1]);
+            }
         });
     });
 

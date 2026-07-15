@@ -55,8 +55,13 @@ class Config
         }
     }
 
-    public function gform_init_scripts()
+    public function gform_init_scripts($init_in_footer)
     {
+        // During AJAX, keep scripts in the form markup — wp_footer never runs.
+        if (defined('DOING_AJAX') && DOING_AJAX) {
+            return false;
+        }
+
         return true;
     }
 
@@ -145,6 +150,13 @@ class Config
         wp_deregister_script('jquery');
 
         wp_enqueue_script('jquery', get_template_directory_uri() . '/js/lib/jquery-3.6.0.min.js', false, '3.3.1', false);
+
+        // Enqueue Gravity Forms on every page so Barba transitions keep `gform` available.
+        $page_footer = get_field('acf_page_footer', 'option');
+        $form_id = !empty($page_footer['id_form']) ? (int) $page_footer['id_form'] : 0;
+        if ($form_id && function_exists('gravity_form_enqueue_scripts')) {
+            gravity_form_enqueue_scripts($form_id, true);
+        }
         // wp_enqueue_script( 'slick', get_template_directory_uri() . '/js/slick/slick.min.js', array( 'jquery' ), '1.0', true );
         wp_enqueue_script( 'jquery_slider', get_template_directory_uri() . '/js/jquery-ui.min.js', array( 'jquery' ), '1.0', true );
         wp_enqueue_script( 'jquery_touch_punch', get_template_directory_uri() . '/js/jquery.touch.punch.min.js', array( 'jquery' ), '1.0', true );
