@@ -204,6 +204,9 @@
     #map {
         margin-top: 2rem;
         height: 50rem;
+        &.map-vente {
+            display:none;
+        }
 
         @include not-mobile {
             margin-top: 16rem;

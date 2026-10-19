@@ -205,7 +205,7 @@
     </main>
 
     {% set addresse = post.meta("acf_annonce_adresse") ~ " "~ post.meta("acf_annonce_code_postal") ~ " " ~ post.meta("acf_annonce_ville") %}
-    <div id="map"
+    <div id="map"{% if post.meta('acf_annonce_type_deal') == 'vente' %} class="map-vente"{% endif %}
     style = "background-image: url('https://maps.googleapis.com/maps/api/staticmap?center={{ addresse }}&zoom=15&size=500x500&key={{ fields_annonce.acf_api_key }}');"
     data-title="{{ post.title() }}"
     data-address = "{{ addresse }} "
